@@ -1,0 +1,16 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+import { cn } from "@/lib/cn";
+
+interface Props extends HTMLAttributes<"input"> {
+	label: string;
+}
+
+const { class: className, label, ...props } = Astro.props;
+---
+
+<label class="grid gap-1">
+	<span class="sr-only text-sm text-muted-foreground">{label}</span>
+	<input {...props} class={cn("rounded-md border px-4 py-1", className)} />
+</label>

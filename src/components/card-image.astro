@@ -1,0 +1,11 @@
+---
+import { Image, type LocalImageProps, type RemoteImageProps } from "astro:assets";
+
+import { cn } from "@/lib/cn";
+
+type Props = LocalImageProps | RemoteImageProps;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<Image {...props} class={cn("h-60 w-full object-cover", className)} />

@@ -1,0 +1,144 @@
+{
+	"name": "@acdh-oeaw/website",
+	"private": true,
+	"license": "MIT",
+	"type": "module",
+	"engines": {
+		"node": "18.x",
+		"pnpm": "8.x"
+	},
+	"packageManager": "pnpm@8.6.7",
+	"scripts": {
+		"build": "astro build",
+		"dev": "astro dev",
+		"format:check": "prettier . \"!./src/content/**\" --cache --check --ignore-path ./.gitignore --plugin=prettier-plugin-astro",
+		"format:fix": "pnpm run format:check --write",
+		"lint:check": "run-p --continue-on-error \"lint:*:check\"",
+		"lint:fix": "run-p --continue-on-error \"lint:*:fix\"",
+		"lint:code:check": "eslint . --cache --ext .astro,.js,.ts,.tsx --ignore-path ./.gitignore",
+		"lint:code:fix": "pnpm run lint:code:check --fix",
+		"lint:styles:check": "stylelint \"./**/*.@(astro|css)\" --cache --ignore-path ./.gitignore",
+		"lint:styles:fix": "pnpm run lint:styles:check --fix",
+		"prepare": "run-s setup",
+		"setup": "simple-git-hooks || exit 0",
+		"start": "astro preview",
+		"test": "exit 0",
+		"test:e2e": "playwright test",
+		"test:e2e:codegen": "playwright codegen",
+		"test:e2e:debug": "playwright test --debug",
+		"test:e2e:ui": "playwright test --ui",
+		"types:check": "astro sync && tsc --noEmit && astro check",
+		"validate": "run-p format:check lint:check types:check test test:e2e"
+	},
+	"devDependencies": {
+		"@acdh-oeaw/eslint-config": "^1.0.0",
+		"@acdh-oeaw/eslint-config-astro": "^1.0.0",
+		"@acdh-oeaw/lib": "^0.1.4",
+		"@acdh-oeaw/prettier-config": "^1.0.1",
+		"@acdh-oeaw/stylelint-config": "^1.0.5",
+		"@acdh-oeaw/tsconfig": "^1.0.1",
+		"@astrojs/mdx": "^0.19.7",
+		"@astrojs/prefetch": "^0.3.0",
+		"@astrojs/sitemap": "^1.3.3",
+		"@astrojs/ts-plugin": "^1.0.10",
+		"@axe-core/playwright": "^4.7.3",
+		"@fontsource-variable/roboto-flex": "^5.0.5",
+		"@iconify-json/lucide": "^1.1.109",
+		"@playwright/test": "^1.36.0",
+		"@t3-oss/env-core": "^0.6.0",
+		"@tailwindcss/typography": "^0.5.9",
+		"@types/node": "^18.16.19",
+		"astro": "^2.8.1",
+		"astro-icon": "1.0.0-next.2",
+		"autoprefixer": "^10.4.14",
+		"eslint": "^8.44.0",
+		"eslint-plugin-tailwindcss": "^3.13.0",
+		"lint-staged": "^13.2.3",
+		"npm-run-all2": "^6.0.6",
+		"postcss": "^8.4.25",
+		"postcss-nesting": "^12.0.0",
+		"prettier": "^2.8.8",
+		"prettier-plugin-astro": "^0.10.0",
+		"schema-dts": "^1.1.2",
+		"sharp": "^0.32.2",
+		"simple-git-hooks": "^2.8.1",
+		"stylelint": "^15.10.1",
+		"tailwind-merge": "^1.13.2",
+		"tailwindcss": "^3.3.2",
+		"tailwindcss-animate": "^1.0.6",
+		"typescript": "^5.1.6",
+		"vite": "^4.4.3",
+		"zod": "^3.21.4"
+	},
+	"browserslist": {
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		],
+		"production": [
+			">=0.75%",
+			"not dead",
+			"not op_mini all"
+		]
+	},
+	"eslintConfig": {
+		"extends": [
+			"@acdh-oeaw/eslint-config",
+			"@acdh-oeaw/eslint-config-astro",
+			"plugin:eslint-plugin-tailwindcss/recommended"
+		],
+		"settings": {
+			"tailwindcss": {
+				"callees": [
+					"cn"
+				]
+			}
+		},
+		"parserOptions": {
+			"project": "./tsconfig.json"
+		},
+		"rules": {
+			"import/namespace": "off",
+			"import/no-unresolved": [
+				"error",
+				{
+					"ignore": [
+						"astro:assets",
+						"astro:content"
+					]
+				}
+			]
+		}
+	},
+	"lint-staged": {
+		"*.astro": [
+			"eslint --cache --fix",
+			"stylelint --cache --fix",
+			"prettier --cache --plugin=prettier-plugin-astro --write"
+		],
+		"*.css": [
+			"stylelint --cache --fix",
+			"prettier --cache --write"
+		],
+		"*.@(js|ts|tsx)": [
+			"eslint --cache --fix",
+			"prettier --cache --write"
+		],
+		"*.!(astro|css|js|ts|tsx),!./src/content/**": "prettier --cache --ignore-unknown --write"
+	},
+	"postcss": {
+		"plugins": {
+			"tailwindcss/nesting": "postcss-nesting",
+			"tailwindcss": {},
+			"autoprefixer": {}
+		}
+	},
+	"simple-git-hooks": {
+		"pre-commit": "pnpm exec lint-staged",
+		"pre-push": "pnpm run validate"
+	},
+	"stylelint": {
+		"extends": "@acdh-oeaw/stylelint-config"
+	}
+}

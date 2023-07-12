@@ -1,0 +1,76 @@
+---
+import { times } from "@acdh-oeaw/lib";
+
+import exampleImage from "@/assets/example.jpg";
+import Card from "@/components/card.astro";
+import CardContent from "@/components/card-content.astro";
+import CardImage from "@/components/card-image.astro";
+import CardTitle from "@/components/card-title.astro";
+import Grid from "@/components/grid.astro";
+import Hero from "@/components/hero.astro";
+import HeroTagline from "@/components/hero-tagline.astro";
+import HeroTitle from "@/components/hero-title.astro";
+import PostPreview from "@/components/post-preview.astro";
+import Section from "@/components/section.astro";
+import SectionTitle from "@/components/section-title.astro";
+import PageLayout from "@/layouts/page-layout.astro";
+
+const item = {
+	image: exampleImage,
+	title: "Example title",
+	text: "Use me to create accessible, modern and responsive websites that follow the design guidelines of ACDH.",
+	url: {
+		href: "/",
+		label: "Read more",
+	},
+};
+const items = times(3).map(() => item);
+---
+
+<PageLayout title="Home">
+	<Hero>
+		<HeroTitle>Hello, world! My name is Fundament</HeroTitle>
+		<HeroTagline>
+			I'm a starter HTML, CSS and JavaScript framework for web applications. Use me to create
+			accessible, modern and responsive websites that follow the design guidelines of ACDH. This
+			jumbotron area can be especially useful to quickly present your application to your visitors.
+		</HeroTagline>
+		<div>
+			<a
+				class="inline-flex rounded border border-foreground px-6 py-2 transition hover:bg-foreground hover:text-background"
+				href="/"
+			>
+				Get started
+			</a>
+		</div>
+	</Hero>
+
+	<Section>
+		<SectionTitle>Example</SectionTitle>
+		<Grid>
+			{
+				items.map(() => {
+					return (
+						<Card>
+							<a aria-hidden="true" href={item.url.href} tabindex={-1}>
+								<CardImage alt="" src={item.image} />
+							</a>
+							<CardContent>
+								<CardTitle>{item.title}</CardTitle>
+								<p>{item.text}</p>
+								<div class="justify-self-end">
+									<a
+										class="inline-flex rounded border px-3 py-1 text-sm transition hover:bg-muted-background hover:text-muted-foreground"
+										href={item.url.href}
+									>
+										{item.url.label}
+									</a>
+								</div>
+							</CardContent>
+						</Card>
+					);
+				})
+			}
+		</Grid>
+	</Section>
+</PageLayout>

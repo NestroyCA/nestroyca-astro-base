@@ -1,0 +1,115 @@
+---
+import { Icon } from "astro-icon/components";
+
+import ColorSchemeSwitcher from "@/components/color-scheme-switcher.astro";
+import { metadata } from "@/config/metadata.config";
+import { links } from "@/config/navigation.config";
+---
+
+<header class="border-b-4 border-brand-background bg-surface-background text-surface-foreground">
+	<div class="container flex items-center justify-between py-8">
+		<div class="flex items-center gap-4 text-base sm:text-lg">
+			<a
+				aria-label={links.home.label}
+				class="inline-flex items-center gap-2 transition hover:text-muted-foreground"
+				href={links.home.href}
+			>
+				<img alt="" class="h-9 w-9" src="/assets/images/logo.svg" />
+				<span class="font-semibold">{metadata.title}</span>
+			</a>
+
+			<nav aria-label="Primary navigation">
+				<ul class="hidden lg:flex lg:items-center lg:gap-4" role="list">
+					{
+						Object.entries(links).map(([, link]) => {
+							return (
+								<li>
+									<a
+										class="inline-flex transition hover:text-muted-foreground"
+										href={link.href}
+										rel="prefetch"
+									>
+										{link.label}
+									</a>
+								</li>
+							);
+						})
+					}
+				</ul>
+			</nav>
+		</div>
+
+		<div class="flex items-center gap-4">
+			<ColorSchemeSwitcher />
+
+			<nav aria-label="Primary navigation" class="inline-flex items-center lg:hidden">
+				<button aria-controls="navigation-menu" aria-expanded="true" data-menu-toggle>
+					<span class="sr-only">Toggle navigation menu</span>
+					<Icon aria-hidden="true" class="h-5 w-5 shrink-0" name="lucide:menu" />
+				</button>
+			</nav>
+		</div>
+	</div>
+
+	<div
+		class="data-[state='open']:block data-[state='closed']:hidden lg:hidden lg:data-[state]:hidden"
+		data-state="open"
+		id="navigation-menu"
+	>
+		<div
+			class="container flex flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t py-8"
+		>
+			<ul class="flex items-center gap-4" role="list">
+				{
+					Object.entries(links).map(([, link]) => {
+						return (
+							<li>
+								<a
+									class="inline-flex transition hover:text-muted-foreground"
+									href={link.href}
+									rel="prefetch"
+								>
+									{link.label}
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</div>
+	</div>
+</header>
+
+<script>
+	const button = document.querySelector<HTMLButtonElement>("[data-menu-toggle]")!;
+	const menu = document.querySelector<HTMLDivElement>("#navigation-menu")!;
+
+	close();
+
+	function open() {
+		// button.setAttribute("aria-controls", "navigation-menu");
+		button.setAttribute("aria-expanded", "true");
+		menu.dataset.state = "open";
+	}
+
+	function close() {
+		// button.removeAttribute("aria-controls");
+		button.setAttribute("aria-expanded", "false");
+		menu.dataset.state = "closed";
+	}
+
+	button.addEventListener("click", () => {
+		if (menu.dataset.state === "closed") {
+			open();
+		} else {
+			close();
+		}
+	});
+
+	const mediaQuery = window.matchMedia("(min-width: 992px)"); // `lg` breakpoint
+	mediaQuery.addEventListener("change", (event) => {
+		if (event.matches) {
+			close();
+		}
+	});
+</script>

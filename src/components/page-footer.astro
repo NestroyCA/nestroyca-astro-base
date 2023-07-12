@@ -1,0 +1,100 @@
+---
+const links = {
+	"acdh-ch": {
+		href: "https://www.oeaw.ac.at/de/acdh/",
+		label: "ACDH-CH",
+	},
+	imprint: { href: "/imprint", label: "Imprint" },
+};
+---
+
+<footer class="border-t bg-surface-background text-surface-foreground">
+	<div class="container grid gap-8 py-12">
+		<h2 class="flex items-center gap-1 border-b pb-4">
+			<svg
+				class="h-5 w-5"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path
+					d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+				></path>
+			</svg>
+			<span class="text-sm font-semibold uppercase">Contact</span>
+		</h2>
+
+		<div class="grid gap-8 sm:grid-cols-[auto_2fr_1fr]">
+			<div class="hidden sm:block">
+				<img
+					alt=""
+					class="h-14 w-14 dark:hidden"
+					src="/assets/images/acdh-ch-logo-light.svg"
+					width="24"
+					height="24"
+				/>
+				<img
+					alt=""
+					class="hidden h-14 w-14 dark:block"
+					src="/assets/images/acdh-ch-logo-dark.svg"
+					width="24"
+					height="24"
+				/>
+			</div>
+
+			<div class="grid content-start gap-2">
+				<div class="font-medium uppercase">ACDH-CH</div>
+				<div>
+					Austrian Centre for Digital Humanities and Cultural Heritage
+					<br />
+					Austrian Academy of Sciences
+				</div>
+				<div>
+					Bäckerstraße 13
+					<br />
+					1010 Vienna
+				</div>
+				<div>
+					T: <a class="transition hover:underline" href="tel:+43 1 51581-2200">+43 1 51581-2200</a>
+					<br />
+					E: <a class="transition hover:underline" href="mailto:acdh-ch@oeaw.ac.at">
+						acdh-ch@oeaw.ac.at
+					</a>
+				</div>
+			</div>
+
+			<div class="grid content-start gap-2">
+				<div class="font-medium uppercase">Helpdesk</div>
+				<div>
+					ACDH-CH runs a helpdesk offering advice for questions related to various digital
+					humanities topics.
+				</div>
+				<div>
+					E: <a class="transition hover:underline" href="mailto:acdh-ch-helpdesk@oeaw.ac.at">
+						acdh-ch-helpdesk@oeaw.ac.at
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<small class="block bg-muted-background text-muted-foreground">
+		<div class="container flex items-center justify-center gap-2 py-2 text-sm">
+			<span>
+				&copy; {new Date().getUTCFullYear()}
+				<a class="transition hover:underline" href={links["acdh-ch"].href}>
+					{links["acdh-ch"].label}
+				</a>
+			</span>
+			<span> |</span>
+			<span>
+				<a class="transition hover:underline" href={links.imprint.href}>{links.imprint.label}</a>
+			</span>
+		</div>
+	</small>
+</footer>

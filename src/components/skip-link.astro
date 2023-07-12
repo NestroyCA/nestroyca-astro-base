@@ -1,0 +1,29 @@
+---
+interface Props {
+	targetId: string;
+}
+
+const { targetId } = Astro.props;
+
+const href = "#" + targetId;
+---
+
+<a
+	class="sr-only inline-flex rounded border bg-background text-lg text-foreground shadow-lg focus:not-sr-only focus:fixed focus:left-0 focus:top-0 focus:mx-4 focus:my-6 focus:px-6 focus:py-3"
+	data-skip-link
+	href={href}
+>
+	<slot />
+</a>
+
+<script>
+	const link = document.querySelector<HTMLAnchorElement>("[data-skip-link]")!;
+
+	/**
+	 * @see https://bugzilla.mozilla.org/show_bug.cgi?id=308064
+	 */
+	link?.addEventListener("click", () => {
+		const target = document.querySelector<HTMLElement>(link.href);
+		target?.focus();
+	});
+</script>

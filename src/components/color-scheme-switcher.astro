@@ -1,0 +1,85 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="inline-flex items-center gap-2">
+	<button class="transition hover:text-muted-foreground" data-color-theme-switcher>
+		<span class="hidden dark:block">
+			<span class="sr-only">Switch to light theme</span>
+			<Icon aria-hidden="true" class="h-5 w-5 shrink-0" name="lucide:sun" />
+		</span>
+
+		<span class="block dark:hidden">
+			<span class="sr-only">Switch to dark theme</span>
+			<Icon aria-hidden="true" class="h-5 w-5 shrink-0" name="lucide:moon" />
+		</span>
+	</button>
+</div>
+
+<script is:inline>
+	/** @typedef {'dark' | 'light'} ColorScheme */
+
+	const isDarkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+	/** @ŧype {() => ColorScheme} */
+	function getColorScheme() {
+		if (typeof localStorage !== "undefined" && "colorScheme" in localStorage) {
+			return localStorage.colorScheme;
+		}
+
+		if (isDarkModeMediaQuery.matches) {
+			return "dark";
+		}
+
+		return "light";
+	}
+
+	const colorScheme = getColorScheme();
+
+	document.documentElement.dataset.colorScheme = colorScheme;
+	localStorage.colorScheme = colorScheme;
+
+	window.getColorScheme = getColorScheme;
+</script>
+
+<script>
+	declare global {
+		interface Window {
+			getColorScheme: () => ColorScheme;
+		}
+	}
+
+	type ColorScheme = "dark" | "light";
+
+	const { getColorScheme } = window;
+
+	function updateColorScheme(colorScheme: ColorScheme) {
+		document.documentElement.classList.add("[&_*]:!transition-none");
+
+		document.documentElement.dataset.colorScheme = colorScheme;
+		localStorage.colorScheme = colorScheme;
+
+		requestAnimationFrame(() => {
+			document.documentElement.classList.remove("[&_*]:!transition-none");
+		});
+	}
+
+	const colorScheme = getColorScheme();
+
+	updateColorScheme(colorScheme);
+
+	window.addEventListener("storage", () => {
+		const colorScheme = localStorage.colorScheme;
+		document.documentElement.dataset.colorScheme = colorScheme;
+	});
+
+	function onToggleColorScheme() {
+		const colorScheme = getColorScheme();
+
+		updateColorScheme(colorScheme === "dark" ? "light" : "dark");
+	}
+
+	document
+		.querySelector<HTMLButtonElement>("[data-color-theme-switcher]")!
+		.addEventListener("click", onToggleColorScheme);
+</script>

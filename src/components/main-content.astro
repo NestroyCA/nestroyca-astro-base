@@ -1,0 +1,24 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+import { cn } from "@/lib/cn";
+
+interface Props extends Omit<HTMLAttributes<"main">, "id" | "tabindex"> {
+	/** @default true */
+	searchable?: boolean;
+}
+
+const { class: className, searchable = true, ...props } = Astro.props;
+
+export const id = "main-content";
+---
+
+<main
+	{...props}
+	class={cn("grid content-start", className)}
+	data-pagefind-body={searchable}
+	id={id}
+	tabindex={-1}
+>
+	<slot />
+</main>

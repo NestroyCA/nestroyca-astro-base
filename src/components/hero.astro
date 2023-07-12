@@ -1,0 +1,32 @@
+---
+import { type ImageMetadata } from "astro";
+import { type HTMLAttributes } from "astro/types";
+import { Image } from "astro:assets";
+
+import { cn } from "@/lib/cn";
+
+interface Props extends HTMLAttributes<"div"> {
+	image?: ImageMetadata;
+}
+
+const { class: className, image, ...props } = Astro.props;
+---
+
+<div
+	{...props}
+	class={cn(
+		"relative border-b-4 border-brand-background bg-surface-background text-surface-foreground",
+		className,
+	)}
+>
+	{
+		image != null ? (
+			<Image alt="" class="absolute inset-0 h-full w-full object-cover" src={image} />
+		) : null
+	}
+	<div class="container relative py-16 sm:py-24 md:py-32">
+		<div class="grid max-w-3xl gap-6">
+			<slot />
+		</div>
+	</div>
+</div>

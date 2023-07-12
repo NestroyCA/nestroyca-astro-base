@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+import Card from "@/components/card.astro";
+import CardContent from "@/components/card-content.astro";
+import CardImage from "@/components/card-image.astro";
+import CardTitle from "@/components/card-title.astro";
+
+interface Props {
+	post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+
+const id = post.slug;
+const href = `/posts/${id}`;
+---
+
+<Card>
+	{
+		post.data.featuredImage != null ? (
+			<a aria-hidden="true" href={href} tabindex={-1}>
+				<CardImage alt="" src={post.data.featuredImage} />
+			</a>
+		) : null
+	}
+	<CardContent>
+		<CardTitle>{post.data.title}</CardTitle>
+		<p>{post.data.description}</p>
+		<div class="justify-self-end">
+			<a
+				class="inline-flex rounded border px-3 py-1 text-sm transition hover:bg-muted-background hover:text-muted-foreground"
+				href={href}
+			>
+				<span>Read post</span>
+				<span class="sr-only">{post.data.title}</span>
+			</a>
+		</div>
+	</CardContent>
+</Card>

@@ -1,0 +1,45 @@
+---
+import { type GetStaticPathsItem } from "astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import PageLayout from "@/layouts/page-layout.astro";
+import ContentPage from "@/components/content-page.astro";
+
+type Params = {
+	id: string;
+};
+
+type Props = {
+	page: CollectionEntry<"pages">;
+};
+
+interface Path extends GetStaticPathsItem {
+	params: Params;
+	props: Props;
+}
+
+export async function getStaticPaths(): Promise<Array<Path>> {
+	const collection = await getCollection("pages");
+
+	return collection.map((page) => {
+		const id = page.slug;
+
+		return {
+			params: { id },
+			props: { page },
+		};
+	});
+}
+
+const { page } = Astro.props;
+
+const { Content } = await page.render();
+
+const { meta = {}, title } = page.data;
+---
+
+<PageLayout description={meta.description} title={meta.title ?? title}>
+	<ContentPage title={title}>
+		<Content />
+	</ContentPage>
+</PageLayout>

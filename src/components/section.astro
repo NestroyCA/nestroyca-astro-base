@@ -1,0 +1,26 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+import { cn } from "@/lib/cn";
+
+interface Props extends HTMLAttributes<"section"> {
+	/** @default 'content' */
+	variant?: "content" | "header";
+}
+
+const { class: className, variant = "content", ...props } = Astro.props;
+---
+
+<section
+	{...props}
+	class={cn(
+		"relative",
+		variant === "header" &&
+			"border-b-4 border-brand-background bg-surface-background text-surface-foreground",
+		className,
+	)}
+>
+	<div class="container grid content-start gap-8 py-8 sm:py-12 md:py-16">
+		<slot />
+	</div>
+</section>

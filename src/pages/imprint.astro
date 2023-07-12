@@ -1,0 +1,30 @@
+---
+import { request } from "@acdh-oeaw/lib";
+
+import PageLayout from "@/layouts/page-layout.astro";
+import ContentPage from "@/components/content-page.astro";
+import { createUrl, createUrlSearchParams } from "@acdh-oeaw/lib";
+
+import { metadata } from "@/config/metadata.config";
+import { env } from "@/lib/env";
+
+const baseUrl = "https://shared.acdh.oeaw.ac.at";
+const pathname = "/acdh-common-assets/api/imprint.php";
+const redmineId = env.PUBLIC_REDMINE_ID;
+
+const url = createUrl({
+	baseUrl,
+	pathname,
+	searchParams: createUrlSearchParams({
+		outputLang: metadata.locale,
+		serviceID: redmineId,
+	}),
+});
+const html = await request(url, { responseType: "text" });
+---
+
+<PageLayout title="Imprint">
+	<ContentPage title="Imprint">
+		<div set:html={html} />
+	</ContentPage>
+</PageLayout>

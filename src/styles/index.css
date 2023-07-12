@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			transition-duration: 0.01ms !important;
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		border-color: theme(colors.separator);
+	}
+
+	:root {
+		--color-acdh-ch-light: 183deg 58% 70%;
+		--color-acdh-ch-dark: 183deg 58% 35%;
+		--color-neutral-0: 210deg 40% 100%;
+		--color-neutral-50: 210deg 40% 98%;
+		--color-neutral-100: 210deg 40% 96%;
+		--color-neutral-200: 214deg 32% 91%;
+		--color-neutral-300: 213deg 27% 84%;
+		--color-neutral-400: 215deg 20% 65%;
+		--color-neutral-500: 215deg 16% 47%;
+		--color-neutral-600: 215deg 19% 35%;
+		--color-neutral-700: 215deg 25% 27%;
+		--color-neutral-800: 217deg 33% 17%;
+		--color-neutral-900: 222deg 47% 11%;
+		--color-neutral-950: 229deg 84% 5%;
+		--color-neutral-1000: 229deg 84% 0%;
+
+		/* Named colors. */
+		--color-background: var(--color-neutral-100);
+		--color-foreground: var(--color-neutral-700);
+		--color-surface-background: var(--color-neutral-0);
+		--color-surface-foreground: var(--color-neutral-800);
+		--color-muted-background: var(--color-neutral-100);
+		--color-muted-foreground: var(--color-neutral-600);
+		--color-brand-background: var(--color-acdh-ch-light);
+		--color-brand-foreground: var(--color-acdh-ch-light);
+		--color-separator: var(--color-neutral-200);
+		--color-focus-ring: var(--color-acdh-ch-light);
+
+		overflow: hidden auto;
+		background-color: theme(colors.background);
+		color: theme(colors.foreground);
+		font-size: theme(fontSize.base);
+		font-family: theme(fontFamily.body);
+		overflow-wrap: break-word;
+		block-size: 100%;
+		font-synthesis: none;
+		text-size-adjust: none;
+		text-rendering: optimizeLegibility;
+		-webkit-tap-highlight-color: transparent;
+		color-scheme: light;
+	}
+
+	:root[data-color-scheme="dark"] {
+		/* Named colors. */
+		--color-background: var(--color-neutral-900);
+		--color-foreground: var(--color-neutral-200);
+		--color-surface-background: var(--color-neutral-950);
+		--color-surface-foreground: var(--color-neutral-100);
+		--color-muted-background: var(--color-neutral-800);
+		--color-muted-foreground: var(--color-neutral-200);
+		--color-brand-background: var(--color-acdh-ch-dark);
+		--color-brand-foreground: var(--color-acdh-ch-dark);
+		--color-separator: var(--color-neutral-700);
+		--color-focus-ring: var(--color-acdh-ch-dark);
+
+		color-scheme: dark;
+	}
+
+	a {
+		text-underline-offset: 0.25em;
+	}
+
+	blockquote,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
+	}
+
+	dialog {
+		background-color: theme(colors.background);
+		color: theme(colors.foreground);
+	}
+
+	iframe {
+		border: 0;
+	}
+
+	[id] {
+		scroll-margin-block-start: 2ex;
+	}
+
+	:focus {
+		outline: none;
+	}
+
+	:focus-visible {
+		outline: 2px solid theme(colors.focus-ring);
+		outline-offset: 0;
+	}
+}
