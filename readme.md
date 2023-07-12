@@ -1,8 +1,10 @@
-# website template
 
-template repository for project websites.
+# NestroyCA-static
+basics static page for Nestroy Corpus Analysis
 
-## how to run
+build with [astro](https://github.com/acdh-oeaw/template-website-astro)
+
+## how to run locally
 
 prerequisites:
 
@@ -14,9 +16,6 @@ set required environment variables in `.env.local`:
 ```bash
 cp .env.example .env.local
 ```
-
-also, for deployment, set environment variables in
-[github](https://github.com/acdh-oeaw/template-website-astro/settings/variables/actions).
 
 install dependencies:
 
