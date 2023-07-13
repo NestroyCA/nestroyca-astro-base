@@ -10,8 +10,8 @@ interface Metadata {
 
 export const metadata: Metadata = {
 	locale: "en",
-	title: "ACDH-CH Website",
-	description: "",
+	title: "NestroyCA",
+	description: "Nestroy Corpus Analysis",
 	image: {
 		src: "/assets/images/opengraph-image.png",
 		width: 1200,
