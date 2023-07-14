@@ -11,7 +11,7 @@ interface Metadata {
 export const metadata: Metadata = {
 	locale: "en",
 	title: "NestroyCA",
-	description: "Nestroy Corpus Analysis",
+	description: "Nestroy Corpus Analysis Project",
 	image: {
 		src: "/assets/images/opengraph-image.png",
 		width: 1200,

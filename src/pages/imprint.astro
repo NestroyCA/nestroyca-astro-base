@@ -1,11 +1,9 @@
 ---
-import { request } from "@acdh-oeaw/lib";
+import { createUrl, createUrlSearchParams, request } from "@acdh-oeaw/lib";
 
-import PageLayout from "@/layouts/page-layout.astro";
 import ContentPage from "@/components/content-page.astro";
-import { createUrl, createUrlSearchParams } from "@acdh-oeaw/lib";
-
 import { metadata } from "@/config/metadata.config";
+import PageLayout from "@/layouts/page-layout.astro";
 import { env } from "@/lib/env";
 
 const baseUrl = "https://shared.acdh.oeaw.ac.at";
