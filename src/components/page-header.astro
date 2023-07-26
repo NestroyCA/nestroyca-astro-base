@@ -4,6 +4,8 @@ import { Icon } from "astro-icon/components";
 import ColorSchemeSwitcher from "@/components/color-scheme-switcher.astro";
 import { metadata } from "@/config/metadata.config";
 import { links } from "@/config/navigation.config";
+
+const nav_links = [links.nestroylang, links.projectvienna, links.entities, links.team];
 ---
 
 <header class="border-b-4 border-brand-background bg-surface-background text-surface-foreground">
@@ -21,7 +23,7 @@ import { links } from "@/config/navigation.config";
 			<nav aria-label="Primary navigation">
 				<ul class="hidden lg:flex lg:items-center lg:gap-4" role="list">
 					{
-						Object.entries(links).map(([, link]) => {
+						Object.entries(nav_links).map(([, link]) => {
 							return (
 								<li>
 									<a

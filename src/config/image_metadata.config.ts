@@ -19,6 +19,7 @@ interface ImageData {
 }
 
 const ccby3 = "CCBY 3.0";
+export const ccby3_url = "https://creativecommons.org/licenses/by/3.0/at/deed.de";
 
 export const corpus: ImageData = {
 	title: "",

@@ -1,0 +1,38 @@
+---
+import { times } from "@acdh-oeaw/lib";
+import { Image } from "astro:assets";
+
+import ContentPage from "@/components/content-page.astro";
+import LeadP from "@/components/lead-p.astro";
+import { ccby3_url, nestroy_statue } from "@/config/image_metadata.config";
+import { links } from "@/config/navigation.config";
+import PageLayout from "@/layouts/page-layout.astro";
+
+const _times = times;
+---
+
+<PageLayout title={links.projectvienna.label}>
+	<ContentPage title={links.projectvienna.title} layout="full-width">
+		<div class="grid grid-cols-[1fr_320px] gap-8">
+			<LeadP>
+				The project utilizes digital tools for extraction and georeferencing of the <a
+					href="https://pmb.acdh.oeaw.ac.at/">information (place names, persons and institutions)</a
+				>, which concern the Viennese context and references by Nestroy in his plays and letters.
+				The outcome of the project aspires to create a substantial supplement for the personal names
+				and toponyms indices of the Historical-Critical edition of Nestroy’s works (HKA, 1977ff),
+				and to visualise and interconnect the Viennese background information in the works of the
+				playwright, a crucial fact for further sociolinguistic and literary approaches.
+			</LeadP>
+			<figure class="">
+				<Image
+					alt={nestroy_statue.description}
+					src={nestroy_statue.image}
+					class="rounded-lg border shadow-xl"
+				/>
+				<figcaption class="px-4 py-1 text-right text-sm text-neutral-500">
+					<a href={ccby3_url}>{nestroy_statue.licence}</a>
+				</figcaption>
+			</figure>
+		</div>
+	</ContentPage>
+</PageLayout>

@@ -1,0 +1,67 @@
+---
+import Card from "@/components/card.astro";
+import CardContent from "@/components/card-content.astro";
+import CardImage from "@/components/card-image.astro";
+import CardTitle from "@/components/card-title.astro";
+import ContentPage from "@/components/content-page.astro";
+import Grid from "@/components/grid.astro";
+import LeadP from "@/components/lead-p.astro";
+import Section from "@/components/section.astro";
+import { links } from "@/config/navigation.config";
+import PageLayout from "@/layouts/page-layout.astro";
+---
+
+<PageLayout title={links.nestroylang.label}>
+	<ContentPage title={links.nestroylang.title}>
+		<LeadP>
+			The project investigates of the language used in the theatrical corpus of the Austrian singer,
+			actor and playwright Johann Nepomuk Eduard Ambrosius Nestroy (1801 – 1862). A representative
+			range of registers, technical languages, sociolects, and (comical) idiolects will be described
+			and analyzed. The resulting portrayal of the language use in Nestroy’s plays will deepen our
+			understanding of various socio-cultural phenomena reflected in his work.
+		</LeadP>
+	</ContentPage>
+	<Section>
+		<Grid>
+			<Card>
+				<figure>
+					<a aria-hidden="true" href={links.corpus_download.href} tabindex={-1}>
+						<CardImage alt="" src={links.corpus_download.image.image} />
+					</a>
+					<figcaption class="px-4 py-1 text-right text-sm text-neutral-500">CCBY 4.0</figcaption>
+				</figure>
+				<CardContent>
+					<CardTitle>{links.corpus_download.title}</CardTitle>
+					<div class="justify-self-end">
+						<a
+							class="inline-flex rounded border px-3 py-1 text-sm transition hover:bg-muted-background hover:text-muted-foreground"
+							href="/assets/nestroy_ca_corpus.xml"
+							download="nestroy_ca_corpus.xml"
+						>
+							Download
+						</a>
+					</div>
+				</CardContent>
+			</Card>
+			<Card>
+				<figure>
+					<a aria-hidden="true" href={links.explore_corpus.href} tabindex={-1}>
+						<CardImage alt="" src={links.explore_corpus.image.image} />
+					</a>
+					<figcaption class="px-4 py-1 text-right text-sm text-neutral-500">CCBY 4.0</figcaption>
+				</figure>
+				<CardContent>
+					<CardTitle>{links.explore_corpus.title}</CardTitle>
+					<div class="justify-self-end">
+						<a
+							class="inline-flex rounded border px-3 py-1 text-sm transition hover:bg-muted-background hover:text-muted-foreground"
+							href={links.explore_corpus.href}
+						>
+							Read more
+						</a>
+					</div>
+				</CardContent>
+			</Card>
+		</Grid>
+	</Section>
+</PageLayout>

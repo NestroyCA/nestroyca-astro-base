@@ -1,4 +1,9 @@
-import { painting_vienna, word_graph } from "@/config/image_metadata.config";
+import {
+	corpus,
+	explore_corpus,
+	painting_vienna,
+	word_graph,
+} from "@/config/image_metadata.config";
 
 export const links = {
 	home: {
@@ -12,6 +17,18 @@ export const links = {
 		title: "Language Structure and Use in Nestroy’s Plays",
 		image: word_graph,
 	},
+	corpus_download: {
+		href: "/nestroylang",
+		label: "Download Corpus",
+		title: "Teaser: TEI annotated theatrical corpus according to the dracor.org schema.",
+		image: corpus,
+	},
+	explore_corpus: {
+		href: "/nestroylang",
+		label: "Explore the digital corpus",
+		title: "Explore the digital corpus (under construction)",
+		image: explore_corpus,
+	},
 	projectvienna: {
 		href: "/nestroyvienna",
 		label: "Nestroy’s Vienna",
@@ -22,11 +39,6 @@ export const links = {
 		href: "/entities",
 		label: "Entities",
 		title: "Entities",
-	},
-	corpus: {
-		href: "/corpus",
-		label: "Corpus",
-		title: "Corpus",
 	},
 	team: {
 		href: "/team",
