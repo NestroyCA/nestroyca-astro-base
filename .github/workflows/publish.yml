@@ -15,8 +15,10 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
-      - name: install latest pnpm
-        run: wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm && pnpm i -g pnpm
+      - name: install pnpm v 8.x
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install, build, and upload your site
         uses: withastro/action@v0
         # with:
