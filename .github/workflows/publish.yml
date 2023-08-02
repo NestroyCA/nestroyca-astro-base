@@ -16,7 +16,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: install latest pnpm
-        run: pnpm i -g pnpm
+        run: wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm && pnpm i -g pnpm
       - name: Install, build, and upload your site
         uses: withastro/action@v0
         # with:
