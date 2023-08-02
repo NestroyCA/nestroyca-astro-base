@@ -15,18 +15,13 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
-      - name: install pnpm v 8.x
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-      - name: check version
-        run: pnpm -v && pnpm i -g pnpm
       - name: Install, build, and upload your site
-        uses: withastro/action@v0
+        uses:  ./.github/actions/detup_astro.yml
         with:
             path: .
             node-version: 16
             package-manager: pnpm
+      
   deploy:
     needs: build
     runs-on: ubuntu-latest
