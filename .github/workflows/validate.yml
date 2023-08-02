@@ -11,6 +11,9 @@ on:
   push:
     branches:
       - main
+env:
+  PUBLIC_APP_BASE_URL: https://NestroyCA.github.io
+  PUBLIC_REDMINE_ID: 21437
 
 jobs:
   validate:
