@@ -20,8 +20,7 @@ jobs:
         with:
           version: latest
       - name: check version
-        run: pnpm -v
-
+        run: pnpm -v && pnpm i -g pnpm
       - name: Install, build, and upload your site
         uses: withastro/action@v0
         # with:
