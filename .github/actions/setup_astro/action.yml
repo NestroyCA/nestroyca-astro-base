@@ -48,7 +48,6 @@ runs:
             exit 1
         fi
     - name: Setup PNPM
-      shell: bash
       if: ${{ env.PACKAGE_MANAGER == 'pnpm' }}
       uses: pnpm/action-setup@v2.2.4
       with:
