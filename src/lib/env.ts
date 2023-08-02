@@ -28,6 +28,7 @@ export const env = createEnv({
 	},
 	client: {
 		PUBLIC_APP_BASE_URL: z.string().url(),
+		PUBLIC_APP_URL_REPO: z.string(),
 		PUBLIC_MATOMO_BASE_URL: z.string().url().optional(),
 		PUBLIC_MATOMO_ID: z.string().min(1).optional(),
 		PUBLIC_REDMINE_ID: z.coerce.number().min(1),
