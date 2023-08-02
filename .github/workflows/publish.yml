@@ -18,7 +18,10 @@ jobs:
       - name: install pnpm v 8.x
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: latest
+      - name: check version
+        run: pnpm -v
+
       - name: Install, build, and upload your site
         uses: withastro/action@v0
         # with:
