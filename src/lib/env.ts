@@ -9,6 +9,7 @@ declare global {
 		readonly BOTS?: string | undefined;
 		readonly ENV_VALIDATION?: string | undefined;
 		readonly PUBLIC_APP_BASE_URL?: string | undefined;
+		readonly PUBLIC_APP_URL_REPO?: string | undefined;
 		readonly PUBLIC_MATOMO_BASE_URL?: string | undefined;
 		readonly PUBLIC_MATOMO_ID?: string | undefined;
 		readonly PUBLIC_REDMINE_ID?: string | undefined;
