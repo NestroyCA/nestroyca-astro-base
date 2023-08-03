@@ -23,10 +23,10 @@ jobs:
       - name: Install, build, and upload your site
         uses: ./.github/actions/setup_astro
         with:
-            path: .
-            node-version: 16
-            package-manager: pnpm
-      
+          path: .
+          node-version: 16
+          package-manager: pnpm
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
