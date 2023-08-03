@@ -1,5 +1,3 @@
-import { type URL } from "url";
-
 import corpus_image from "../../public/assets/images/corpus.png";
 import explore_corpus_image from "../../public/assets/images/explore_corpus.png";
 import jubilaeums_fonds from "../../public/assets/images/jubilaeums_fonds.png";
