@@ -2,22 +2,20 @@
 import { Icon } from "astro-icon/components";
 
 import ColorSchemeSwitcher from "@/components/color-scheme-switcher.astro";
-import { metadata } from "@/config/metadata.config";
 import { links } from "@/config/navigation.config";
 
 const nav_links = [links.nestroylang, links.projectvienna, links.entities, links.team];
 ---
 
 <header class="border-b-4 border-brand-background bg-surface-background text-surface-foreground">
-	<div class="container flex items-center justify-between py-8">
+	<div class="container flex justify-between">
 		<div class="flex items-center gap-4 text-base sm:text-lg">
 			<a
 				aria-label={links.home.label}
 				class="inline-flex items-center gap-2 transition hover:text-muted-foreground"
 				href={links.home.href}
 			>
-				<img alt="" class="h-9 w-9" src="/assets/images/logo.svg" />
-				<span class="font-semibold">{metadata.title}</span>
+				<img alt="" class="h-20" src="/assets/images/nca_logo.png" />
 			</a>
 
 			<nav aria-label="Primary navigation">
