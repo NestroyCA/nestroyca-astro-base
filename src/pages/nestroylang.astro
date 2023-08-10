@@ -28,7 +28,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 					<a aria-hidden="true" href={links.corpus_download.href} tabindex={-1}>
 						<CardImage alt="" src={links.corpus_download.image.image} />
 					</a>
-					<figcaption class="px-4 py-1 text-right text-sm text-neutral-500">CCBY 4.0</figcaption>
+					<figcaption class="px-4 py-1 text-right text-xs text-neutral-500">
+						{links.corpus_download.image.licence}
+					</figcaption>
 				</figure>
 				<CardContent>
 					<CardTitle>{links.corpus_download.title}</CardTitle>
@@ -48,7 +50,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 					<a aria-hidden="true" href={links.explore_corpus.href} tabindex={-1}>
 						<CardImage alt="" src={links.explore_corpus.image.image} />
 					</a>
-					<figcaption class="px-4 py-1 text-right text-sm text-neutral-500">CCBY 4.0</figcaption>
+					<figcaption class="px-4 py-1 text-right text-xs text-neutral-500">
+						{links.explore_corpus.image.licence}
+					</figcaption>
 				</figure>
 				<CardContent>
 					<CardTitle>{links.explore_corpus.title}</CardTitle>
