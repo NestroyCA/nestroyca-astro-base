@@ -4,8 +4,8 @@ import { type HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"img"> {}
 
 const { alt = "", src, ...props } = Astro.props;
-
-const prefixed = src?.startsWith("/") ? [import.meta.env.BASE_URL, src].join("") : src;
+const base = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
+const prefixed = src?.startsWith("/") ? [base, src].join("") : src;
 ---
 
 <img {...props} alt={alt} src={prefixed} />

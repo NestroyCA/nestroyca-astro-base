@@ -1,4 +1,7 @@
 ---
+import A from "@/components/a.astro";
+import Img from "@/components/img.astro";
+
 const links = {
 	"acdh-ch": {
 		href: "https://www.oeaw.ac.at/de/acdh/",
@@ -83,13 +86,13 @@ const links = {
 		</div>
 		<div class="container grid items-center gap-2 sm:grid-cols-3">
 			<figure>
-				<img src="/assets/images/stadt_wien_logo.png" class="m-auto object-fill" alt="" />
+				<Img src="/assets/images/stadt_wien_logo.png" class="m-auto object-fill" alt="" />
 			</figure>
 			<figure>
-				<img class="m-auto object-fill" alt="" src="/assets/images/jubilaeums_fonds.png" />
+				<Img class="m-auto object-fill" alt="" src="/assets/images/jubilaeums_fonds.png" />
 			</figure>
 			<figure>
-				<img class="m-auto object-fill" alt="" src="/assets/images/oenb.png" />
+				<Img class="m-auto object-fill" alt="" src="/assets/images/oenb.png" />
 			</figure>
 		</div>
 	</div>
@@ -104,7 +107,7 @@ const links = {
 			</span>
 			<span> |</span>
 			<span>
-				<a class="transition hover:underline" href={links.imprint.href}>{links.imprint.label}</a>
+				<A class="transition hover:underline" href={links.imprint.href}>{links.imprint.label}</A>
 			</span>
 		</div>
 	</small>

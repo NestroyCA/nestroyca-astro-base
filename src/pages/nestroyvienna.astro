@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
+import A from "@/components/a.astro";
 import ContentPage from "@/components/content-page.astro";
 import LeadP from "@/components/lead-p.astro";
 import { ccby3_url, nestroy_statue } from "@/config/image_metadata.config";
@@ -27,7 +28,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 					class="rounded-lg border shadow-xl"
 				/>
 				<figcaption class="px-4 py-1 text-right text-sm text-neutral-500">
-					<a href={ccby3_url}>{nestroy_statue.licence}</a>
+					<A href={ccby3_url}>{nestroy_statue.licence}</A>
 				</figcaption>
 			</figure>
 		</div>

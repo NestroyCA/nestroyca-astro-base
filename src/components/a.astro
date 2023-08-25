@@ -4,9 +4,8 @@ import { type HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"a"> {}
 
 const { href, ...props } = Astro.props;
-const prefixed = href?.toString().startsWith("/")
-	? [import.meta.env.BASE_URL, href].join("")
-	: href;
+const base = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
+const prefixed = href?.toString().startsWith("/") ? [base, href].join("") : href;
 ---
 
 <a {...props} href={prefixed}><slot /></a>

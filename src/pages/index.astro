@@ -1,4 +1,5 @@
 ---
+import A from "@/components/a.astro";
 import Card from "@/components/card.astro";
 import CardContent from "@/components/card-content.astro";
 import CardImage from "@/components/card-image.astro";
@@ -33,9 +34,9 @@ const nav_links = [links.nestroylang, links.projectvienna];
 					return (
 						<Card>
 							<figure>
-								<a aria-hidden="true" href={nav_link.href} tabindex={-1}>
+								<A aria-hidden="true" href={nav_link.href} tabindex={-1}>
 									<CardImage alt="" src={nav_link.image.image} />
-								</a>
+								</A>
 								<figcaption class="px-4 py-1 text-right text-sm text-neutral-500">
 									<a href={ccby3_url}>{nav_link.image.licence}</a>
 								</figcaption>
@@ -43,12 +44,12 @@ const nav_links = [links.nestroylang, links.projectvienna];
 							<CardContent>
 								<CardTitle>{nav_link.title}</CardTitle>
 								<div class="justify-self-end">
-									<a
+									<A
 										class="inline-flex rounded border px-3 py-1 text-sm transition hover:bg-muted-background hover:text-muted-foreground"
 										href={nav_link.href}
 									>
 										Read more
-									</a>
+									</A>
 								</div>
 							</CardContent>
 						</Card>

@@ -1,4 +1,5 @@
 ---
+import A from "@/components/a.astro";
 import Card from "@/components/card.astro";
 import CardContent from "@/components/card-content.astro";
 import CardImage from "@/components/card-image.astro";
@@ -25,9 +26,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<Grid>
 			<Card>
 				<figure>
-					<a aria-hidden="true" href={links.corpus_download.href} tabindex={-1}>
+					<A aria-hidden="true" href={links.corpus_download.href} tabindex={-1}>
 						<CardImage alt="" src={links.corpus_download.image.image} />
-					</a>
+					</A>
 					<figcaption class="px-4 py-1 text-right text-xs text-neutral-500">
 						{links.corpus_download.image.licence}
 					</figcaption>
@@ -35,21 +36,21 @@ import PageLayout from "@/layouts/page-layout.astro";
 				<CardContent>
 					<CardTitle>{links.corpus_download.title}</CardTitle>
 					<div class="justify-self-end">
-						<a
+						<A
 							class="inline-flex rounded border px-3 py-1 text-sm transition hover:bg-muted-background hover:text-muted-foreground"
 							href="/assets/nestroy_ca_corpus.xml"
 							download="nestroy_ca_corpus.xml"
 						>
 							Download
-						</a>
+						</A>
 					</div>
 				</CardContent>
 			</Card>
 			<Card>
 				<figure>
-					<a aria-hidden="true" href={links.explore_corpus.href} tabindex={-1}>
+					<A aria-hidden="true" href={links.explore_corpus.href} tabindex={-1}>
 						<CardImage alt="" src={links.explore_corpus.image.image} />
-					</a>
+					</A>
 					<figcaption class="px-4 py-1 text-right text-xs text-neutral-500">
 						{links.explore_corpus.image.licence}
 					</figcaption>
@@ -57,12 +58,12 @@ import PageLayout from "@/layouts/page-layout.astro";
 				<CardContent>
 					<CardTitle>{links.explore_corpus.title}</CardTitle>
 					<div class="justify-self-end">
-						<a
+						<A
 							class="inline-flex rounded border px-3 py-1 text-sm transition hover:bg-muted-background hover:text-muted-foreground"
 							href={links.explore_corpus.href}
 						>
 							Read more
-						</a>
+						</A>
 					</div>
 				</CardContent>
 			</Card>
