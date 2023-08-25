@@ -8,6 +8,7 @@ declare global {
 	interface ImportMetaEnv {
 		readonly BOTS?: string | undefined;
 		readonly ENV_VALIDATION?: string | undefined;
+		readonly PUBLIC_APP_BASE_PATH?: string | undefined;
 		readonly PUBLIC_APP_BASE_URL?: string | undefined;
 		readonly PUBLIC_MATOMO_BASE_URL?: string | undefined;
 		readonly PUBLIC_MATOMO_ID?: string | undefined;
@@ -28,6 +29,7 @@ export const env = createEnv({
 	},
 	client: {
 		PUBLIC_APP_BASE_URL: z.string().url(),
+		PUBLIC_APP_BASE_PATH: z.string().min(1).optional(),
 		PUBLIC_MATOMO_BASE_URL: z.string().url().optional(),
 		PUBLIC_MATOMO_ID: z.string().min(1).optional(),
 		PUBLIC_REDMINE_ID: z.coerce.number().min(1),

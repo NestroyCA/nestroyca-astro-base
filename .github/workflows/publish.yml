@@ -12,7 +12,6 @@ permissions:
 env:
   PUBLIC_APP_BASE_URL: https://NestroyCA.github.io
   PUBLIC_REDMINE_ID: 21437
-  PUBLIC_URL_BASE: /nestroyca-astro-base
 
 jobs:
   build:

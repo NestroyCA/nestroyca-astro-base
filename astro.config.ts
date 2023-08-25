@@ -40,5 +40,5 @@ export default defineConfig({
 		syntaxHighlight: false,
 	},
 	site: env.PUBLIC_APP_BASE_URL,
-	base: "/nestroyca-astro-base",
+	base: env.PUBLIC_APP_BASE_PATH,
 });
