@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import ColorSchemeSwitcher from "@/components/color-scheme-switcher.astro";
 import { links } from "@/config/navigation.config";
 
 const nav_links = [links.nestroylang, links.projectvienna, links.entities, links.team];
@@ -40,8 +39,6 @@ const nav_links = [links.nestroylang, links.projectvienna, links.entities, links
 		</div>
 
 		<div class="flex items-center gap-4">
-			<ColorSchemeSwitcher />
-
 			<nav aria-label="Primary navigation" class="inline-flex items-center lg:hidden">
 				<button aria-controls="navigation-menu" aria-expanded="true" data-menu-toggle>
 					<span class="sr-only">Toggle navigation menu</span>
