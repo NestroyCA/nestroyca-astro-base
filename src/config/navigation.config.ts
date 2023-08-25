@@ -5,7 +5,7 @@ import {
 	word_graph,
 } from "@/config/image_metadata.config";
 
-const base = "/nestroyca-astro-base";
+const base = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
 export const links = {
 	home: {
 		href: base.concat("/"),
