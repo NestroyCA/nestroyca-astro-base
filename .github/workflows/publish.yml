@@ -1,7 +1,6 @@
 name: Deploy to GitHub Pages
 
-on:
-  [workflow_dispatch, push]
+on: [workflow_dispatch, push]
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
@@ -11,7 +10,7 @@ permissions:
 
 env:
   PUBLIC_APP_BASE_URL: https://nestroyca.acdh-dev.oeaw.ac.at
-  # PUBLIC_APP_BASE_URL: 
+  # PUBLIC_APP_BASE_URL:
   PUBLIC_REDMINE_ID: 21437
 
 jobs:
