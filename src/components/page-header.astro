@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 
 import A from "@/components/a.astro";
+import Img from "@/components/img.astro";
 import { links } from "@/config/navigation.config";
 
 const nav_links = [links.nestroylang, links.projectvienna, links.entities, links.team];
@@ -10,13 +11,13 @@ const nav_links = [links.nestroylang, links.projectvienna, links.entities, links
 <header class="border-b-4 border-brand-background bg-surface-background text-surface-foreground">
 	<div class="container flex justify-between">
 		<div class="flex items-center gap-4 text-base sm:text-lg">
-			<a
+			<A
 				aria-label={links.home.label}
 				class="inline-flex items-center gap-2 transition hover:text-muted-foreground"
 				href={links.home.href}
 			>
-				<img alt="" class="h-20" src="/assets/images/nca_logo.png" />
-			</a>
+				<Img alt="" class="h-20" src="/assets/images/nca_logo.png" />
+			</A>
 
 			<nav aria-label="Primary navigation">
 				<ul class="hidden lg:flex lg:items-center lg:gap-4" role="list">
@@ -62,13 +63,13 @@ const nav_links = [links.nestroylang, links.projectvienna, links.entities, links
 					Object.entries(links).map(([, link]) => {
 						return (
 							<li>
-								<a
+								<A
 									class="inline-flex transition hover:text-muted-foreground"
 									href={link.href}
 									rel="prefetch"
 								>
 									{link.label}
-								</a>
+								</A>
 							</li>
 						);
 					})
