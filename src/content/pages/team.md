@@ -2,7 +2,7 @@
 title: Team
 ---
 
-#### Team members:
+#### Team Members:
 
 * [Carl Friedrich Haak, BA](https://www.oeaw.ac.at/acdh/team/current-team/carl-friedrich-haak)
 * [Mag. Dario Kamkaspar](https://www.ulb.tu-darmstadt.de/die_bibliothek/ueberuns/organisation/kontakt_details_17792.de.jsp)
