@@ -1,7 +1,26 @@
 ---
-title: About the project
+title: Team
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente molestias consequuntur suscipit
-soluta temporibus aut nam nisi dignissimos sequi? Officiis vero numquam fuga voluptates sapiente
-animi, corrupti illum nulla aliquid!
+#### Team members:
+
+* Carl Friedrich Haak, BA
+* Mag. Dario Kamkaspar
+* Dr. Christina Katsikadeli
+* Mag. Sabine Laszakovits, BSc., MA
+
+
+#### ACDH-CH Interns:
+
+* Mag. Dilara Akarçesme, BA
+* Michael Gassner, BSc., MSc., MA
+* Philipp Leindl, BA
+* Mag. Nastassja Mikl, MA.
+* Jaqueline Nager, BA
+
+
+#### Consultants: 
+
+* Prof.em. Oswald Panagl
+* Dr. Manfred Sellner
+* Dr. Barbara Tumfart
