@@ -1,5 +1,5 @@
 ---
-title: About the project
+title: Places (Under construction)
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente molestias consequuntur suscipit

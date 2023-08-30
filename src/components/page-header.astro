@@ -62,16 +62,16 @@ const nav_links = [links.nestroylang, links.projectvienna, links.entities, links
 											</button>
 											<ul
 												x-show="open"
-												class="items-center rounded border-2 border-solid border-gray-200"
+												class="absolute z-50 items-center rounded border-2 border-solid border-gray-200 bg-surface-background px-3 py-2"
 												role="list"
 											>
 												<li>
-													<A class="" href={links.entities.href} rel="prefetch">
+													<A class="" href={links.entities_persons.href} rel="prefetch">
 														{links.entities_persons.label}
 													</A>
 												</li>
 												<li>
-													<A class="" href={links.entities.href} rel="prefetch">
+													<A class="" href={links.entities_persons.href} rel="prefetch">
 														{links.entities_places.label}
 													</A>
 												</li>
@@ -105,18 +105,35 @@ const nav_links = [links.nestroylang, links.projectvienna, links.entities, links
 		>
 			<ul class="flex flex-col gap-4" role="list">
 				{
-					Object.entries(links).map(([, link]) => {
-						return (
-							<li>
-								<A
-									class="inline-flex transition hover:text-muted-foreground"
-									href={link.href}
-									rel="prefetch"
-								>
-									{link.label}
-								</A>
-							</li>
-						);
+					Object.entries(nav_links).map(([, link]) => {
+						if (link !== links.entities) {
+							return (
+								<li>
+									<A
+										class="inline-flex transition hover:text-muted-foreground"
+										href={link.href}
+										rel="prefetch"
+									>
+										{link.label}
+									</A>
+								</li>
+							);
+						} else {
+							return (
+								<>
+									<li>
+										<A class="" href={links.entities_persons.href} rel="prefetch">
+											{link.label} – {links.entities_persons.label}
+										</A>
+									</li>
+									<li>
+										<A class="" href={links.entities_persons.href} rel="prefetch">
+											{link.label} – {links.entities_places.label}
+										</A>
+									</li>
+								</>
+							);
+						}
 					})
 				}
 			</ul>
