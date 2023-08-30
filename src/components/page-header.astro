@@ -23,23 +23,70 @@ const nav_links = [links.nestroylang, links.projectvienna, links.entities, links
 				<ul class="hidden lg:flex lg:items-center lg:gap-4" role="list">
 					{
 						Object.entries(nav_links).map(([, link]) => {
-							return (
-								<li>
-									<A
-										class="inline-flex transition hover:text-muted-foreground"
-										href={link.href}
-										rel="prefetch"
-									>
-										{link.label}
-									</A>
-								</li>
-							);
+							if (link !== links.entities) {
+								return (
+									<li>
+										<A
+											class="inline-flex transition hover:text-muted-foreground"
+											href={link.href}
+											rel="prefetch"
+										>
+											{link.label}
+										</A>
+									</li>
+								);
+							} else {
+								return (
+									// https://alpinejs.dev/
+									// https://alpinejs.dev/component/dropdown
+									// https://w3collective.com/dropdown-alpine-js/
+									<li>
+										<button
+											id="entitiesDropdownButton"
+											data-dropdown-toggle="entitiesDropdown"
+											data-dropdown-trigger="{hover|click}"
+											class="inline-flex items-center text-center"
+											type="button"
+										>
+											{link.label}
+											<svg
+												class="ml-2.5 h-2.5 w-2.5"
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 10 6"
+											>
+												<path
+													stroke="currentColor"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="m1 1 4 4 4-4"
+												/>
+											</svg>
+										</button>
+										<div id="entitiesDropdown" class="hidden">
+											<ul class="" aria-labelledby="entitiesDropdownButton">
+												<li>
+													<A class="" href={links.entities.href} rel="prefetch">
+														{links.entities_persons.label}
+													</A>
+												</li>
+												<li>
+													<A class="" href={links.entities.href} rel="prefetch">
+														{links.entities_places.label}
+													</A>
+												</li>
+											</ul>
+										</div>
+									</li>
+								);
+							}
 						})
 					}
 				</ul>
 			</nav>
 		</div>
-
 		<div class="flex items-center gap-4">
 			<nav aria-label="Primary navigation" class="inline-flex items-center lg:hidden">
 				<button aria-controls="navigation-menu" aria-expanded="true" data-menu-toggle>
