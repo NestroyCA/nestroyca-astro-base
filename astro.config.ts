@@ -1,3 +1,4 @@
+import alpinejs from "@astrojs/alpinejs";
 import mdx from "@astrojs/mdx";
 import prefetch from "@astrojs/prefetch";
 import sitemap from "@astrojs/sitemap";
@@ -6,6 +7,7 @@ import icon from "astro-icon";
 
 import { env } from "./src/lib/env";
 
+// https://astro.build/config
 export default defineConfig({
 	experimental: {
 		assets: true,
@@ -35,6 +37,7 @@ export default defineConfig({
 		mdx(),
 		prefetch(),
 		sitemap(),
+		alpinejs(),
 	],
 	markdown: {
 		syntaxHighlight: false,
