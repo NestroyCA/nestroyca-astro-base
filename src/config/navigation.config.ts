@@ -47,6 +47,24 @@ export const links = {
 		label: "Entities",
 		title: "Entities",
 	},
+	entities_places: {
+		//		href: base.concat("/entities"),
+		href: "/places",
+		label: "Places",
+		title: "Places",
+	},
+	entities_persons: {
+		//		href: base.concat("/entities"),
+		href: "/persons",
+		label: "Persons",
+		title: "Persons",
+	},
+	entities_other: {
+		//		href: base.concat("/entities"),
+		href: "/entities",
+		label: "Entities",
+		title: "Entities",
+	},
 	team: {
 		//		href: base.concat("/team"),
 		href: "/team",
