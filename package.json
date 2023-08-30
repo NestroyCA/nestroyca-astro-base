@@ -139,5 +139,10 @@
 	},
 	"stylelint": {
 		"extends": "@acdh-oeaw/stylelint-config"
+	},
+	"dependencies": {
+		"@astrojs/alpinejs": "^0.2.2",
+		"@types/alpinejs": "^3.0.0",
+		"alpinejs": "^3.0.0"
 	}
 }
