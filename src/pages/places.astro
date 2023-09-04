@@ -1,0 +1,24 @@
+---
+import { GeoMap } from "astro-geo-map";
+
+import ContentPage from "@/components/content-page.astro";
+import { links } from "@/config/navigation.config";
+import PageLayout from "@/layouts/page-layout.astro";
+---
+
+<PageLayout title={links.projectvienna.label}>
+	<ContentPage title={links.projectvienna.title} layout="full-width">
+		<div class="grid gap-8 md:grid-cols-[1fr_320px]">
+			<!--https://code.juliancataldo.com/component/astro-geo-map/#doc*/}
+			z={11}-->
+			<GeoMap
+				x={48.208333 /* Required */}
+				y={16.373056 /* Required */}
+				z={5}
+				height={"25rem" /* Required */}
+				width={"25rem"}
+				attribution={true}
+			/>
+		</div>
+	</ContentPage>
+</PageLayout>
