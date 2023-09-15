@@ -1,6 +1,5 @@
 ---
-import { GeoMap } from "astro-geo-map";
-
+//import { GeoMap } from "astro-geo-map";
 import ContentPage from "@/components/content-page.astro";
 import { links } from "@/config/navigation.config";
 import PageLayout from "@/layouts/page-layout.astro";
@@ -8,17 +7,42 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 <PageLayout title={links.projectvienna.label}>
 	<ContentPage title={links.projectvienna.title} layout="full-width">
-		<div class="grid gap-8 md:grid-cols-[1fr_320px]">
-			<!--https://code.juliancataldo.com/component/astro-geo-map/#doc*/}
-			z={11}-->
-			<GeoMap
-				x={48.208333 /* Required */}
-				y={16.373056 /* Required */}
-				z={5}
-				height={"25rem" /* Required */}
-				width={"25rem"}
-				attribution={true}
-			/>
-		</div>
+		<div id="map" style="height: 50vh;"></div>
+		<script>
+			import L from "leaflet";
+			function definePopupString(feature, layer) {
+				var popupString = feature.properties.name;
+				layer.bindPopup(popupString);
+			}
+
+			function buildMap(geojsonFeature) {
+				var map = L.map("map").setView([48.210033, 16.363449], 5);
+				L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+					maxZoom: 19,
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				}).addTo(map);
+				L.geoJSON(geojsonFeature, {
+					onEachFeature: definePopupString,
+				}).addTo(map);
+			}
+
+			function fetch_geodata_and_build_map(url) {
+				fetch(url)
+					.then(function (response) {
+						// json string
+						return response.json();
+					})
+					.then(function (geojsonFeature) {
+						buildMap(geojsonFeature);
+					})
+					.catch(function (err) {
+						console.log(err);
+					});
+			}
+			// okay, lets build a map
+			var raw_geodata_url =
+				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
+			fetch_geodata_and_build_map(raw_geodata_url);
+		</script>
 	</ContentPage>
 </PageLayout>

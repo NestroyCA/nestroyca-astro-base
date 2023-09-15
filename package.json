@@ -54,6 +54,7 @@
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.44.0",
 		"eslint-plugin-tailwindcss": "^3.13.0",
+		"leaflet": "^1.9.4",
 		"lint-staged": "^13.2.3",
 		"npm-run-all2": "^6.0.6",
 		"postcss": "^8.4.25",
@@ -145,7 +146,6 @@
 		"@astrojs/alpinejs": "^0.2.2",
 		"@types/alpinejs": "^3.0.0",
 		"alpinejs": "^3.0.0",
-		"astro-geo-map": "^2.0.0",
-		"leaflet": "^1.9.4"
+		"astro-geo-map": "^2.0.0"
 	}
 }
