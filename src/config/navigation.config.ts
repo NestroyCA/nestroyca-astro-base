@@ -50,7 +50,7 @@ export const links = {
 	entities_places: {
 		//		href: base.concat("/entities"),
 		href: "/places",
-		label: "spatial entities",
+		label: "Spatial Entities",
 		title: "Nestroy’s Spatial Entities",
 	},
 	entities_persons: {
