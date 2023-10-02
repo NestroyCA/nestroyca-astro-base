@@ -1,0 +1,68 @@
+---
+//import { GeoMap } from "astro-geo-map";
+import ContentPage from "@/components/content-page.astro";
+import { links } from "@/config/navigation.config";
+import PageLayout from "@/layouts/page-layout.astro";
+---
+
+<PageLayout title={links.entities_places.label}>
+	<ContentPage title={links.entities_places.title} layout="full-width">
+		<div id="worldmap" class="min-h-[50vh] md:min-h-screen"></div>
+		<script>
+			import L from "leaflet";
+
+			function get_label_string_html(properties) {
+				let label_string = "";
+				let placename = `<b>${properties.name}</b><br>`;
+				let plays_list_start = "<ul>";
+				let plays_list_end = "</ul>";
+				//for (let i = 0; i < arrayLength; i++) {
+				properties.mentioned_in.forEach((mention) => {
+					let table_index = mention.id;
+					let nestroy_id = mention.value;
+					let play_name = mention.name;
+					label_string = `<li><a href='${nestroy_id}'>${play_name}</a></li>`;
+					plays_list_start += label_string;
+				});
+				console.log(label_string);
+				return plays_list_start + plays_list_end;
+			}
+
+			function addPopupString(feature, layer) {
+				let popupString = get_label_string_html(feature.properties);
+				layer.bindPopup(popupString);
+			}
+
+			function buildMap(geojsonFeature) {
+				let map = L.map("worldmap").setView([48.210033, 16.363449], 5);
+				L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+					maxZoom: 19,
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				}).addTo(map);
+				L.geoJSON(geojsonFeature, {
+					onEachFeature: addPopupString,
+				}).addTo(map);
+			}
+
+			function fetch_geodata_and_build_map(url) {
+				console.log("loading map");
+				fetch(url)
+					.then(function (response) {
+						// json string
+						return response.json();
+					})
+					.then(function (geojsonFeature) {
+						buildMap(geojsonFeature);
+					})
+					.catch(function (err) {
+						console.log(err);
+					});
+			}
+			// okay, lets build a map
+			let raw_geodata_url =
+				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
+			console.log("hello");
+			fetch_geodata_and_build_map(raw_geodata_url);
+		</script>
+	</ContentPage>
+</PageLayout>
