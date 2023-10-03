@@ -36,7 +36,14 @@ import PageLayout from "@/layouts/page-layout.astro";
 				iconAnchor: [14, -14],
 				//popupAnchor: [0, -28],
 				popupAnchor: [-19, -19],
+				//https://gis.stackexchange.com/questions/324816/react-leaflet-marker-has-wrong-position-after-zoom-out
 			});
+
+			function fix_latLng(map, latlng) {
+				let point = map.latLngToContainerPoint(latlng);
+				let newPoint = L.point([point.x, point.y]);
+				return map.containerPointToLatLng(newPoint);
+			}
 
 			function buildMap(geojsonFeature) {
 				let map = L.map("worldmap").setView([48.210033, 16.363449], 5);
@@ -48,12 +55,17 @@ import PageLayout from "@/layouts/page-layout.astro";
 					//pointToLayer: function (feature, latlng) {
 					//	return L.marker(latlng, { icon: myIcon });
 					//},
+					// see https://gis.stackexchange.com/questions/360293/add-something-into-l-circlemarker
 					pointToLayer: (feature, latlng) => {
-						return new L.Circle(
-							latlng,
-							//feature.properties.mentioned_in.len*100
-							10000,
-						);
+						latlng = fix_latLng(map, latlng);
+						return L.circleMarker(latlng, {
+							radius: 10,
+							opacity: 0.9,
+							color: "red",
+							fillColor: "red",
+							fillOpacity: 0.3,
+							//  html: feature.properties.iconcategory[0].toUpperCase(),
+						});
 					},
 					onEachFeature: addPopupString,
 				}).addTo(map);
