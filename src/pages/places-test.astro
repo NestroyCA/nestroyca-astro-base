@@ -20,12 +20,12 @@ import PageLayout from "@/layouts/page-layout.astro";
 				properties.mentioned_in.forEach((mention) => {
 					let table_index = mention.id;
 					let nestroy_id = mention.value;
-					let play_name = mention.name;
-					label_string = `<li><a href='${nestroy_id}'>${play_name}</a></li>`;
+					let play_title = mention.title;
+					label_string = `<li><a href='${nestroy_id}'>${play_title}</a></li>`;
 					plays_list_start += label_string;
 				});
 				console.log(label_string);
-				return plays_list_start + plays_list_end;
+				return placename + plays_list_start + plays_list_end;
 			}
 
 			function addPopupString(feature, layer) {
