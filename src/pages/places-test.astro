@@ -32,8 +32,10 @@ import PageLayout from "@/layouts/page-layout.astro";
 			var myIcon = L.icon({
 				iconUrl: "/assets/images/place.svg",
 				iconSize: [19, 19],
-				iconAnchor: [16, 37],
-				popupAnchor: [0, -28],
+				//iconAnchor: [16, 37],
+				iconAnchor: [14, -14],
+				//popupAnchor: [0, -28],
+				popupAnchor: [-19, -19],
 			});
 
 			function buildMap(geojsonFeature) {
@@ -43,8 +45,15 @@ import PageLayout from "@/layouts/page-layout.astro";
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 				}).addTo(map);
 				L.geoJSON(geojsonFeature, {
-					pointToLayer: function (feature, latlng) {
-						return L.marker(latlng, { icon: myIcon });
+					//pointToLayer: function (feature, latlng) {
+					//	return L.marker(latlng, { icon: myIcon });
+					//},
+					pointToLayer: (feature, latlng) => {
+						return new L.Circle(
+							latlng,
+							//feature.properties.mentioned_in.len*100
+							10000,
+						);
 					},
 					onEachFeature: addPopupString,
 				}).addTo(map);
