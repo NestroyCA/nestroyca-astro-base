@@ -1,5 +1,4 @@
 ---
-//import { GeoMap } from "astro-geo-map";
 import ContentPage from "@/components/content-page.astro";
 import { links } from "@/config/navigation.config";
 import PageLayout from "@/layouts/page-layout.astro";
@@ -12,26 +11,30 @@ import PageLayout from "@/layouts/page-layout.astro";
 			import L from "leaflet";
 
 			function get_label_string_html(properties) {
-				let label_string = "";
-				let placename = `<b>${properties.name}</b><br>`;
+				let label_string = `<b>${properties.name}</b><br>(occuring ${properties.total_occurences} times)<br>`;
 				let plays_list_start = "<ul>";
 				let plays_list_end = "</ul>";
-				//for (let i = 0; i < arrayLength; i++) {
+				let number_of_plays_mentioning = properties.mentioned_in.len;
 				properties.mentioned_in.forEach((mention) => {
 					let table_index = mention.id;
 					let nestroy_id = mention.value;
 					let play_title = mention.title;
-					label_string = `<li><a href='${nestroy_id}'>${play_title}</a></li>`;
-					plays_list_start += label_string;
+					plays_list_start += `<li><a href='${nestroy_id}'>${play_title}</a></li>`;
 				});
-				console.log(label_string);
-				return placename + plays_list_start + plays_list_end;
+				return label_string + plays_list_start + plays_list_end;
 			}
 
 			function addPopupString(feature, layer) {
 				let popupString = get_label_string_html(feature.properties);
 				layer.bindPopup(popupString);
 			}
+
+			var myIcon = L.icon({
+				iconUrl: "/assets/images/place.svg",
+				iconSize: [19, 19],
+				iconAnchor: [16, 37],
+				popupAnchor: [0, -28],
+			});
 
 			function buildMap(geojsonFeature) {
 				let map = L.map("worldmap").setView([48.210033, 16.363449], 5);
@@ -40,6 +43,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 				}).addTo(map);
 				L.geoJSON(geojsonFeature, {
+					pointToLayer: function (feature, latlng) {
+						return L.marker(latlng, { icon: myIcon });
+					},
 					onEachFeature: addPopupString,
 				}).addTo(map);
 			}
@@ -58,6 +64,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 						console.log(err);
 					});
 			}
+
 			// okay, lets build a map
 			let raw_geodata_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
