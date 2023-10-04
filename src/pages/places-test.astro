@@ -11,10 +11,11 @@ import PageLayout from "@/layouts/page-layout.astro";
 			import L from "leaflet";
 
 			function get_label_string_html(properties) {
-				let label_string = `<b>${properties.name}</b><br>(occuring ${properties.total_occurences} times)<br>`;
+				let number_of_plays_mentioning = properties.mentioned_in.length;
+				// could use properties.total_occurences later
+				let label_string = `<b>${properties.name}</b><br>(occuring in ${number_of_plays_mentioning} plays)<br>`;
 				let plays_list_start = "<ul>";
 				let plays_list_end = "</ul>";
-				let number_of_plays_mentioning = properties.mentioned_in.len;
 				properties.mentioned_in.forEach((mention) => {
 					let table_index = mention.id;
 					let nestroy_id = mention.value;
@@ -29,20 +30,28 @@ import PageLayout from "@/layouts/page-layout.astro";
 				layer.bindPopup(popupString);
 			}
 
-			var myIcon = L.icon({
-				iconUrl: "/assets/images/place.svg",
-				iconSize: [19, 19],
-				//iconAnchor: [16, 37],
-				iconAnchor: [14, -14],
-				//popupAnchor: [0, -28],
-				popupAnchor: [-19, -19],
-				//https://gis.stackexchange.com/questions/324816/react-leaflet-marker-has-wrong-position-after-zoom-out
-			});
-
-			function fix_latLng(map, latlng) {
-				let point = map.latLngToContainerPoint(latlng);
-				let newPoint = L.point([point.x, point.y]);
-				return map.containerPointToLatLng(newPoint);
+			function draw_cirlce(latLng, feature) {
+				let radius = feature.properties.mentioned_in.length;
+				console.log(feature.properties.mentioned_in.length);
+				let circle_text = "";
+				//let html_dot = `<span style="height: 5px; width: 5px; background-color: black; border-radius: 50%; display: inline-block; margin: auto; position: relative;"/>`
+				let html_dot = "";
+				let border_width = 4;
+				let border_color = "red";
+				let background_color = "coral";
+				let size = radius * 10;
+				let circle_style = `style="width: ${size}px; height: ${size}px; border-radius: 50%; display: table-cell; border: ${border_width}px solid ${border_color};  background: rgba(255, 0, 0, .5); overflow: hidden; position: absolute"`;
+				let iconSize = size + border_width * 2;
+				let icon = L.divIcon({
+					html: `<span ${circle_style}>${html_dot}</span>`,
+					className: "",
+					//iconSize: [iconSize, iconSize],
+					//iconAnchor: [0,0]
+				});
+				let marker = L.marker(latLng, {
+					icon: icon,
+				});
+				return marker;
 			}
 
 			function buildMap(geojsonFeature) {
@@ -52,23 +61,13 @@ import PageLayout from "@/layouts/page-layout.astro";
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 				}).addTo(map);
 				L.geoJSON(geojsonFeature, {
-					//pointToLayer: function (feature, latlng) {
-					//	return L.marker(latlng, { icon: myIcon });
-					//},
-					// see https://gis.stackexchange.com/questions/360293/add-something-into-l-circlemarker
-					pointToLayer: (feature, latlng) => {
-						latlng = fix_latLng(map, latlng);
-						return L.circleMarker(latlng, {
-							radius: 10,
-							opacity: 0.9,
-							color: "red",
-							fillColor: "red",
-							fillOpacity: 0.3,
-							//  html: feature.properties.iconcategory[0].toUpperCase(),
-						});
+					pointToLayer: function (feature, latlng) {
+						//return L.marker(latlng, { icon: myIcon });
+						return draw_cirlce(latlng, feature);
 					},
 					onEachFeature: addPopupString,
 				}).addTo(map);
+				return map;
 			}
 
 			function fetch_geodata_and_build_map(url) {
@@ -89,7 +88,6 @@ import PageLayout from "@/layouts/page-layout.astro";
 			// okay, lets build a map
 			let raw_geodata_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
-			console.log("hello");
 			fetch_geodata_and_build_map(raw_geodata_url);
 		</script>
 	</ContentPage>

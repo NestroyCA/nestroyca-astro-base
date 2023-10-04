@@ -11,7 +11,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<script>
 			import L from "leaflet";
 			function definePopupString(feature, layer) {
-				var popupString = feature.properties.name;
+				let popupString = feature.properties.name;
 				layer.bindPopup(popupString);
 			}
 
@@ -29,7 +29,6 @@ import PageLayout from "@/layouts/page-layout.astro";
 			function fetch_geodata_and_build_map(url) {
 				fetch(url)
 					.then(function (response) {
-						// json string
 						return response.json();
 					})
 					.then(function (geojsonFeature) {
