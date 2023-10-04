@@ -7,7 +7,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 <PageLayout title={links.entities_places.label}>
 	<ContentPage title={links.entities_places.title} layout="full-width">
-		<div id="worldmap" class="min-h-[50vh] md:min-h-screen"></div>
+		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
 		<script>
 			import L from "leaflet";
 			function definePopupString(feature, layer) {

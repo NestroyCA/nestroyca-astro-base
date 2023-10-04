@@ -6,7 +6,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 <PageLayout title={links.entities_places.label}>
 	<ContentPage title={links.entities_places.title} layout="full-width">
-		<div id="worldmap" class="min-h-[50vh] md:min-h-screen"></div>
+		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
 		<script>
 			import L from "leaflet";
 
@@ -41,12 +41,12 @@ import PageLayout from "@/layouts/page-layout.astro";
 				let background_color = "coral";
 				let size = radius * 10;
 				let circle_style = `style="width: ${size}px; height: ${size}px; border-radius: 50%; display: table-cell; border: ${border_width}px solid ${border_color};  background: rgba(255, 0, 0, .5); overflow: hidden; position: absolute"`;
-				let iconSize = size + border_width * 2;
+				//let iconSize = size + border_width * 2;
+				let iconSize = size;
 				let icon = L.divIcon({
 					html: `<span ${circle_style}>${html_dot}</span>`,
 					className: "",
-					//iconSize: [iconSize, iconSize],
-					//iconAnchor: [0,0]
+					iconSize: [iconSize, iconSize],
 				});
 				let marker = L.marker(latLng, {
 					icon: icon,
