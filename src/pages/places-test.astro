@@ -13,7 +13,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 			function get_label_string_html(properties) {
 				let number_of_plays_mentioning = properties.mentioned_in.length;
 				// could use properties.total_occurences later
-				let label_string = `<b>${properties.name}</b><br>(occuring in ${number_of_plays_mentioning} plays)<br>`;
+				let label_string = `<b>${properties.name}</b><br>(occurring in ${number_of_plays_mentioning} plays)<br>`;
 				let plays_list_start = "<ul>";
 				let plays_list_end = "</ul>";
 				properties.mentioned_in.forEach((mention) => {
