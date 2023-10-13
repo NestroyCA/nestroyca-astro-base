@@ -146,6 +146,7 @@
 		"@astrojs/alpinejs": "^0.2.2",
 		"@types/alpinejs": "^3.0.0",
 		"alpinejs": "^3.0.0",
-		"astro-geo-map": "^2.0.0"
+		"astro-geo-map": "^2.0.0",
+		"tabulator-tables": "^5.5.2"
 	}
 }
