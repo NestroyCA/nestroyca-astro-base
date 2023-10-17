@@ -7,7 +7,49 @@ import PageLayout from "@/layouts/page-layout.astro";
 <PageLayout title={links.entities_places.label}>
 	<ContentPage title={links.entities_places.title} layout="full-width">
 		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
+		<div id="places_table"></div>
 		<script>
+			import { Tabulator } from "tabulator-tables";
+			//define data array
+			function refine_tabulatordata(tabulator_data) {
+				var new_tabulator_data = {};
+				new_tabulator_data = tabulator_data;
+				return new_tabulator_data;
+			}
+
+			function fetch_tabulatordata_and_build_table(url) {
+				console.log("loading table");
+				fetch(url)
+					.then(function (response) {
+						// json string
+						return response.json();
+					})
+					.then(function (tabulator_data) {
+						buildTable(tabulator_data);
+					})
+					.catch(function (err) {
+						console.log(err);
+					});
+			}
+
+			function buildTable(tabulator_data) {
+				var table = new Tabulator("#places_table", {
+					data: refine_tabulatordata(tabulator_data), //assign data to table
+					autoColumns: true, //create columns from data field names
+					height: "311px",
+					layout: "fitColumns",
+					width: "30rem",
+				});
+				return table;
+			}
+
+			let raw_tabulator_data_url =
+				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/tabulator_data.json";
+			fetch_tabulatordata_and_build_table(raw_tabulator_data_url);
+			/////////////////////
+			// building the map//
+			/////////////////////
+
 			import L from "leaflet";
 
 			function get_label_string_html(properties) {
@@ -32,8 +74,6 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 			function draw_cirlce(latLng, feature) {
 				let radius = feature.properties.mentioned_in.length;
-				console.log(feature.properties.mentioned_in.length);
-				let circle_text = "";
 				//let html_dot = `<span style="height: 5px; width: 5px; background-color: black; border-radius: 50%; display: inline-block; margin: auto; position: relative;"/>`
 				let html_dot = "";
 				let border_width = 4;

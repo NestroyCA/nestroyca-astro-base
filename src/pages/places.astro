@@ -1,5 +1,4 @@
 ---
-//import { GeoMap } from "astro-geo-map";
 import ContentPage from "@/components/content-page.astro";
 import { links } from "@/config/navigation.config";
 import PageLayout from "@/layouts/page-layout.astro";
@@ -10,25 +9,72 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
 		<script>
 			import L from "leaflet";
-			function definePopupString(feature, layer) {
-				let popupString = feature.properties.name;
+
+			function get_label_string_html(properties) {
+				let number_of_plays_mentioning = properties.mentioned_in.length;
+				// could use properties.total_occurences later
+				let label_string = `<b>${properties.name}</b><br>(occurring in ${number_of_plays_mentioning} plays)<br>`;
+				let plays_list_start = "<ul>";
+				let plays_list_end = "</ul>";
+				properties.mentioned_in.forEach((mention) => {
+					let table_index = mention.id;
+					let nestroy_id = mention.value;
+					let play_title = mention.title;
+					plays_list_start += `<li><a href='${nestroy_id}'>${play_title}</a></li>`;
+				});
+				return label_string + plays_list_start + plays_list_end;
+			}
+
+			function addPopupString(feature, layer) {
+				let popupString = get_label_string_html(feature.properties);
 				layer.bindPopup(popupString);
 			}
 
+			function draw_cirlce(latLng, feature) {
+				let radius = feature.properties.mentioned_in.length;
+				console.log(feature.properties.mentioned_in.length);
+				let circle_text = "";
+				//let html_dot = `<span style="height: 5px; width: 5px; background-color: black; border-radius: 50%; display: inline-block; margin: auto; position: relative;"/>`
+				let html_dot = "";
+				let border_width = 4;
+				let border_color = "red";
+				let background_color = "coral";
+				let size = radius * 10;
+				let circle_style = `style="width: ${size}px; height: ${size}px; border-radius: 50%; display: table-cell; border: ${border_width}px solid ${border_color};  background: rgba(255, 0, 0, .5); overflow: hidden; position: absolute"`;
+				//let iconSize = size + border_width * 2;
+				let iconSize = size;
+				let icon = L.divIcon({
+					html: `<span ${circle_style}>${html_dot}</span>`,
+					className: "",
+					iconSize: [iconSize, iconSize],
+				});
+				let marker = L.marker(latLng, {
+					icon: icon,
+				});
+				return marker;
+			}
+
 			function buildMap(geojsonFeature) {
-				var map = L.map("worldmap").setView([48.210033, 16.363449], 5);
+				let map = L.map("worldmap").setView([48.210033, 16.363449], 5);
 				L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 					maxZoom: 19,
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 				}).addTo(map);
 				L.geoJSON(geojsonFeature, {
-					onEachFeature: definePopupString,
+					pointToLayer: function (feature, latlng) {
+						//return L.marker(latlng, { icon: myIcon });
+						return draw_cirlce(latlng, feature);
+					},
+					onEachFeature: addPopupString,
 				}).addTo(map);
+				return map;
 			}
 
 			function fetch_geodata_and_build_map(url) {
+				console.log("loading map");
 				fetch(url)
 					.then(function (response) {
+						// json string
 						return response.json();
 					})
 					.then(function (geojsonFeature) {
@@ -38,8 +84,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 						console.log(err);
 					});
 			}
+
 			// okay, lets build a map
-			var raw_geodata_url =
+			let raw_geodata_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
 			fetch_geodata_and_build_map(raw_geodata_url);
 		</script>
