@@ -9,15 +9,25 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
 		<div id="places_table"></div>
 		<script>
-			import { Tabulator } from "tabulator-tables";
+			import { TabulatorFull as Tabulator } from "tabulator-tables";
+			const current_url = window.location.origin + window.location.pathname;
 			//define data array
 			function refine_tabulatordata(tabulator_data) {
-				var new_tabulator_data = {};
-				new_tabulator_data = tabulator_data;
+				let new_tabulator_data = tabulator_data;
+				//let i = 0;
+				//while (i < tabulator_data.length) {
+				//	let coordinates = new_tabulator_data[i].coordinates;
+				//	delete new_tabulator_data[i].coordinates;
+				//	let name = new_tabulator_data[i].name;
+				//	new_tabulator_data[i].name = [name, coordinates];
+				//	i++;
+				//}
+				//console.log("refined");
+				//console.log(tabulator_data);
 				return new_tabulator_data;
 			}
 
-			function fetch_tabulatordata_and_build_table(url) {
+			function fetch_tabulatordata_and_build_table(url, map) {
 				console.log("loading table");
 				fetch(url)
 					.then(function (response) {
@@ -25,27 +35,88 @@ import PageLayout from "@/layouts/page-layout.astro";
 						return response.json();
 					})
 					.then(function (tabulator_data) {
-						buildTable(tabulator_data);
+						buildTable(tabulator_data, map);
 					})
 					.catch(function (err) {
 						console.log(err);
 					});
 			}
 
-			function buildTable(tabulator_data) {
+			function get_html_link(name, url) {
+				return `<a href='${url}'>${name}</a>`;
+			}
+
+			function get_html_list(array) {
+				return `<ul><li>${array.join("</li><li>")}</li></ul>`;
+			}
+
+			function buildTable(tabulator_data, map) {
 				var table = new Tabulator("#places_table", {
 					data: refine_tabulatordata(tabulator_data), //assign data to table
-					autoColumns: true, //create columns from data field names
+					columns: [
+						{
+							title: "name",
+							field: "name",
+							formatter: function (cell) {
+								return cell.getValue()[0];
+							},
+						},
+						{
+							title: "geonames",
+							field: "geonames",
+							formatter: function (cell) {
+								return get_html_link(cell.getValue()[0], cell.getValue()[1]);
+							},
+						},
+						{
+							title: "mentioned in",
+							field: "mentions",
+							formatter: function (cell) {
+								let values = cell.getValue();
+								let i = 0;
+								let links = [];
+								while (i < values.length) {
+									let pair = values[i];
+									links.push(get_html_link(pair[0], pair[1]));
+									i++;
+								}
+								return get_html_list(links);
+							},
+						},
+						{
+							title: "alternative names",
+							field: "alt_names",
+							formatter: function (cell) {
+								let values = cell.getValue();
+								if (values.length != 0) {
+									return get_html_list(values);
+								} else {
+									return "";
+								}
+							},
+						},
+						{ title: "total occurences", field: "total_occurences" },
+					],
 					height: "311px",
 					layout: "fitColumns",
 					width: "30rem",
 				});
-				return table;
+				console.log("made table");
+				table.on("rowClick", function (event, row) {
+					//e - the click event object
+					//cell - cell component
+					let data = row.getData().name;
+					console.log(row.getData());
+					let lng = data[1][0];
+					let lat = data[1][1];
+					//map.panTo(new L.LatLng(lat, lng));
+					map.flyTo([lat, lng], 10);
+					console.log("done");
+					//let name_cell = row.getCell("name");
+					//console.log(name_cell);
+				});
 			}
 
-			let raw_tabulator_data_url =
-				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/tabulator_data.json";
-			fetch_tabulatordata_and_build_table(raw_tabulator_data_url);
 			/////////////////////
 			// building the map//
 			/////////////////////
@@ -94,8 +165,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 				return marker;
 			}
 
-			function buildMap(geojsonFeature) {
-				let map = L.map("worldmap").setView([48.210033, 16.363449], 5);
+			function populateMap(geojsonFeature, map) {
 				L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 					maxZoom: 19,
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -107,28 +177,34 @@ import PageLayout from "@/layouts/page-layout.astro";
 					},
 					onEachFeature: addPopupString,
 				}).addTo(map);
-				return map;
 			}
 
 			function fetch_geodata_and_build_map(url) {
 				console.log("loading map");
+				let map = L.map("worldmap").setView([48.210033, 16.363449], 5);
 				fetch(url)
 					.then(function (response) {
 						// json string
 						return response.json();
 					})
 					.then(function (geojsonFeature) {
-						buildMap(geojsonFeature);
+						populateMap(geojsonFeature, map);
 					})
 					.catch(function (err) {
 						console.log(err);
 					});
+				return map;
 			}
 
-			// okay, lets build a map
+			// okay, lets build a map and table
 			let raw_geodata_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
-			fetch_geodata_and_build_map(raw_geodata_url);
+			let map = fetch_geodata_and_build_map(raw_geodata_url);
+			let raw_tabulator_data_url =
+				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/tabulator_data.json";
+			var table = fetch_tabulatordata_and_build_table(raw_tabulator_data_url, map);
+			//map.panTo(new L.LatLng(lat, lng));
+			// map.setView([lat, lng], zoom);
 		</script>
 	</ContentPage>
 </PageLayout>
