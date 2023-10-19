@@ -129,10 +129,14 @@ import PageLayout from "@/layouts/page-layout.astro";
 				tile_layer.addTo(map);
 				var circle_layer = L.layerGroup();
 				circle_layer.addTo(map);
+
+				// eventlistener for filter
 				table.on("dataFiltered", function (filters, rows) {
 					map.removeLayer(circle_layer);
 					circle_layer = L.layerGroup();
 					circle_layer.addTo(map);
+					// zoom to first entry
+					zoom_to_point_from_row(rows[0], map, 7);
 					rows.forEach((row) => {
 						let row_data = row.getData();
 						let coordinates = row_data.coordinates;
@@ -143,7 +147,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 						new_circle.addTo(circle_layer);
 					});
 				});
-				// eventlistener for filter
+
 				// this would be the better solution
 				/* var existing_circles_by_coordinates = undefined;
 				var circle_layer = L.layerGroup();
@@ -188,9 +192,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 				// eventlistener for click on row
 				table.on("rowClick", function (event, row) {
-					let row_data = row.getData();
-					let zoom = "10";
-					map.setView([row_data.coordinates.lat, row_data.coordinates.lng], zoom);
+					zoom_to_point_from_row(row, map);
 				});
 			}
 
@@ -275,6 +277,14 @@ import PageLayout from "@/layouts/page-layout.astro";
 					icon: icon,
 				});
 				return marker;
+			}
+
+			function zoom_to_point_from_row(row, map, zoom) {
+				let row_data = row.getData();
+				if (zoom == undefined) {
+					zoom = "10";
+				}
+				map.setView([row_data.coordinates.lat, row_data.coordinates.lng], zoom);
 			}
 
 			function add_popup_string_from_rowdata(row, layer, frequency) {
