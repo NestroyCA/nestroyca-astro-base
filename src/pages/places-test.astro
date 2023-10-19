@@ -136,7 +136,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 					circle_layer = L.layerGroup();
 					circle_layer.addTo(map);
 					// zoom to first entry
-					if (rows.length < 3) {
+					if (rows.length < 4 && rows.length > 0) {
 						zoom_to_point_from_row(rows[0], map, 7);
 					}
 					rows.forEach((row) => {
