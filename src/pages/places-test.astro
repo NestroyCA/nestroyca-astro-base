@@ -136,7 +136,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 					circle_layer = L.layerGroup();
 					circle_layer.addTo(map);
 					// zoom to first entry
-					zoom_to_point_from_row(rows[0], map, 7);
+					if (rows.length < 3) {
+						zoom_to_point_from_row(rows[0], map, 7);
+					}
 					rows.forEach((row) => {
 						let row_data = row.getData();
 						let coordinates = row_data.coordinates;
