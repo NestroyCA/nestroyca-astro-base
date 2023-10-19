@@ -27,7 +27,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 				return new_tabulator_data;
 			}
 
-			function fetch_tabulatordata_and_build_table(url, map) {
+			function fetch_tabulatordata_and_build_table(url, map, layer) {
 				console.log("loading table");
 				fetch(url)
 					.then(function (response) {
@@ -59,7 +59,6 @@ import PageLayout from "@/layouts/page-layout.astro";
 				cell_html_element.style.overflow = "auto";
 				cell_html_element.style.maxHeight = "100px";
 				let final_val = table.emptyToSpace(cell_html_string);
-				console.log(final_val);
 				return final_val;
 			}
 
@@ -68,10 +67,11 @@ import PageLayout from "@/layouts/page-layout.astro";
 					data: refine_tabulatordata(tabulator_data), //assign data to table
 					columns: [
 						{
+							headerFilter: "input",
 							title: "name",
 							field: "name",
 							formatter: function (cell) {
-								return cell.getValue()[0];
+								return cell.getValue();
 							},
 						},
 						{
@@ -82,6 +82,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 							},
 						},
 						{
+							headerFilter: "input",
 							title: "mentioned in",
 							field: "mentions",
 							//formatter: customTextareaFormatter,
@@ -99,6 +100,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 							},
 						},
 						{
+							headerFilter: "input",
 							title: "alternative names",
 							field: "alt_names",
 							formatter: function (cell) {
@@ -110,27 +112,85 @@ import PageLayout from "@/layouts/page-layout.astro";
 								}
 							},
 						},
-						{ title: "total occurences", field: "total_occurences" },
+						{ title: "total occurences", field: "total_occurences", headerFilter: "input" },
 					],
-					height: "311px",
+					headerFilterLiveFilterDelay: 600,
+					maxHeight: "500px",
 					layout: "fitColumns",
 					width: "30rem",
 				});
 				console.log("made table");
+				var data = table.searchData("age", ">", 12); //get row data for all rows with an age greater than 12
+
+				let tile_layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+					maxZoom: 19,
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				});
+				tile_layer.addTo(map);
+				var circle_layer = L.layerGroup();
+				circle_layer.addTo(map);
+				table.on("dataFiltered", function (filters, rows) {
+					map.removeLayer(circle_layer);
+					circle_layer = L.layerGroup();
+					circle_layer.addTo(map);
+					rows.forEach((row) => {
+						let row_data = row.getData();
+						let coordinates = row_data.coordinates;
+						let latlng = [coordinates.lat, coordinates.lng];
+						let frequency = row_data.mentions.length;
+						let new_circle = draw_cirlce_from_rowdata(latlng, frequency);
+						new_circle.bindPopup(get_label_string_html(row_data, frequency));
+						new_circle.addTo(circle_layer);
+					});
+				});
+				// eventlistener for filter
+				// this would be the better solution
+				/* var existing_circles_by_coordinates = undefined;
+				var circle_layer = L.layerGroup();
+				circle_layer.addTo(map);
+				table.on("dataFiltered", function(filters, rows){
+					if (existing_circles_by_coordinates === undefined){
+						existing_circles_by_coordinates = {};
+						circle_layer.getLayers().forEach(circle => {
+							existing_circles_by_coordinates[circle._latlng] = circle;
+						});
+						console.log(existing_circles_by_coordinates);
+					}
+					let new_circles_by_coordinates = {}
+					rows.forEach(row => {
+						let row_data = row.getData();
+						let coordinates = row_data.coordinates;
+						console.log(coordinates);
+						console.log(existing_circles_by_coordinates);
+						console.log("compare");
+						if (coordinates in existing_circles_by_coordinates){
+							let existing_circle = existing_circles_by_coordinates[coordinates];
+							new_circles_by_coordinates[coordinates] = existing_circle;
+							delete existing_circles_by_coordinates[coordinates];
+						} else {
+							let latlng = [row_data.coordinates.lat, row_data.coordinates.lng];
+							let frequency = row_data.mentions.length;
+							let new_circle = draw_cirlce_from_rowdata(latlng, frequency);
+							new_circle.bindPopup(get_label_string_html(row_data, frequency));
+							new_circle.addTo(circle_layer);
+						}
+					});
+					// remove unused circles
+					let unused_circles = Object.keys(existing_circles_by_coordinates).map(function(key){
+						return existing_circles_by_coordinates[key];
+					});
+					unused_circles.forEach(unused_circle => {
+						circle_layer.removeLayer(unused_circle);
+					});
+					existing_circles_by_coordinates = new_circles_by_coordinates;
+					console.log(circle_layer);
+				});*/
+
+				// eventlistener for click on row
 				table.on("rowClick", function (event, row) {
-					//e - the click event object
-					//cell - cell component
-					let data = row.getData().name;
-					console.log(row.getData());
-					let lng = data[1][0];
-					let lat = data[1][1];
+					let row_data = row.getData();
 					let zoom = "10";
-					//map.panTo(new L.LatLng(lat, lng));
-					map.setView([lat, lng], zoom);
-					//map.flyTo([lat, lng], 10);
-					console.log("done");
-					//let name_cell = row.getCell("name");
-					//console.log(name_cell);
+					map.setView([row_data.coordinates.lat, row_data.coordinates.lng], zoom);
 				});
 			}
 
@@ -140,7 +200,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 			import L from "leaflet";
 
-			function get_label_string_html(properties) {
+			function get_label_string_html_bak(properties) {
 				let number_of_plays_mentioning = properties.mentioned_in.length;
 				// could use properties.total_occurences later
 				let label_string = `<b>${properties.name}</b><br>(occurring in ${number_of_plays_mentioning} plays)<br>`;
@@ -150,6 +210,19 @@ import PageLayout from "@/layouts/page-layout.astro";
 					let table_index = mention.id;
 					let nestroy_id = mention.value;
 					let play_title = mention.title;
+					plays_list_start += `<li><a href='${nestroy_id}'>${play_title}</a></li>`;
+				});
+				return label_string + plays_list_start + plays_list_end;
+			}
+			function get_label_string_html(row, frequency) {
+				let number_of_plays_mentioning = frequency;
+				// could use properties.total_occurences later
+				let label_string = `<b>${row.name}</b><br>(occurring in ${number_of_plays_mentioning} plays)<br>`;
+				let plays_list_start = "<ul>";
+				let plays_list_end = "</ul>";
+				row.mentions.forEach((mention) => {
+					let nestroy_id = mention[1];
+					let play_title = mention[0];
 					plays_list_start += `<li><a href='${nestroy_id}'>${play_title}</a></li>`;
 				});
 				return label_string + plays_list_start + plays_list_end;
@@ -180,6 +253,33 @@ import PageLayout from "@/layouts/page-layout.astro";
 					icon: icon,
 				});
 				return marker;
+			}
+
+			function draw_cirlce_from_rowdata(latLng, frequency) {
+				let radius = frequency;
+				//let html_dot = `<span style="height: 5px; width: 5px; background-color: black; border-radius: 50%; display: inline-block; margin: auto; position: relative;"/>`
+				let html_dot = "";
+				let border_width = 4;
+				let border_color = "red";
+				let background_color = "coral";
+				let size = radius * 10;
+				let circle_style = `style="width: ${size}px; height: ${size}px; border-radius: 50%; display: table-cell; border: ${border_width}px solid ${border_color};  background: rgba(255, 0, 0, .5); overflow: hidden; position: absolute"`;
+				//let iconSize = size + border_width * 2;
+				let iconSize = size;
+				let icon = L.divIcon({
+					html: `<span ${circle_style}>${html_dot}</span>`,
+					className: "",
+					iconSize: [iconSize, iconSize],
+				});
+				let marker = L.marker(latLng, {
+					icon: icon,
+				});
+				return marker;
+			}
+
+			function add_popup_string_from_rowdata(row, layer, frequency) {
+				let popupString = get_label_string_html(row, frequency);
+				layer.bindPopup(popupString);
 			}
 
 			function populateMap(geojsonFeature, map) {
@@ -216,10 +316,12 @@ import PageLayout from "@/layouts/page-layout.astro";
 			// okay, lets build a map and table
 			let raw_geodata_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
-			let map = fetch_geodata_and_build_map(raw_geodata_url);
+			console.log("loading map");
+			var map = L.map("worldmap").setView([48.210033, 16.363449], 5);
 			let raw_tabulator_data_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/tabulator_data.json";
-			var table = fetch_tabulatordata_and_build_table(raw_tabulator_data_url, map);
+			let tile_layer = undefined;
+			var table = fetch_tabulatordata_and_build_table(raw_tabulator_data_url, map, tile_layer);
 		</script>
 	</ContentPage>
 </PageLayout>
