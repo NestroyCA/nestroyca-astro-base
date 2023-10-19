@@ -50,6 +50,19 @@ import PageLayout from "@/layouts/page-layout.astro";
 				return `<ul><li>${array.join("</li><li>")}</li></ul>`;
 			}
 
+			function get_scrollable_cell(table, cell, cell_html_string = undefined) {
+				if (cell_html_string === undefined) {
+					cell_html_string = cell.getValue();
+				}
+				var cell_html_element = cell.getElement();
+				cell_html_element.style.whiteSpace = "pre-wrap";
+				cell_html_element.style.overflow = "auto";
+				cell_html_element.style.maxHeight = "100px";
+				let final_val = table.emptyToSpace(cell_html_string);
+				console.log(final_val);
+				return final_val;
+			}
+
 			function buildTable(tabulator_data, map) {
 				var table = new Tabulator("#places_table", {
 					data: refine_tabulatordata(tabulator_data), //assign data to table
@@ -71,6 +84,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 						{
 							title: "mentioned in",
 							field: "mentions",
+							//formatter: customTextareaFormatter,
 							formatter: function (cell) {
 								let values = cell.getValue();
 								let i = 0;
@@ -80,7 +94,8 @@ import PageLayout from "@/layouts/page-layout.astro";
 									links.push(get_html_link(pair[0], pair[1]));
 									i++;
 								}
-								return get_html_list(links);
+								let basic_html = get_html_list(links);
+								return get_scrollable_cell(this, cell, basic_html);
 							},
 						},
 						{
@@ -109,8 +124,10 @@ import PageLayout from "@/layouts/page-layout.astro";
 					console.log(row.getData());
 					let lng = data[1][0];
 					let lat = data[1][1];
+					let zoom = "10";
 					//map.panTo(new L.LatLng(lat, lng));
-					map.flyTo([lat, lng], 10);
+					map.setView([lat, lng], zoom);
+					//map.flyTo([lat, lng], 10);
 					console.log("done");
 					//let name_cell = row.getCell("name");
 					//console.log(name_cell);
@@ -203,8 +220,6 @@ import PageLayout from "@/layouts/page-layout.astro";
 			let raw_tabulator_data_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/tabulator_data.json";
 			var table = fetch_tabulatordata_and_build_table(raw_tabulator_data_url, map);
-			//map.panTo(new L.LatLng(lat, lng));
-			// map.setView([lat, lng], zoom);
 		</script>
 	</ContentPage>
 </PageLayout>
