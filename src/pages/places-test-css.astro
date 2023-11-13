@@ -140,6 +140,12 @@ import PageLayout from "@/layouts/page-layout.astro";
 					let all_rows = this.getRows();
 					var existing_markers_by_coordinates = init_map_from_rows(all_rows, marker_layer);
 					table.on("dataFiltered", function (filters, rows) {
+						// zoom to first entry
+						if (rows.length < 4 && rows.length > 0) {
+							zoom_to_point_from_row(rows[0], map, 7);
+						} else {
+							map.setView([48.210033, 16.363449], 5);
+						}
 						var keys_of_displayed_markers = [];
 						rows.forEach((row) => {
 							let row_data = row.getData();
@@ -175,11 +181,17 @@ import PageLayout from "@/layouts/page-layout.astro";
 				var marker_layer = L.layerGroup();
 				marker_layer.addTo(map);
 				table.on("tableBuilt", function () {
+					console.log("built table");
 					let all_rows = this.getRows();
 					var existing_markers_by_coordinates = init_map_from_rows(all_rows, marker_layer);
 					// every marker is displayed …
 					var keys_of_displayed_markers = Object.keys(existing_markers_by_coordinates);
 					table.on("dataFiltered", function (filters, rows) {
+						if (rows.length < 4 && rows.length > 0) {
+							zoom_to_point_from_row(rows[0], map, 7);
+						} else {
+							map.setView([48.210033, 16.363449], 5);
+						}
 						let keys_of_markers_to_be_displayed = [];
 						rows.forEach((row) => {
 							let row_data = row.getData();
