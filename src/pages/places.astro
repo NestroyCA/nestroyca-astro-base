@@ -7,38 +7,53 @@ import PageLayout from "@/layouts/page-layout.astro";
 <PageLayout title={links.entities_places.label}>
 	<ContentPage title={links.entities_places.title} layout="full-width">
 		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
+		<div id="places_table"></div>
 		<script>
-			import L from "leaflet";
+			import { TabulatorFull as Tabulator } from "tabulator-tables";
+			const current_url = window.location.origin + window.location.pathname;
+			function fetch_tabulatordata_and_build_table(url, map, layer) {
+				console.log("loading table");
+				fetch(url)
+					.then(function (response) {
+						// json string
+						return response.json();
+					})
+					.then(function (tabulator_data) {
+						buildTable(tabulator_data, map);
+					})
+					.catch(function (err) {
+						console.log(err);
+					});
+			}
 
-			function get_label_string_html(properties) {
-				let number_of_plays_mentioning = properties.mentioned_in.length;
+			function get_html_link(name, url) {
+				return `<a href='${url}'>${name}</a>`;
+			}
+
+			function get_html_list(array) {
+				return `<ul><li>${array.join("</li><li>")}</li></ul>`;
+			}
+
+			function get_label_string_html(row, frequency) {
+				let number_of_plays_mentioning = frequency;
 				// could use properties.total_occurences later
-				let label_string = `<b>${properties.name}</b><br>(occurring in ${number_of_plays_mentioning} plays)<br>`;
+				let label_string = `<b>${row.name}</b><br>(occurring in ${number_of_plays_mentioning} plays)<br>`;
 				let plays_list_start = "<ul>";
 				let plays_list_end = "</ul>";
-				properties.mentioned_in.forEach((mention) => {
-					let table_index = mention.id;
-					let nestroy_id = mention.value;
-					let play_title = mention.title;
+				row.mentions.forEach((mention) => {
+					let nestroy_id = mention[1];
+					let play_title = mention[0];
 					plays_list_start += `<li><a href='${nestroy_id}'>${play_title}</a></li>`;
 				});
 				return label_string + plays_list_start + plays_list_end;
 			}
 
-			function addPopupString(feature, layer) {
-				let popupString = get_label_string_html(feature.properties);
-				layer.bindPopup(popupString);
-			}
-
-			function draw_cirlce(latLng, feature) {
-				let radius = feature.properties.mentioned_in.length;
-				console.log(feature.properties.mentioned_in.length);
-				let circle_text = "";
+			function draw_cirlce_from_rowdata(latLng, frequency) {
+				let radius = frequency;
 				//let html_dot = `<span style="height: 5px; width: 5px; background-color: black; border-radius: 50%; display: inline-block; margin: auto; position: relative;"/>`
 				let html_dot = "";
 				let border_width = 4;
 				let border_color = "red";
-				let background_color = "coral";
 				let size = radius * 10;
 				let circle_style = `style="width: ${size}px; height: ${size}px; border-radius: 50%; display: table-cell; border: ${border_width}px solid ${border_color};  background: rgba(255, 0, 0, .5); overflow: hidden; position: absolute"`;
 				//let iconSize = size + border_width * 2;
@@ -54,41 +69,174 @@ import PageLayout from "@/layouts/page-layout.astro";
 				return marker;
 			}
 
-			function buildMap(geojsonFeature) {
-				let map = L.map("worldmap").setView([48.210033, 16.363449], 5);
-				L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+			function zoom_to_point_from_row(row, map, zoom) {
+				let row_data = row.getData();
+				if (zoom == undefined) {
+					zoom = "10";
+				}
+				map.setView([row_data.coordinates.lat, row_data.coordinates.lng], zoom);
+			}
+
+			function get_scrollable_cell(table, cell, cell_html_string = undefined) {
+				if (cell_html_string === undefined) {
+					cell_html_string = cell.getValue();
+				}
+				var cell_html_element = cell.getElement();
+				cell_html_element.style.whiteSpace = "pre-wrap";
+				cell_html_element.style.overflow = "auto";
+				cell_html_element.style.maxHeight = "100px";
+				let final_val = table.emptyToSpace(cell_html_string);
+				return final_val;
+			}
+
+			function buildTable(tabulator_data, map) {
+				var table = new Tabulator("#places_table", {
+					data: tabulator_data, //assign data to table
+					columns: [
+						{
+							headerFilter: "input",
+							title: "name",
+							field: "name",
+							formatter: function (cell) {
+								return cell.getValue();
+							},
+						},
+						{
+							title: "geonames",
+							field: "geonames",
+							formatter: function (cell) {
+								return get_html_link(cell.getValue()[0], cell.getValue()[1]);
+							},
+						},
+						{
+							headerFilter: "input",
+							title: "mentioned in",
+							field: "mentions",
+							//formatter: customTextareaFormatter,
+							formatter: function (cell) {
+								let values = cell.getValue();
+								let i = 0;
+								let links = [];
+								while (i < values.length) {
+									let pair = values[i];
+									links.push(get_html_link(pair[0], pair[1]));
+									i++;
+								}
+								let basic_html = get_html_list(links);
+								return get_scrollable_cell(this, cell, basic_html);
+							},
+						},
+						{
+							headerFilter: "input",
+							title: "alternative names",
+							field: "alt_names",
+							formatter: function (cell) {
+								let values = cell.getValue();
+								if (values.length != 0) {
+									return get_html_list(values);
+								} else {
+									return "";
+								}
+							},
+						},
+						{ title: "total occurences", field: "total_occurences", headerFilter: "input" },
+					],
+					headerFilterLiveFilterDelay: 600,
+					maxHeight: "500px",
+					layout: "fitColumns",
+					width: "30rem",
+				});
+				console.log("made table");
+				let tile_layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 					maxZoom: 19,
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-				}).addTo(map);
-				L.geoJSON(geojsonFeature, {
-					pointToLayer: function (feature, latlng) {
-						//return L.marker(latlng, { icon: myIcon });
-						return draw_cirlce(latlng, feature);
-					},
-					onEachFeature: addPopupString,
-				}).addTo(map);
-				return map;
-			}
+				});
+				tile_layer.addTo(map);
+				var circle_layer = L.layerGroup();
+				circle_layer.addTo(map);
 
-			function fetch_geodata_and_build_map(url) {
-				console.log("loading map");
-				fetch(url)
-					.then(function (response) {
-						// json string
-						return response.json();
-					})
-					.then(function (geojsonFeature) {
-						buildMap(geojsonFeature);
-					})
-					.catch(function (err) {
-						console.log(err);
+				// eventlistener for filter
+				table.on("dataFiltered", function (filters, rows) {
+					map.removeLayer(circle_layer);
+					circle_layer = L.layerGroup();
+					circle_layer.addTo(map);
+					// zoom to first entry
+					if (rows.length < 4 && rows.length > 0) {
+						zoom_to_point_from_row(rows[0], map, 7);
+					} else {
+						map.setView([48.210033, 16.363449], 5);
+					}
+					rows.forEach((row) => {
+						let row_data = row.getData();
+						let coordinates = row_data.coordinates;
+						let latlng = [coordinates.lat, coordinates.lng];
+						let frequency = row_data.mentions.length;
+						let new_circle = draw_cirlce_from_rowdata(latlng, frequency);
+						new_circle.bindPopup(get_label_string_html(row_data, frequency));
+						new_circle.addTo(circle_layer);
 					});
+				});
+
+				// this would be the better solution
+				/* var existing_circles_by_coordinates = undefined;
+				var circle_layer = L.layerGroup();
+				circle_layer.addTo(map);
+				table.on("dataFiltered", function(filters, rows){
+					if (existing_circles_by_coordinates === undefined){
+						existing_circles_by_coordinates = {};
+						circle_layer.getLayers().forEach(circle => {
+							existing_circles_by_coordinates[circle._latlng] = circle;
+						});
+						console.log(existing_circles_by_coordinates);
+					}
+					let new_circles_by_coordinates = {}
+					rows.forEach(row => {
+						let row_data = row.getData();
+						let coordinates = row_data.coordinates;
+						console.log(coordinates);
+						console.log(existing_circles_by_coordinates);
+						console.log("compare");
+						if (coordinates in existing_circles_by_coordinates){
+							let existing_circle = existing_circles_by_coordinates[coordinates];
+							new_circles_by_coordinates[coordinates] = existing_circle;
+							delete existing_circles_by_coordinates[coordinates];
+						} else {
+							let latlng = [row_data.coordinates.lat, row_data.coordinates.lng];
+							let frequency = row_data.mentions.length;
+							let new_circle = draw_cirlce_from_rowdata(latlng, frequency);
+							new_circle.bindPopup(get_label_string_html(row_data, frequency));
+							new_circle.addTo(circle_layer);
+						}
+					});
+					// remove unused circles
+					let unused_circles = Object.keys(existing_circles_by_coordinates).map(function(key){
+						return existing_circles_by_coordinates[key];
+					});
+					unused_circles.forEach(unused_circle => {
+						circle_layer.removeLayer(unused_circle);
+					});
+					existing_circles_by_coordinates = new_circles_by_coordinates;
+					console.log(circle_layer);
+				});*/
+
+				// eventlistener for click on row
+				table.on("rowClick", function (event, row) {
+					zoom_to_point_from_row(row, map);
+				});
 			}
 
-			// okay, lets build a map
-			let raw_geodata_url =
-				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_geodata.json";
-			fetch_geodata_and_build_map(raw_geodata_url);
+			/////////////////////
+			// building the map//
+			/////////////////////
+
+			import L from "leaflet";
+			// okay, lets build a map and table
+			console.log("loading map");
+			var map = L.map("worldmap").setView([48.210033, 16.363449], 5);
+			let raw_tabulator_data_url =
+				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/tabulator_data.json";
+			let tile_layer = undefined;
+			var table = fetch_tabulatordata_and_build_table(raw_tabulator_data_url, map, tile_layer);
 		</script>
 	</ContentPage>
 </PageLayout>
