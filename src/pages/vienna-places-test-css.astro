@@ -6,24 +6,18 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 <PageLayout title={links.entities_places.label}>
 	<ContentPage title={links.entities_places.title} layout="full-width">
-		<div id="intro">
-			<p>
-				This map displays all human settlements mentioned in Nestroys Works. The radius of each red
-				circle denotes the frequency of mentions.
-			</p>
-		</div>
-		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
+		<div id="worldmap" class="not-prose min-h-[25vh] md:min-h-screen"></div>
 		<div id="places_table"></div>
 		<script>
 			import { build_map_and_table } from "./scripts/make_map";
 			let cfg = {
-				initial_zoom: "5",
+				initial_zoom: "13",
 				initial_coordinates: [48.210033, 16.363449],
 				base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 				json_url:
-					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json",
+					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json",
 				max_zoom: "19",
-				on_row_click_zoom: "11",
+				on_row_click_zoom: "16",
 				div_id: "worldmap",
 			};
 			build_map_and_table(cfg);

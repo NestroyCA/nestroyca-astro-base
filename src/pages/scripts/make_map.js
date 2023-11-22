@@ -250,7 +250,7 @@ function buildTable(tabulator_data) {
 /////////////////////
 export function build_map_and_table(cfg) {
 	console.log("loading map");
-	let map = L.map("worldmap").setView(cfg.initial_coordinates, cfg.initial_zoom);
+	let map = L.map(cfg.div_id).setView(cfg.initial_coordinates, cfg.initial_zoom);
 	let tile_layer = L.tileLayer(cfg.base_map_url, {
 		maxZoom: cfg.max_zoom,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
