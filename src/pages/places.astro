@@ -18,6 +18,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 			import { build_map_and_table } from "./scripts/make_map";
 			let cfg = {
 				initial_zoom: "5",
+				initial_coordinates: [48.210033, 16.363449],
 				base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 				json_url:
 					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json",
