@@ -12,8 +12,8 @@ import PageLayout from "@/layouts/page-layout.astro";
 				circle denotes the frequency of mentions.
 			</p>
 		</div>
-		<div id="worldmap" class="not-prose min-h-[50vh] md:min-h-screen"></div>
-		<div id="places_table"></div>
+		<div id="worldmap" class="not-prose mb-5 min-h-[50vh] rounded-lg border md:min-h-screen"></div>
+		<div id="places_table" class=""></div>
 		<script>
 			import { build_map_and_table } from "./scripts/make_map";
 			let cfg = {
