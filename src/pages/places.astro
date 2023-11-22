@@ -17,12 +17,12 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<script>
 			import { build_map_and_table } from "./scripts/make_map";
 			let cfg = {
-				initial_zoom: 5,
+				initial_zoom: "5",
 				base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 				json_url:
 					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json",
-				zoom_on_row_click: 8,
-				max_zoom: 19,
+				max_zoom: "19",
+				on_row_click_zoom: "11",
 			};
 			build_map_and_table(cfg);
 		</script>

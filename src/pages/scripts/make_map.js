@@ -1,16 +1,17 @@
 import L from "leaflet";
 import { TabulatorFull as Tabulator } from "tabulator-tables";
 
-function fetch_tabulatordata_and_build_table(url, map) {
+function fetch_tabulatordata_and_build_table(cfg, map) {
 	console.log("loading table");
-	fetch(url)
+	fetch(cfg.json_url)
 		.then(function (response) {
 			// json string
 			return response.json();
 		})
 		.then(function (tabulator_data) {
 			// the table will draw all markers on to the empty map
-			buildTable(tabulator_data, map);
+			let table = buildTable(tabulator_data, map);
+			populateMapFromTable(table, map, cfg.on_row_click_zoom);
 		})
 		.catch(function (err) {
 			console.log(err);
@@ -126,7 +127,7 @@ function toggle_marker_visibility(marker) {
 	}
 }
 
-function populateMapFromTable_css_alternative(table, map) {
+function populateMapFromTable(table, map, on_row_click_zoom) {
 	var marker_layer = L.layerGroup();
 	marker_layer.addTo(map);
 	table.on("tableBuilt", function () {
@@ -138,7 +139,12 @@ function populateMapFromTable_css_alternative(table, map) {
 		table.on("dataFiltered", function (filters, rows) {
 			if (rows.length < 4 && rows.length > 0) {
 				let row_data = rows[0].getData();
-				zoom_to_point_from_row_data(row_data, map, 7, existing_markers_by_coordinates);
+				zoom_to_point_from_row_data(
+					row_data,
+					map,
+					on_row_click_zoom,
+					existing_markers_by_coordinates,
+				);
 			} else {
 				map.setView([48.210033, 16.363449], 5);
 			}
@@ -177,13 +183,18 @@ function populateMapFromTable_css_alternative(table, map) {
 		//eventlistener for click on row
 		table.on("rowClick", function (event, row) {
 			let row_data = row.getData();
-			zoom_to_point_from_row_data(row_data, map, 16, existing_markers_by_coordinates);
+			zoom_to_point_from_row_data(
+				row_data,
+				map,
+				on_row_click_zoom,
+				existing_markers_by_coordinates,
+			);
 		});
 	});
 }
 
-function buildTable(tabulator_data, map) {
-	var table = new Tabulator("#places_table", {
+function buildTable(tabulator_data) {
+	let table = new Tabulator("#places_table", {
 		data: tabulator_data, //assign data to table
 		columns: [
 			{
@@ -231,7 +242,7 @@ function buildTable(tabulator_data, map) {
 		width: "30rem",
 	});
 	console.log("made table");
-	populateMapFromTable_css_alternative(table, map);
+	return table;
 }
 
 /////////////////////
@@ -241,9 +252,9 @@ export function build_map_and_table(cfg) {
 	console.log("loading map");
 	let map = L.map("worldmap").setView([48.210033, 16.363449], cfg.initial_zoom);
 	let tile_layer = L.tileLayer(cfg.base_map_url, {
-		maxZoom: cfg.maxZoom,
+		maxZoom: cfg.max_zoom,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 	});
 	tile_layer.addTo(map);
-	fetch_tabulatordata_and_build_table(cfg.json_url, map);
+	fetch_tabulatordata_and_build_table(cfg, map);
 }
