@@ -1,7 +1,5 @@
 import L from "leaflet";
-import TabulatorFull from "tabulator-tables";
-
-const Tabulator = TabulatorFull;
+import { TabulatorFull as Tabulator } from "tabulator-tables";
 
 function fetch_tabulatordata_and_build_table(cfg, map) {
 	console.log("loading table");
