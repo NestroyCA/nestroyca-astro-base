@@ -30,6 +30,12 @@
 		"types:check": "astro sync && tsc --noEmit && astro check",
 		"validate": "run-p format:check lint:check types:check test test:e2e"
 	},
+	"dependencies": {
+		"@astrojs/alpinejs": "^0.2.2",
+		"@types/alpinejs": "^3.0.0",
+		"alpinejs": "^3.0.0",
+		"tabulator-tables": "^5.5.2"
+	},
 	"devDependencies": {
 		"@acdh-oeaw/eslint-config": "^1.0.0",
 		"@acdh-oeaw/eslint-config-astro": "^1.0.0",
@@ -141,12 +147,5 @@
 	},
 	"stylelint": {
 		"extends": "@acdh-oeaw/stylelint-config"
-	},
-	"dependencies": {
-		"@astrojs/alpinejs": "^0.2.2",
-		"@types/alpinejs": "^3.0.0",
-		"alpinejs": "^3.0.0",
-		"astro-geo-map": "^2.0.0",
-		"tabulator-tables": "^5.5.2"
 	}
 }
