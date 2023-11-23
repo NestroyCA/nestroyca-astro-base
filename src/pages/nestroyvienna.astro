@@ -32,11 +32,11 @@ import PageLayout from "@/layouts/page-layout.astro";
 				</figcaption>
 			</figure>
 		</div>
-		<div id="worldmap" class="not-prose mb-5 min-h-[25vh] rounded-lg border md:min-h-screen"></div>
+		<div id="vienna_map" class="not-prose mb-5 h-[45vh] rounded-lg border"></div>
 		<div id="places_table"></div>
 		<script>
 			import { build_map_and_table } from "./scripts/make_map.mjs";
-			let cfg = {
+			let map_cfg = {
 				initial_zoom: "13",
 				initial_coordinates: [48.210033, 16.363449],
 				base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -44,9 +44,16 @@ import PageLayout from "@/layouts/page-layout.astro";
 					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json",
 				max_zoom: "19",
 				on_row_click_zoom: "16",
-				div_id: "worldmap",
+				div_id: "vienna_map",
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 			};
-			build_map_and_table(cfg);
+			let table_cfg = {
+				headerFilterLiveFilterDelay: 600,
+				maxHeight: "45vh",
+				layout: "fitColumns",
+				width: "100%",
+			};
+			build_map_and_table(map_cfg, table_cfg);
 		</script>
 	</ContentPage>
 </PageLayout>

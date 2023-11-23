@@ -1,17 +1,18 @@
 import L from "leaflet";
 import { TabulatorFull as Tabulator } from "tabulator-tables";
 
-function fetch_tabulatordata_and_build_table(cfg, map) {
+function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg) {
 	console.log("loading table");
-	fetch(cfg.json_url)
+	fetch(map_cfg.json_url)
 		.then(function (response) {
 			// json string
 			return response.json();
 		})
 		.then(function (tabulator_data) {
 			// the table will draw all markers on to the empty map
-			let table = buildTable(tabulator_data, map);
-			populateMapFromTable(table, map, cfg.on_row_click_zoom);
+			table_cfg.data = tabulator_data;
+			let table = buildTable(table_cfg);
+			populateMapFromTable(table, map, map_cfg.on_row_click_zoom);
 		})
 		.catch(function (err) {
 			console.log(err);
@@ -42,13 +43,11 @@ function get_label_string_html(row, frequency) {
 
 function draw_cirlce_from_rowdata(latLng, frequency) {
 	let radius = frequency;
-	//let html_dot = `<span style="height: 5px; width: 5px; background-color: black; border-radius: 50%; display: inline-block; margin: auto; position: relative;"/>`
 	let html_dot = "";
 	let border_width = 4;
 	let border_color = "red";
 	let size = radius * 10;
 	let circle_style = `style="width: ${size}px; height: ${size}px; border-radius: 50%; display: table-cell; border: ${border_width}px solid ${border_color};  background: rgba(255, 0, 0, .5); overflow: hidden; position: absolute"`;
-	//let iconSize = size + border_width * 2;
 	let iconSize = size;
 	let icon = L.divIcon({
 		html: `<span ${circle_style}>${html_dot}</span>`,
@@ -193,54 +192,48 @@ function populateMapFromTable(table, map, on_row_click_zoom) {
 	});
 }
 
-function buildTable(tabulator_data) {
-	let table = new Tabulator("#places_table", {
-		data: tabulator_data, //assign data to table
-		columns: [
-			{
-				headerFilter: "input",
-				title: "name",
-				field: "name",
-				formatter: "html",
-			},
-			{
-				title: "links",
-				field: "geonames",
-				formatter: "link",
-				formatterParams: {
-					url: function (cell) {
-						return cell.getValue()[1];
-					},
-					label: function (cell) {
-						return cell.getValue()[0];
-					},
+function buildTable(table_cfg) {
+	table_cfg.columns = [
+		{
+			headerFilter: "input",
+			title: "name",
+			field: "name",
+			formatter: "html",
+		},
+		{
+			title: "links",
+			field: "geonames",
+			formatter: "link",
+			formatterParams: {
+				url: function (cell) {
+					return cell.getValue()[1];
+				},
+				label: function (cell) {
+					return cell.getValue()[0];
 				},
 			},
-			{
-				headerFilter: "input",
-				title: "mentioned in",
-				field: "mentions",
-				formatter: function (cell) {
-					return build_linklist_cell(this, cell);
-				},
+		},
+		{
+			headerFilter: "input",
+			title: "mentioned in",
+			field: "mentions",
+			formatter: function (cell) {
+				return build_linklist_cell(this, cell);
 			},
-			{
-				headerFilter: "input",
-				title: "alternative names",
-				field: "alt_names",
-				formatter: "textarea",
-			},
-			{
-				title: "total occurences",
-				field: "total_occurences",
-				headerFilter: "input",
-			},
-		],
-		headerFilterLiveFilterDelay: 600,
-		maxHeight: "500px",
-		layout: "fitColumns",
-		width: "30rem",
-	});
+		},
+		{
+			headerFilter: "input",
+			title: "alternative names",
+			field: "alt_names",
+			formatter: "textarea",
+		},
+		{
+			title: "total occurences",
+			field: "total_occurences",
+			headerFilter: "input",
+		},
+	];
+	let table = new Tabulator("#places_table", table_cfg);
 	console.log("made table");
 	return table;
 }
@@ -248,13 +241,13 @@ function buildTable(tabulator_data) {
 /////////////////////
 // building the map//
 /////////////////////
-export function build_map_and_table(cfg) {
+export function build_map_and_table(map_cfg, table_cfg) {
 	console.log("loading map");
-	let map = L.map(cfg.div_id).setView(cfg.initial_coordinates, cfg.initial_zoom);
-	let tile_layer = L.tileLayer(cfg.base_map_url, {
-		maxZoom: cfg.max_zoom,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	let map = L.map(map_cfg.div_id).setView(map_cfg.initial_coordinates, map_cfg.initial_zoom);
+	let tile_layer = L.tileLayer(map_cfg.base_map_url, {
+		maxZoom: map_cfg.max_zoom,
+		attribution: map_cfg.attribution,
 	});
 	tile_layer.addTo(map);
-	fetch_tabulatordata_and_build_table(cfg, map);
+	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg);
 }
