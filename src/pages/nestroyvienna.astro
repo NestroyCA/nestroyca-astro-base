@@ -37,8 +37,8 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<script>
 			import { build_map_and_table } from "./scripts/make_map.mjs";
 			let map_cfg = {
-				initial_zoom: "13",
-				initial_coordinates: [48.210033, 16.363449],
+				initial_zoom: "15",
+				initial_coordinates: [48.209, 16.37],
 				base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 				json_url:
 					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json",
@@ -53,7 +53,26 @@ import PageLayout from "@/layouts/page-layout.astro";
 				layout: "fitColumns",
 				width: "100%",
 			};
-			build_map_and_table(map_cfg, table_cfg);
+			let wms_cfg = {
+				wms_url: "https://data.wien.gv.at/daten/wms?version=1.1.1",
+				wmsOptions: {
+					service: "WMS",
+					version: "1.1.1",
+					request: "GetMap",
+					contextualWMSLegend: "0",
+					crs: L.CRS.EPSG4326,
+					dpiMode: "7",
+					featureCount: "10",
+					format: "image/png",
+					layers: "HISTWIENPL1858OGD",
+					url: "https://data.wien.gv.at/daten/wms?version%3D1.1.1",
+					dpi: "96",
+					map_resolution: "96",
+					format_options: "dpi 96",
+					opacity: 0.5,
+				},
+			};
+			build_map_and_table(map_cfg, table_cfg, wms_cfg);
 		</script>
 	</ContentPage>
 </PageLayout>

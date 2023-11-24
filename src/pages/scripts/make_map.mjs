@@ -1,23 +1,7 @@
 import L from "leaflet";
 import { TabulatorFull as Tabulator } from "tabulator-tables";
 
-function add_historic_map_layer(map){
-	let wmsOptions = {
-		contextualWMSLegend: "0",
-		crs: L.CRS.EPSG4326,
-		dpiMode: "7",
-		featureCount: "10",
-		format: "image/gif",
-		layers: "BEHSELINNENSTOGD",
-		url: "https://data.wien.gv.at/daten/wms?version%3D1.1.1",
-	};
-	let wms_url = "https://data.wien.gv.at/daten/wms?version=1.1.1";
-	var wmsLayer = L.tileLayer.wms(wms_url, wmsOptions);
-	wmsLayer.addTo(map);
-	wmsLayer.bringToFront();
-}
-
-function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg) {
+function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer) {
 	console.log("loading table");
 	fetch(map_cfg.json_url)
 		.then(function (response) {
@@ -28,7 +12,7 @@ function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg) {
 			// the table will draw all markers on to the empty map
 			table_cfg.data = tabulator_data;
 			let table = build_map_table(table_cfg);
-			populateMapFromTable(table, map, map_cfg.on_row_click_zoom);
+			populateMapFromTable(table, map, map_cfg.on_row_click_zoom, marker_layer);
 		})
 		.catch(function (err) {
 			console.log(err);
@@ -142,9 +126,7 @@ function toggle_marker_visibility(marker) {
 	}
 }
 
-function populateMapFromTable(table, map, on_row_click_zoom) {
-	var marker_layer = L.layerGroup();
-	marker_layer.addTo(map);
+function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
 	table.on("tableBuilt", function () {
 		console.log("built table");
 		let all_rows = this.getRows();
@@ -257,16 +239,38 @@ function build_map_table(table_cfg) {
 /////////////////////
 // building the map//
 /////////////////////
-export function build_map_and_table(map_cfg, table_cfg) {
+export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	console.log("loading map");
 	let map = L.map(map_cfg.div_id).setView(map_cfg.initial_coordinates, map_cfg.initial_zoom);
 	let tile_layer = L.tileLayer(map_cfg.base_map_url, {
 		maxZoom: map_cfg.max_zoom,
 		attribution: map_cfg.attribution,
 	});
-	add_historic_map_layer(map);
+	let marker_layer = L.layerGroup();
+	// handle the layers
+	// order of adding matters!
 	tile_layer.addTo(map);
-	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg);
+	// this is for the page gui / switch for toggling overlays
+	let overlay_control = {
+		"Erwähnte Orte": marker_layer,
+	};
+	// if cfg is provided wms map layer gets added
+	if (wms_cfg !== null){
+		let wms_layer = L.tileLayer.wms(wms_cfg.wms_url, wms_cfg.wmsOptions);
+		wms_layer.addTo(map);
+		overlay_control["Stadtplan 1858 (k.k. Ministerium des Inneren)"] = wms_layer;
+	}
+	// this has to happen here, in case historical map gets added
+	marker_layer.addTo(map);
+	let mainlayer_control = {
+		"Moderne Karte (open stree map)" : tile_layer,
+	};
+	var layerControl = L.control.layers(
+		mainlayer_control,
+		overlay_control
+	);
+	layerControl.addTo(map);
+	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer);
 }
 
 export function build_table(map_cfg) {
