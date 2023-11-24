@@ -11,7 +11,7 @@ function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg) {
 		.then(function (tabulator_data) {
 			// the table will draw all markers on to the empty map
 			table_cfg.data = tabulator_data;
-			let table = buildTable(table_cfg);
+			let table = build_map_table(table_cfg);
 			populateMapFromTable(table, map, map_cfg.on_row_click_zoom);
 		})
 		.catch(function (err) {
@@ -192,7 +192,7 @@ function populateMapFromTable(table, map, on_row_click_zoom) {
 	});
 }
 
-function buildTable(table_cfg) {
+function build_map_table(table_cfg) {
 	table_cfg.columns = [
 		{
 			headerFilter: "input",
@@ -250,4 +250,47 @@ export function build_map_and_table(map_cfg, table_cfg) {
 	});
 	tile_layer.addTo(map);
 	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg);
+}
+
+export function build_table(map_cfg) {
+	table_cfg.columns = [
+		{
+			headerFilter: "input",
+			title: "name",
+			field: "name",
+			formatter: "html",
+		},
+		{
+			headerFilter: "input",
+			title: "mentioned in",
+			field: "mentions",
+			formatter: function (cell) {
+				return build_linklist_cell(this, cell);
+			},
+		},
+		{
+			headerFilter: "input",
+			title: "alternative names",
+			field: "alt_names",
+			formatter: "textarea",
+		},
+		{
+			title: "total occurences",
+			field: "total_occurences",
+			headerFilter: "input",
+		},
+		{
+			title: "description",
+			field: "description",
+			headerFilter: "input",
+		},
+		{
+			title: "description",
+			field: "description",
+			headerFilter: "input",
+		},
+	];
+	let table = new Tabulator("#places_table", table_cfg);
+	console.log("made table");
+	return table;
 }
