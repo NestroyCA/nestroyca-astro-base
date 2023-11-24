@@ -1,6 +1,22 @@
 import L from "leaflet";
 import { TabulatorFull as Tabulator } from "tabulator-tables";
 
+function add_historic_map_layer(map){
+	let wmsOptions = {
+		contextualWMSLegend: "0",
+		crs: L.CRS.EPSG4326,
+		dpiMode: "7",
+		featureCount: "10",
+		format: "image/gif",
+		layers: "BEHSELINNENSTOGD",
+		url: "https://data.wien.gv.at/daten/wms?version%3D1.1.1",
+	};
+	let wms_url = "https://data.wien.gv.at/daten/wms?version=1.1.1";
+	var wmsLayer = L.tileLayer.wms(wms_url, wmsOptions);
+	wmsLayer.addTo(map);
+	wmsLayer.bringToFront();
+}
+
 function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg) {
 	console.log("loading table");
 	fetch(map_cfg.json_url)
@@ -96,7 +112,7 @@ function get_coordinate_key_from_row_data(row_data) {
 	return row_data.coordinates.lat + row_data.coordinates.lng;
 }
 
-function init_map_from_rows(rows, circle_layer) {
+function init_map_from_rows(rows, marker_layer) {
 	console.log("populating map with icons");
 	let existing_circles_by_coordinates = {};
 	rows.forEach((row) => {
@@ -109,7 +125,7 @@ function init_map_from_rows(rows, circle_layer) {
 		);
 		existing_circles_by_coordinates[coordinate_key] = new_circle;
 		new_circle.bindPopup(get_label_string_html(row_data, frequency));
-		new_circle.addTo(circle_layer);
+		new_circle.addTo(marker_layer);
 	});
 	return existing_circles_by_coordinates;
 }
@@ -248,6 +264,7 @@ export function build_map_and_table(map_cfg, table_cfg) {
 		maxZoom: map_cfg.max_zoom,
 		attribution: map_cfg.attribution,
 	});
+	add_historic_map_layer(map);
 	tile_layer.addTo(map);
 	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg);
 }
