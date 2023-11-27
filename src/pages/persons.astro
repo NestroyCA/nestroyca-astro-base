@@ -7,21 +7,57 @@ import PageLayout from "@/layouts/page-layout.astro";
 <PageLayout title={links.entities_places.label}>
 	<ContentPage title={links.entities_places.title} layout="full-width">
 		<div id="intro">
-			<p>
-				This map displays all human settlements mentioned in Nestroys Works. The radius of each red
-				circle denotes the frequency of mentions.
-			</p>
+			<p>Under Construction!</p>
 		</div>
 		<div id="persons_table" class=""></div>
 		<script>
-			import { build_map } from "./scripts/make_map.mjs";
+			import { build_table } from "./scripts/make_map.mjs";
+			let columns = [
+				{
+					headerFilter: "input",
+					title: "name",
+					field: "name",
+					formatter: "html",
+				},
+				{
+					headerFilter: "input",
+					title: "mentioned in",
+					field: "mentions",
+					formatter: function (cell) {
+						return build_linklist_cell(this, cell);
+					},
+				},
+				{
+					headerFilter: "input",
+					title: "alternative names",
+					field: "alt_names",
+					formatter: "textarea",
+				},
+				{
+					title: "total occurences",
+					field: "total_occurences",
+					headerFilter: "input",
+				},
+				{
+					title: "description",
+					field: "description",
+					headerFilter: "input",
+				},
+				{
+					title: "description",
+					field: "description",
+					headerFilter: "input",
+				},
+			];
 			let table_cfg = {
 				headerFilterLiveFilterDelay: 600,
-				maxHeight: "45vh",
+				maxHeight: "50vh",
 				layout: "fitColumns",
 				width: "100%",
+				columns: columns,
 			};
-			build_map_and_table(map_cfg, table_cfg);
+			let table_id = "#persons_table";
+			let table = build_table(table_id, table_cfg);
 		</script>
 	</ContentPage>
 </PageLayout>

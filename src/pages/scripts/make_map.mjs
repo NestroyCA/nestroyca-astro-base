@@ -273,45 +273,8 @@ export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer);
 }
 
-export function build_table(map_cfg) {
-	table_cfg.columns = [
-		{
-			headerFilter: "input",
-			title: "name",
-			field: "name",
-			formatter: "html",
-		},
-		{
-			headerFilter: "input",
-			title: "mentioned in",
-			field: "mentions",
-			formatter: function (cell) {
-				return build_linklist_cell(this, cell);
-			},
-		},
-		{
-			headerFilter: "input",
-			title: "alternative names",
-			field: "alt_names",
-			formatter: "textarea",
-		},
-		{
-			title: "total occurences",
-			field: "total_occurences",
-			headerFilter: "input",
-		},
-		{
-			title: "description",
-			field: "description",
-			headerFilter: "input",
-		},
-		{
-			title: "description",
-			field: "description",
-			headerFilter: "input",
-		},
-	];
-	let table = new Tabulator("#places_table", table_cfg);
+export function build_table(table_id, table_cfg) {
+	let table = new Tabulator(table_id, table_cfg);
 	console.log("made table");
 	return table;
 }
