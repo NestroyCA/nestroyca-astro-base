@@ -1,0 +1,27 @@
+---
+import ContentPage from "@/components/content-page.astro";
+import { links } from "@/config/navigation.config";
+import PageLayout from "@/layouts/page-layout.astro";
+---
+
+<PageLayout title={links.entities_places.label}>
+	<ContentPage title={links.entities_places.title} layout="full-width">
+		<div id="intro">
+			<p>
+				This map displays all human settlements mentioned in Nestroys Works. The radius of each red
+				circle denotes the frequency of mentions.
+			</p>
+		</div>
+		<div id="persons_table" class=""></div>
+		<script>
+			import { build_map } from "./scripts/make_map.mjs";
+			let table_cfg = {
+				headerFilterLiveFilterDelay: 600,
+				maxHeight: "45vh",
+				layout: "fitColumns",
+				width: "100%",
+			};
+			build_map_and_table(map_cfg, table_cfg);
+		</script>
+	</ContentPage>
+</PageLayout>
