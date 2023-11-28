@@ -32,6 +32,41 @@ import PageLayout from "@/layouts/page-layout.astro";
 					},
 				},
 			};
+			table_cfg.columns = [
+				{
+					headerFilter: "input",
+					title: "name",
+					field: "name",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "comment",
+					field: "comment",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "mentioned in",
+					field: "occurences",
+					resizable: false,
+					formatter: function (cell) {
+						return build_linklist_cell(this, cell);
+					},
+				},
+				{
+					headerFilter: "input",
+					title: "birth",
+					field: "birth_not_before",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "death",
+					field: "death_not_after",
+					resizable: false,
+				},
+			];
 			let table_id = "#persons_table";
 			let json_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/persons.json";
