@@ -19,19 +19,38 @@ import PageLayout from "@/layouts/page-layout.astro";
 			let map_cfg = {
 				initial_zoom: "5",
 				initial_coordinates: [48.210033, 16.363449],
-				base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+				//base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+				//https://maps.stamen.com/#watercolor/12/37.7706/-122.3782
+				//base_map_url: "https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}.png",
+				base_map_url: "https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}@2x.png",
 				json_url:
 					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json",
 				max_zoom: "19",
 				on_row_click_zoom: "11",
 				div_id: "vienna_map",
-				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				attribution:
+					'&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/about" target="_blank">OpenStreetMap</a> contributors',
 			};
 			let table_cfg = {
-				headerFilterLiveFilterDelay: 600,
 				maxHeight: "45vh",
 				layout: "fitColumns",
 				width: "100%",
+				headerFilterLiveFilterDelay: 600,
+				responsiveLayout: "collapse",
+				paginationCounter: "rows",
+				pagination: "local",
+				paginationSize: 10,
+				langs: {
+					default: {
+						pagination: {
+							counter: {
+								showing: "",
+								of: "of",
+								rows: "",
+							},
+						},
+					},
+				},
 			};
 			build_map_and_table(map_cfg, table_cfg);
 		</script>

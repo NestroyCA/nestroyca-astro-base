@@ -197,11 +197,13 @@ function build_map_table(table_cfg) {
 			title: "name",
 			field: "name",
 			formatter: "html",
+			resizable:false,
 		},
 		{
 			title: "links",
 			field: "geonames",
 			formatter: "link",
+			resizable:false,
 			formatterParams: {
 				url: function (cell) {
 					return cell.getValue()[1];
@@ -215,6 +217,7 @@ function build_map_table(table_cfg) {
 			headerFilter: "input",
 			title: "mentioned in",
 			field: "mentions",
+			resizable:false,
 			formatter: function (cell) {
 				return build_linklist_cell(this, cell);
 			},
@@ -223,11 +226,13 @@ function build_map_table(table_cfg) {
 			headerFilter: "input",
 			title: "alternative names",
 			field: "alt_names",
+			resizable:false,
 			formatter: "textarea",
 		},
 		{
 			title: "total occurences",
 			field: "total_occurences",
+			resizable:false,
 			headerFilter: "input",
 		},
 	];
