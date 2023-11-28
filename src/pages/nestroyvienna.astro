@@ -52,9 +52,25 @@ import PageLayout from "@/layouts/page-layout.astro";
 			let table_cfg = {
 				headerFilterLiveFilterDelay: 600,
 				maxHeight: "50vh",
-				layout: "fitColumns",
+				layout: "fitDataStretch",
+				responsiveLayout: "collapse",
+				paginationCounter: "rows",
+				pagination: "local",
+				paginationSize: 10,
 				width: "100%",
+				langs: {
+					default: {
+						pagination: {
+							counter: {
+								showing: "",
+								of: "of",
+								rows: "",
+							},
+						},
+					},
+				},
 			};
+
 			let wms_cfg = {
 				wms_url: "https://data.wien.gv.at/daten/wms?version=1.1.1",
 				wmsOptions: {
