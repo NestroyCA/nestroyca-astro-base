@@ -13,7 +13,6 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<script>
 			import { build_table, build_linklist_cell } from "./scripts/make_map.mjs";
 			let table_cfg = {
-				maxHeight: "45vh",
 				layout: "fitColumns",
 				width: "100%",
 				headerFilterLiveFilterDelay: 600,
@@ -33,24 +32,6 @@ import PageLayout from "@/layouts/page-layout.astro";
 					},
 				},
 			};
-
-			table_cfg.columns = [
-				{
-					headerFilter: "input",
-					title: "name",
-					field: "name",
-					resizable: false,
-				},
-				{
-					headerFilter: "input",
-					title: "mentioned in",
-					field: "occurences",
-					resizable: false,
-					formatter: function (cell) {
-						return build_linklist_cell(this, cell);
-					},
-				},
-			];
 			let table_id = "#persons_table";
 			let json_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/persons.json";

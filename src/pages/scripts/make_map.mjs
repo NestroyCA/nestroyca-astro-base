@@ -287,6 +287,41 @@ export function build_table(table_id, table_cfg, json_url) {
 		.then(function (tabulator_data) {
 			// the table will draw all markers on to the empty map
 			table_cfg.data = tabulator_data;
+			table_cfg.columns = [
+				{
+					headerFilter: "input",
+					title: "name",
+					field: "name",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "comment",
+					field: "comment",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "mentioned in",
+					field: "occurences",
+					resizable: false,
+					formatter: function (cell) {
+						return build_linklist_cell(this, cell);
+					},
+				},
+				{
+					headerFilter: "input",
+					title: "birth",
+					field: "birth_not_before",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "death",
+					field: "death_not_after",
+					resizable: false,
+				},
+			];
 			let table = new Tabulator(table_id, table_cfg);
 			console.log("made table");
 		})
