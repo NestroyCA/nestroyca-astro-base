@@ -79,7 +79,7 @@ function make_cell_scrollable(table, cell, cell_html_string_in) {
 	}
 }
 
-function build_linklist_cell(table, cell) {
+export function build_linklist_cell(table, cell) {
 	let values = cell.getValue();
 	let i = 0;
 	let links = [];
@@ -191,51 +191,53 @@ function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
 }
 
 function build_map_table(table_cfg) {
-	table_cfg.columns = [
-		{
-			headerFilter: "input",
-			title: "name",
-			field: "name",
-			formatter: "html",
-			resizable:false,
-		},
-		{
-			title: "links",
-			field: "geonames",
-			formatter: "link",
-			resizable:false,
-			formatterParams: {
-				url: function (cell) {
-					return cell.getValue()[1];
-				},
-				label: function (cell) {
-					return cell.getValue()[0];
+	if (!("columns" in table_cfg)) {
+		table_cfg.columns = [
+			{
+				headerFilter: "input",
+				title: "name",
+				field: "name",
+				formatter: "html",
+				resizable: false,
+			},
+			{
+				title: "links",
+				field: "geonames",
+				formatter: "link",
+				resizable: false,
+				formatterParams: {
+					url: function (cell) {
+						return cell.getValue()[1];
+					},
+					label: function (cell) {
+						return cell.getValue()[0];
+					},
 				},
 			},
-		},
-		{
-			headerFilter: "input",
-			title: "mentioned in",
-			field: "mentions",
-			resizable:false,
-			formatter: function (cell) {
-				return build_linklist_cell(this, cell);
+			{
+				headerFilter: "input",
+				title: "mentioned in",
+				field: "mentions",
+				resizable: false,
+				formatter: function (cell) {
+					return build_linklist_cell(this, cell);
+				},
 			},
-		},
-		{
-			headerFilter: "input",
-			title: "alternative names",
-			field: "alt_names",
-			resizable:false,
-			formatter: "textarea",
-		},
-		{
-			title: "total occurences",
-			field: "total_occurences",
-			resizable:false,
-			headerFilter: "input",
-		},
-	];
+			{
+				headerFilter: "input",
+				title: "alternative names",
+				field: "alt_names",
+				resizable: false,
+				formatter: "textarea",
+			},
+			{
+				title: "total occurences",
+				field: "total_occurences",
+				resizable: false,
+				headerFilter: "input",
+			},
+		];
+	}
 	let table = new Tabulator("#places_table", table_cfg);
 	console.log("made table");
 	return table;
@@ -260,7 +262,7 @@ export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 		"mentioned entities": marker_layer,
 	};
 	// if cfg is provided wms map layer gets added
-	if (wms_cfg !== null){
+	if (wms_cfg !== null) {
 		let wms_layer = L.tileLayer.wms(wms_cfg.wms_url, wms_cfg.wmsOptions);
 		wms_layer.addTo(map);
 		overlay_control["Stadtplan 1858 (k.k. Ministerium des Inneren)"] = wms_layer;
@@ -268,18 +270,27 @@ export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	// this has to happen here, in case historical map gets added
 	marker_layer.addTo(map);
 	let mainlayer_control = {
-		"modern map (open stree map)" : tile_layer,
+		"modern map (open stree map)": tile_layer,
 	};
-	var layerControl = L.control.layers(
-		mainlayer_control,
-		overlay_control
-	);
+	var layerControl = L.control.layers(mainlayer_control, overlay_control);
 	layerControl.addTo(map);
 	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer);
 }
 
-export function build_table(table_id, table_cfg) {
-	let table = new Tabulator(table_id, table_cfg);
-	console.log("made table");
-	return table;
+export function build_table(table_id, table_cfg, json_url) {
+	console.log("loading table");
+	fetch(json_url)
+		.then(function (response) {
+			// json string
+			return response.json();
+		})
+		.then(function (tabulator_data) {
+			// the table will draw all markers on to the empty map
+			table_cfg.data = tabulator_data;
+			let table = new Tabulator(table_id, table_cfg);
+			console.log("made table");
+		})
+		.catch(function (err) {
+			console.log(err);
+		});
 }

@@ -11,53 +11,50 @@ import PageLayout from "@/layouts/page-layout.astro";
 		</div>
 		<div id="persons_table" class=""></div>
 		<script>
-			import { build_table } from "./scripts/make_map.mjs";
-			let columns = [
+			import { build_table, build_linklist_cell } from "./scripts/make_map.mjs";
+			let table_cfg = {
+				maxHeight: "45vh",
+				layout: "fitColumns",
+				width: "100%",
+				headerFilterLiveFilterDelay: 600,
+				responsiveLayout: "collapse",
+				paginationCounter: "rows",
+				pagination: "local",
+				paginationSize: 10,
+				langs: {
+					default: {
+						pagination: {
+							counter: {
+								showing: "",
+								of: "of",
+								rows: "",
+							},
+						},
+					},
+				},
+			};
+
+			table_cfg.columns = [
 				{
 					headerFilter: "input",
 					title: "name",
 					field: "name",
-					formatter: "html",
+					resizable: false,
 				},
 				{
 					headerFilter: "input",
 					title: "mentioned in",
-					field: "mentions",
+					field: "occurences",
+					resizable: false,
 					formatter: function (cell) {
 						return build_linklist_cell(this, cell);
 					},
 				},
-				{
-					headerFilter: "input",
-					title: "alternative names",
-					field: "alt_names",
-					formatter: "textarea",
-				},
-				{
-					title: "total occurences",
-					field: "total_occurences",
-					headerFilter: "input",
-				},
-				{
-					title: "description",
-					field: "description",
-					headerFilter: "input",
-				},
-				{
-					title: "description",
-					field: "description",
-					headerFilter: "input",
-				},
 			];
-			let table_cfg = {
-				headerFilterLiveFilterDelay: 600,
-				maxHeight: "50vh",
-				layout: "fitColumns",
-				width: "100%",
-				columns: columns,
-			};
 			let table_id = "#persons_table";
-			let table = build_table(table_id, table_cfg);
+			let json_url =
+				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/persons.json";
+			build_table(table_id, table_cfg, json_url);
 		</script>
 	</ContentPage>
 </PageLayout>
