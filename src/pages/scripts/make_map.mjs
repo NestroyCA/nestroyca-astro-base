@@ -259,6 +259,7 @@ export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	tile_layer.addTo(map);
 	// this is for the page gui / switch for toggling overlays
 	let overlay_control = {
+		"modern map": tile_layer,
 		"mentioned entities": marker_layer,
 	};
 	// if cfg is provided wms map layer gets added
@@ -269,10 +270,7 @@ export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	}
 	// this has to happen here, in case historical map gets added
 	marker_layer.addTo(map);
-	let mainlayer_control = {
-		"modern map (open stree map)": tile_layer,
-	};
-	var layerControl = L.control.layers(mainlayer_control, overlay_control);
+	var layerControl = L.control.layers(null, overlay_control);
 	layerControl.addTo(map);
 	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer);
 }
