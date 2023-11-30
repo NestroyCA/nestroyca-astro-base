@@ -249,10 +249,16 @@ function build_map_table(table_cfg) {
 export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	console.log("loading map");
 	let map = L.map(map_cfg.div_id).setView(map_cfg.initial_coordinates, map_cfg.initial_zoom);
-	let tile_layer = L.tileLayer(map_cfg.base_map_url, {
-		maxZoom: map_cfg.max_zoom,
-		attribution: map_cfg.attribution,
+	var tile_layer = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.{ext}', {
+		minZoom: 0,
+		maxZoom: 20,
+		attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		ext: 'png'
 	});
+	//let tile_layer = L.tileLayer(map_cfg.base_map_url, {
+	//	maxZoom: map_cfg.max_zoom,
+	//	attribution: map_cfg.attribution,
+	//});
 	let marker_layer = L.layerGroup();
 	// handle the layers
 	// order of adding matters!
