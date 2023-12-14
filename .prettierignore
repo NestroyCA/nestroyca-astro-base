@@ -33,7 +33,7 @@ dist/
 
 
 # fetched jsons
-./public/jsons/*.json
+./public/
 
 # git
-.github
+.github/
