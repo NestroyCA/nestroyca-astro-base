@@ -34,3 +34,6 @@ dist/
 
 # fetched jsons
 ./public/jsons/*.json
+
+# git
+.github
