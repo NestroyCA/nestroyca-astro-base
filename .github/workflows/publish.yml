@@ -19,10 +19,14 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
+      # I just fetch the data for building the tables/maps here an commit to repo, just in case
       - name: fetch jsons from entity repo
         run: |
           curl -o ./public/jsons/nestroyvienna.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json"
           curl -o ./public/jsons/places.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Exported and Transformed EMT-Transkribus Collections
       - name: Install, build, and upload your site
         uses: ./.github/actions/setup_astro
         with:
