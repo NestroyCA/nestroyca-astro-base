@@ -26,7 +26,7 @@ jobs:
           curl -o ./public/jsons/places.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Exported and Transformed EMT-Transkribus Collections
+          commit_message: fetched json files
       - name: Install, build, and upload your site
         uses: ./.github/actions/setup_astro
         with:
