@@ -19,6 +19,10 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
+      - name: fetch jsons from entity repo
+        run: |
+          curl -o ./public/jsons/nestroyvienna.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json"
+          curl -o ./public/jsons/places.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json
       - name: Install, build, and upload your site
         uses: ./.github/actions/setup_astro
         with:
