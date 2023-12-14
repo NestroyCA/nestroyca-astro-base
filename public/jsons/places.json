@@ -1,0 +1,2924 @@
+[
+  {
+    "coordinates": {
+      "lng": "138.59863",
+      "lat": "-34.92866"
+    },
+    "name": "Adelaide",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2078025/"
+    ],
+    "internal_id": "nestroy_place_id__3",
+    "mentions": [
+      [
+        "Der alte Mann mit der jungen Frau",
+        "play_65"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "26.55597",
+      "lat": "41.67719"
+    },
+    "name": "Edirne",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/747712/"
+    ],
+    "internal_id": "nestroy_place_id__4",
+    "mentions": [
+      [
+        "Eulenspiegel oder Schabernack \u00fcber Schabernack",
+        "play_28"
+      ]
+    ],
+    "alt_names": [
+      "Adrianopel"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.51265",
+      "lat": "42.10431"
+    },
+    "name": "Aleria ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3038225/"
+    ],
+    "internal_id": "nestroy_place_id__5",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "4.88969",
+      "lat": "52.37403"
+    },
+    "name": "Amsterdam",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2759794/"
+    ],
+    "internal_id": "nestroy_place_id__7",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ],
+      [
+        "\u201eSie sollen ihn nicht haben!\u201c oder Der holl\u00e4ndische Bauer",
+        "play_67"
+      ],
+      [
+        "Alles will den Prophet\u2019n seh\u2019n",
+        "play_69"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "21.31667",
+      "lat": "46.18333"
+    },
+    "name": "Arad ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/686254/"
+    ],
+    "internal_id": "nestroy_place_id__8",
+    "mentions": [
+      [
+        "Robert der Teuxel",
+        "play_20"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-3.60246",
+      "lat": "40.03108"
+    },
+    "name": "Aranjuez",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3129857/"
+    ],
+    "internal_id": "nestroy_place_id__9",
+    "mentions": [
+      [
+        "Die lieben Anverwandten",
+        "play_61"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.23975",
+      "lat": "48.76060"
+    },
+    "name": "Baden-Baden ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2953504/"
+    ],
+    "internal_id": "nestroy_place_id__12",
+    "mentions": [
+      [
+        "Lady und Schneider",
+        "play_63"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.07784",
+      "lat": "50.20228"
+    },
+    "name": "Bad Kissingen ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2953424/"
+    ],
+    "internal_id": "nestroy_place_id__13",
+    "mentions": [
+      [
+        "Nur keck!",
+        "play_76"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.90067",
+      "lat": "49.89873"
+    },
+    "name": "Bamberg",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2952984/"
+    ],
+    "internal_id": "nestroy_place_id__14",
+    "mentions": [
+      [
+        "Unverhofft",
+        "play_55"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "13.41053",
+      "lat": "52.52437"
+    },
+    "name": "Berlin ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2950159/"
+    ],
+    "internal_id": "nestroy_place_id__16",
+    "mentions": [
+      [
+        "Der Tritschtratsch",
+        "play_21"
+      ],
+      [
+        "Die verh\u00e4ngnisvolle Faschingsnacht",
+        "play_39"
+      ],
+      [
+        "Der Erbschleicher",
+        "play_41"
+      ],
+      [
+        "Die beiden Herrn S\u00f6hne",
+        "play_53"
+      ],
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ],
+      [
+        "Lady und Schneider",
+        "play_63"
+      ],
+      [
+        "H\u00f6llenangst",
+        "play_66"
+      ],
+      [
+        "Alles will den Prophet\u2019n seh\u2019n",
+        "play_69"
+      ],
+      [
+        "Kampl",
+        "play_73"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.68417",
+      "lat": "50.11552"
+    },
+    "name": "Frankfurt am Main ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2925533/"
+    ],
+    "internal_id": "nestroy_place_id__18",
+    "mentions": [
+      [
+        "Eulenspiegel oder Schabernack \u00fcber Schabernack",
+        "play_28"
+      ],
+      [
+        "Martha oder Die Mischmonder Markt-M\u00e4gde-Mietung",
+        "play_60"
+      ],
+      [
+        "Die lieben Anverwandten",
+        "play_61"
+      ],
+      [
+        "Lady und Schneider",
+        "play_63"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "44.42417",
+      "lat": "32.54083"
+    },
+    "name": "Babylon",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/98228/"
+    ],
+    "internal_id": "nestroy_place_id__19",
+    "mentions": [
+      [
+        "Der Unbedeutende",
+        "play_56"
+      ],
+      [
+        "Judith und Holofernes",
+        "play_64"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.23264",
+      "lat": "48.00543"
+    },
+    "name": "Baden",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2782067/"
+    ],
+    "internal_id": "nestroy_place_id__20",
+    "mentions": [
+      [
+        "Robert der Teuxel",
+        "play_20"
+      ]
+    ],
+    "alt_names": [
+      "Baaden"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-71.05977",
+      "lat": "42.35843"
+    },
+    "name": "Boston",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/4930956/"
+    ],
+    "internal_id": "nestroy_place_id__23",
+    "mentions": [
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "20.55111",
+      "lat": "42.98373"
+    },
+    "name": "Branowitz",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/791091/"
+    ],
+    "internal_id": "nestroy_place_id__24",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "17.10674",
+      "lat": "48.14816"
+    },
+    "name": "Bratislava",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3060972/"
+    ],
+    "internal_id": "nestroy_place_id__25",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [
+      "Pressburg"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.06959",
+      "lat": "47.50107"
+    },
+    "name": "Braunau",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/8533690/"
+    ],
+    "internal_id": "nestroy_place_id__26",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.52673",
+      "lat": "52.26594"
+    },
+    "name": "Braunschweig ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2945024/"
+    ],
+    "internal_id": "nestroy_place_id__27",
+    "mentions": [
+      [
+        "Die verh\u00e4ngnisvolle Faschingsnacht",
+        "play_39"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.80717",
+      "lat": "53.07582"
+    },
+    "name": "Bremen",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2944388/"
+    ],
+    "internal_id": "nestroy_place_id__28",
+    "mentions": [
+      [
+        "Die verh\u00e4ngnisvolle Faschingsnacht",
+        "play_39"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "25.15027",
+      "lat": "50.08791"
+    },
+    "name": "Brody ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/711416/"
+    ],
+    "internal_id": "nestroy_place_id__30",
+    "mentions": [
+      [
+        "Der Erbschleicher",
+        "play_41"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.60796",
+      "lat": "49.19522"
+    },
+    "name": "Brno",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3078610/"
+    ],
+    "internal_id": "nestroy_place_id__32",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [
+      "Br\u00fcnn"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "4.34878",
+      "lat": "50.85045"
+    },
+    "name": "Br\u00fcssel",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2800866/"
+    ],
+    "internal_id": "nestroy_place_id__33",
+    "mentions": [
+      [
+        "Einen Jux will er sich machen",
+        "play_44"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.47434",
+      "lat": "48.97447"
+    },
+    "name": "Ceske Budejovice",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3077916/"
+    ],
+    "internal_id": "nestroy_place_id__35",
+    "mentions": [
+      [
+        "Der Feenball oder Tischler, Schneider und Schlosser",
+        "play_17"
+      ],
+      [
+        "Der b\u00f6se Geist Lumpacivagabundus oder Das liederliche Kleeblatt",
+        "play_18"
+      ],
+      [
+        "Die schlimmen Buben in der Schule",
+        "play_59"
+      ],
+      [
+        "Kampl",
+        "play_73"
+      ],
+      [
+        "Heimliches Geld, heimliche Liebe",
+        "play_74"
+      ],
+      [
+        "Theaterg\u2019schichten durch Liebe, Intrige, Geld und Dummheit",
+        "play_75"
+      ],
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [
+      "Budweis"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "15.56970",
+      "lat": "51.26418"
+    },
+    "name": "Bunzlau",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3102987/"
+    ],
+    "internal_id": "nestroy_place_id__36",
+    "mentions": [
+      [
+        "Die schlimmen Buben in der Schule",
+        "play_59"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "15.79558",
+      "lat": "49.95109"
+    },
+    "name": "Chrudim",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3077539/"
+    ],
+    "internal_id": "nestroy_place_id__37",
+    "mentions": [
+      [
+        "Die schlimmen Buben in der Schule",
+        "play_59"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.02129",
+      "lat": "45.13325"
+    },
+    "name": "Cremona ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3177838/"
+    ],
+    "internal_id": "nestroy_place_id__38",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "15.38972",
+      "lat": "49.91099"
+    },
+    "name": "Czaslau ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3078234/"
+    ],
+    "internal_id": "nestroy_place_id__39",
+    "mentions": [
+      [
+        "Die schlimmen Buben in der Schule",
+        "play_59"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.65027",
+      "lat": "49.87167"
+    },
+    "name": "Darmstadt ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2938913/"
+    ],
+    "internal_id": "nestroy_place_id__40",
+    "mentions": [
+      [
+        "Die lieben Anverwandten",
+        "play_61"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.56667",
+      "lat": "48.29972"
+    },
+    "name": "Deutsch-Wagram ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2781017/"
+    ],
+    "internal_id": "nestroy_place_id__42",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "13.73832",
+      "lat": "51.05089"
+    },
+    "name": "Dresden ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2935022/"
+    ],
+    "internal_id": "nestroy_place_id__43",
+    "mentions": [
+      [
+        "Liebesgeschichten und Heurathssachen",
+        "play_47"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.83364",
+      "lat": "48.48441"
+    },
+    "name": "D\u00fcrnkrut",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/7871730/"
+    ],
+    "internal_id": "nestroy_place_id__44",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.60832",
+      "lat": "48.08502"
+    },
+    "name": "Enzersdorf an der Fischa",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2780017/"
+    ],
+    "internal_id": "nestroy_place_id__46",
+    "mentions": [
+      [
+        "Robert der Teuxel",
+        "play_20"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.16667",
+      "lat": "46.51667"
+    },
+    "name": "Feistritz",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2779704/"
+    ],
+    "internal_id": "nestroy_place_id__47",
+    "mentions": [
+      [
+        "Kampl",
+        "play_73"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "11.62057",
+      "lat": "44.83804"
+    },
+    "name": "Ferrara",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3177090/"
+    ],
+    "internal_id": "nestroy_place_id__48",
+    "mentions": [
+      [
+        "Verwickelte Geschichte!",
+        "play_70"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.61395",
+      "lat": "48.11573"
+    },
+    "name": "Fischamend",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/7871945/"
+    ],
+    "internal_id": "nestroy_place_id__49",
+    "mentions": [
+      [
+        "Weder Lorbeerbaum noch Bettelstab",
+        "play_27"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "11.24626",
+      "lat": "43.77925"
+    },
+    "name": "Florenz",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3176959/"
+    ],
+    "internal_id": "nestroy_place_id__50",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ],
+      [
+        "Kampl",
+        "play_73"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "1.46919",
+      "lat": "38.69467"
+    },
+    "name": "Formentera",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2517690/"
+    ],
+    "internal_id": "nestroy_place_id__51",
+    "mentions": [
+      [
+        "Gegen Thorheit giebt es kein Mittel",
+        "play_38"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.72016",
+      "lat": "48.33925"
+    },
+    "name": "G\u00e4nserndorf ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2778877/"
+    ],
+    "internal_id": "nestroy_place_id__53",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.94439",
+      "lat": "44.40478"
+    },
+    "name": "Genua ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3176219/"
+    ],
+    "internal_id": "nestroy_place_id__54",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "13.62167",
+      "lat": "45.94088"
+    },
+    "name": "G\u00f6rz",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3175986/"
+    ],
+    "internal_id": "nestroy_place_id__56",
+    "mentions": [
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ],
+      [
+        "Die schlimmen Buben in der Schule",
+        "play_59"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "11.24971",
+      "lat": "49.64426"
+    },
+    "name": "Gr\u00e4fenberg",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2918350/"
+    ],
+    "internal_id": "nestroy_place_id__57",
+    "mentions": [
+      [
+        "Das M\u00e4dl aus der Vorstadt oder Ehrlich w\u00e4hrt am l\u00e4ngsten",
+        "play_43"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "15.45000",
+      "lat": "47.06667"
+    },
+    "name": "Graz",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2778067/"
+    ],
+    "internal_id": "nestroy_place_id__58",
+    "mentions": [
+      [
+        "Moppels Abentheuer im Viertel unter Wiener Wald, in Neu-Seeland und Marokko",
+        "play_34"
+      ],
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-3.06618",
+      "lat": "55.00279"
+    },
+    "name": "Gretna Green ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2647909/"
+    ],
+    "internal_id": "nestroy_place_id__59",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.66186",
+      "lat": "44.91172"
+    },
+    "name": "Guastalla",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3175693/"
+    ],
+    "internal_id": "nestroy_place_id__60",
+    "mentions": [
+      [
+        "Verwickelte Geschichte!",
+        "play_70"
+      ]
+    ],
+    "alt_names": [
+      "Quastalla"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.27710",
+      "lat": "48.04538"
+    },
+    "name": "Gumpoldskirchen",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2777279/"
+    ],
+    "internal_id": "nestroy_place_id__61",
+    "mentions": [
+      [
+        "Robert der Teuxel",
+        "play_20"
+      ],
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.99302",
+      "lat": "53.55073"
+    },
+    "name": "Hamburg  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2911298/"
+    ],
+    "internal_id": "nestroy_place_id__62",
+    "mentions": [
+      [
+        "Dreyssig Jahre aus dem Leben eines Lumpen / Die Verbannung aus dem Zauberreiche",
+        "play_3"
+      ],
+      [
+        "Zu ebener Erde und erster Stock oder Die Launen des Gl\u00fcckes",
+        "play_29"
+      ],
+      [
+        "Die verh\u00e4ngnisvolle Faschingsnacht",
+        "play_39"
+      ],
+      [
+        "Der Erbschleicher",
+        "play_41"
+      ],
+      [
+        "Alles will den Prophet\u2019n seh\u2019n",
+        "play_69"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.73322",
+      "lat": "52.37052"
+    },
+    "name": "Hannover ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2910831/"
+    ],
+    "internal_id": "nestroy_place_id__63",
+    "mentions": [
+      [
+        "Die verh\u00e4ngnisvolle Faschingsnacht",
+        "play_39"
+      ],
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "27.60000",
+      "lat": "47.16667"
+    },
+    "name": "Ia\u015fi (Jassy)  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/675810/"
+    ],
+    "internal_id": "nestroy_place_id__66",
+    "mentions": [
+      [
+        "Unverhofft",
+        "play_55"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "11.39454",
+      "lat": "47.26266"
+    },
+    "name": "Innsbruck  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2775220/"
+    ],
+    "internal_id": "nestroy_place_id__67",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "13.61893",
+      "lat": "47.71109"
+    },
+    "name": "Ischl",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2782052/"
+    ],
+    "internal_id": "nestroy_place_id__68",
+    "mentions": [
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "27.13838",
+      "lat": "38.41273"
+    },
+    "name": "Izmir",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/311046/"
+    ],
+    "internal_id": "nestroy_place_id__69",
+    "mentions": [
+      [
+        "Unverhofft",
+        "play_55"
+      ]
+    ],
+    "alt_names": [
+      "Smyrna"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "35.45000",
+      "lat": "31.86667"
+    },
+    "name": "Jericho  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/284899/"
+    ],
+    "internal_id": "nestroy_place_id__70",
+    "mentions": [
+      [
+        "Judith und Holofernes",
+        "play_64"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "12.87117",
+      "lat": "50.23271"
+    },
+    "name": "Karlsbad  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3073803/"
+    ],
+    "internal_id": "nestroy_place_id__72",
+    "mentions": [
+      [
+        "Der Tritschtratsch",
+        "play_21"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.33333",
+      "lat": "36.86667"
+    },
+    "name": "Karthago  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2468244/"
+    ],
+    "internal_id": "nestroy_place_id__73",
+    "mentions": [
+      [
+        "Kampl",
+        "play_73"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.13489",
+      "lat": "54.32133"
+    },
+    "name": "Kiel",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2891122/"
+    ],
+    "internal_id": "nestroy_place_id__76",
+    "mentions": [
+      [
+        "Der confuse Zauberer oder Treue und Flatterhaftigkeit",
+        "play_14"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "6.95000",
+      "lat": "50.93333"
+    },
+    "name": "K\u00f6ln",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2886242/"
+    ],
+    "internal_id": "nestroy_place_id__78",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ]
+    ],
+    "alt_names": [
+      "C\u00f6ln"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "28.94966",
+      "lat": "41.01384"
+    },
+    "name": "Istanbul",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/745044/"
+    ],
+    "internal_id": "nestroy_place_id__79",
+    "mentions": [
+      [
+        "Eulenspiegel oder Schabernack \u00fcber Schabernack",
+        "play_28"
+      ],
+      [
+        "Unverhofft",
+        "play_55"
+      ],
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [
+      "Constantinopel\nKonstantinopel"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.12919",
+      "lat": "48.05290"
+    },
+    "name": "Kremsm\u00fcnster",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2773538/"
+    ],
+    "internal_id": "nestroy_place_id__81",
+    "mentions": [
+      [
+        "Nur Ruhe!",
+        "play_49"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.62532",
+      "lat": "49.17884"
+    },
+    "name": "Kumrowitz ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3073337/"
+    ],
+    "internal_id": "nestroy_place_id__82",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.35607",
+      "lat": "48.06833"
+    },
+    "name": "Laxenburg ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2772810/"
+    ],
+    "internal_id": "nestroy_place_id__83",
+    "mentions": [
+      [
+        "Robert der Teuxel",
+        "play_20"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.31298",
+      "lat": "49.86809"
+    },
+    "name": "Leitomischl ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3071675/"
+    ],
+    "internal_id": "nestroy_place_id__84",
+    "mentions": [
+      [
+        "Gegen Thorheit giebt es kein Mittel",
+        "play_38"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.28611",
+      "lat": "48.30639"
+    },
+    "name": "Linz",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2772400/"
+    ],
+    "internal_id": "nestroy_place_id__88",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.32615",
+      "lat": "43.54427"
+    },
+    "name": "Livorno ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3174659/"
+    ],
+    "internal_id": "nestroy_place_id__89",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ],
+      [
+        "Moppels Abentheuer im Viertel unter Wiener Wald, in Neu-Seeland und Marokko",
+        "play_34"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-0.12574",
+      "lat": "51.50853"
+    },
+    "name": "London ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2643743/"
+    ],
+    "internal_id": "nestroy_place_id__90",
+    "mentions": [
+      [
+        "Der Tod am Hochzeitstage oder Mann, Frau, Kind",
+        "play_5"
+      ],
+      [
+        "Weder Lorbeerbaum noch Bettelstab",
+        "play_27"
+      ],
+      [
+        "Eulenspiegel oder Schabernack \u00fcber Schabernack",
+        "play_28"
+      ],
+      [
+        "Die beiden Nachtwandler oder Das Notwendige und das \u00dcberfl\u00fcssige",
+        "play_31"
+      ],
+      [
+        "Moppels Abentheuer im Viertel unter Wiener Wald, in Neu-Seeland und Marokko",
+        "play_34"
+      ],
+      [
+        "Der Zerrissene",
+        "play_52"
+      ],
+      [
+        "Die beiden Herrn S\u00f6hne",
+        "play_53"
+      ],
+      [
+        "Das Gew\u00fcrzkr\u00e4merkleeblatt oder Die unschuldig Schuldigen",
+        "play_54"
+      ],
+      [
+        "Unverhofft",
+        "play_55"
+      ],
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ],
+      [
+        "H\u00f6llenangst",
+        "play_66"
+      ],
+      [
+        "Theaterg\u2019schichten durch Liebe, Intrige, Geld und Dummheit",
+        "play_75"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.88203",
+      "lat": "48.75897"
+    },
+    "name": "Lundenburg",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3078773/"
+    ],
+    "internal_id": "nestroy_place_id__91",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-3.70256",
+      "lat": "40.41650"
+    },
+    "name": "Madrid ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3117735/"
+    ],
+    "internal_id": "nestroy_place_id__92",
+    "mentions": [
+      [
+        "Das Quodlibet verschiedener Jahrhunderte",
+        "play_48"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.18951",
+      "lat": "45.46427"
+    },
+    "name": "Mailand  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3173435/"
+    ],
+    "internal_id": "nestroy_place_id__93",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-4.42034",
+      "lat": "36.72016"
+    },
+    "name": "Malaga  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2514256/"
+    ],
+    "internal_id": "nestroy_place_id__94",
+    "mentions": [
+      [
+        "Zu ebener Erde und erster Stock oder Die Launen des Gl\u00fcckes",
+        "play_29"
+      ],
+      [
+        "Eine Wohnung ist zu vermieten in der Stadt, Eine Wohnung ist zu verlassen in der Vorstadt, Eine Wohnung mit Garten ist zu haben in Hietzing",
+        "play_33"
+      ],
+      [
+        "Gl\u00fcck, Mi\u00dfbrauch und R\u00fcckkehr oder Das Geheimnis des grauen Hauses",
+        "play_36"
+      ],
+      [
+        "Unverhofft",
+        "play_55"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "12.70118",
+      "lat": "49.96459"
+    },
+    "name": "Marienbad  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3071024/"
+    ],
+    "internal_id": "nestroy_place_id__95",
+    "mentions": [
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "5.38107",
+      "lat": "43.29695"
+    },
+    "name": "Marseille  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2995469/"
+    ],
+    "internal_id": "nestroy_place_id__96",
+    "mentions": [
+      [
+        "Zu ebener Erde und erster Stock oder Die Launen des Gl\u00fcckes",
+        "play_29"
+      ],
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "15.55256",
+      "lat": "38.19394"
+    },
+    "name": "Messina  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2524170/"
+    ],
+    "internal_id": "nestroy_place_id__97",
+    "mentions": [
+      [
+        "Die beiden Nachtwandler oder Das Notwendige und das \u00dcberfl\u00fcssige",
+        "play_31"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.28921",
+      "lat": "48.08605"
+    },
+    "name": "M\u00f6dling  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2771335/"
+    ],
+    "internal_id": "nestroy_place_id__98",
+    "mentions": [
+      [
+        "Robert der Teuxel",
+        "play_20"
+      ],
+      [
+        "Weder Lorbeerbaum noch Bettelstab",
+        "play_27"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "37.61556",
+      "lat": "55.75222"
+    },
+    "name": "Moskau ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/524901/"
+    ],
+    "internal_id": "nestroy_place_id__99",
+    "mentions": [
+      [
+        "Unverhofft",
+        "play_55"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.26811",
+      "lat": "40.85216"
+    },
+    "name": "Neapel  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3172394/"
+    ],
+    "internal_id": "nestroy_place_id__102",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ],
+      [
+        "Der Feenball oder Tischler, Schneider und Schlosser",
+        "play_17"
+      ],
+      [
+        "Eulenspiegel oder Schabernack \u00fcber Schabernack",
+        "play_28"
+      ],
+      [
+        "Der Talisman",
+        "play_42"
+      ],
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ],
+      [
+        "H\u00f6llenangst",
+        "play_66"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-74.00597",
+      "lat": "40.71427"
+    },
+    "name": "New York  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/5128581/"
+    ],
+    "internal_id": "nestroy_place_id__103",
+    "mentions": [
+      [
+        "Der confuse Zauberer oder Treue und Flatterhaftigkeit",
+        "play_14"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "43.15667",
+      "lat": "36.36768"
+    },
+    "name": "Ninive  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/92878/"
+    ],
+    "internal_id": "nestroy_place_id__104",
+    "mentions": [
+      [
+        "Der Unbedeutende",
+        "play_56"
+      ],
+      [
+        "Der alte Mann mit der jungen Frau",
+        "play_65"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "11.07752",
+      "lat": "49.45421"
+    },
+    "name": "N\u00fcrnberg  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2861650/"
+    ],
+    "internal_id": "nestroy_place_id__105",
+    "mentions": [
+      [
+        "Der Feenball oder Tischler, Schneider und Schlosser",
+        "play_17"
+      ],
+      [
+        "Der b\u00f6se Geist Lumpacivagabundus oder Das liederliche Kleeblatt",
+        "play_18"
+      ],
+      [
+        "Liebesgeschichten und Heurathssachen",
+        "play_47"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "17.25175",
+      "lat": "49.59552"
+    },
+    "name": "Olomouc",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3069011/"
+    ],
+    "internal_id": "nestroy_place_id__107",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [
+      "Olm\u00fctz"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "1.90389",
+      "lat": "47.90289"
+    },
+    "name": "Orleans",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2989317/"
+    ],
+    "internal_id": "nestroy_place_id__108",
+    "mentions": [
+      [
+        "Der Zetteltr\u00e4ger Papp",
+        "play_1"
+      ],
+      [
+        "Die Fahrt mit dem Dampfwagen",
+        "play_25"
+      ],
+      [
+        "Das M\u00e4dl aus der Vorstadt oder Ehrlich w\u00e4hrt am l\u00e4ngsten",
+        "play_43"
+      ],
+      [
+        "Das Quodlibet verschiedener Jahrhunderte",
+        "play_48"
+      ],
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ],
+      [
+        "Fr\u00fchere Verh\u00e4ltnisse",
+        "play_82"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "2.92700",
+      "lat": "51.21551"
+    },
+    "name": "Ostende  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2789786/"
+    ],
+    "internal_id": "nestroy_place_id__110",
+    "mentions": [
+      [
+        "Kampl",
+        "play_73"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "11.88586",
+      "lat": "45.40797"
+    },
+    "name": "Padua  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3171728/"
+    ],
+    "internal_id": "nestroy_place_id__111",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "20.64167",
+      "lat": "44.87177"
+    },
+    "name": "Pantschowa  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/787237/"
+    ],
+    "internal_id": "nestroy_place_id__112",
+    "mentions": [
+      [
+        "Der Erbschleicher",
+        "play_41"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "2.34880",
+      "lat": "48.85341"
+    },
+    "name": "Paris ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2988507/"
+    ],
+    "internal_id": "nestroy_place_id__113",
+    "mentions": [
+      [
+        "Dreyssig Jahre aus dem Leben eines Lumpen / Die Verbannung aus dem Zauberreiche",
+        "play_3"
+      ],
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ],
+      [
+        "Der Feenball oder Tischler, Schneider und Schlosser",
+        "play_17"
+      ],
+      [
+        "Der Zauberer Sulphurelectrimagnetikophosphoratus und die Fee Walpurgiblocksbergiseptemtrionalis oder Die Abenteuer in der Sclaverey oder Asiatische Strafe f\u00fcr europ\u00e4ische Vergehen oder Des ungeratenen Herrn Sohnes Leben, Taten und Meinungen, wie auch dessen Bestrafung in der Sklaverei und was sich all dort Ferneres mit ihm begab",
+        "play_19"
+      ],
+      [
+        "Die Familien Zwirn, Knieriem und Leim oder Der Welt-Untergangs-Tag",
+        "play_26"
+      ],
+      [
+        "Weder Lorbeerbaum noch Bettelstab",
+        "play_27"
+      ],
+      [
+        "Eulenspiegel oder Schabernack \u00fcber Schabernack",
+        "play_28"
+      ],
+      [
+        "Der Treulose oder Saat und Ernte",
+        "play_30"
+      ],
+      [
+        "Moppels Abentheuer im Viertel unter Wiener Wald, in Neu-Seeland und Marokko",
+        "play_34"
+      ],
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ],
+      [
+        "Die beiden Herrn S\u00f6hne",
+        "play_53"
+      ],
+      [
+        "Das Gew\u00fcrzkr\u00e4merkleeblatt oder Die unschuldig Schuldigen",
+        "play_54"
+      ],
+      [
+        "Unverhofft",
+        "play_55"
+      ],
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ],
+      [
+        "Die lieben Anverwandten",
+        "play_61"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ],
+      [
+        "Karikaturen-Charivari mit Heurathszweck",
+        "play_68"
+      ],
+      [
+        "Alles will den Prophet\u2019n seh\u2019n",
+        "play_69"
+      ],
+      [
+        "Mein Freund",
+        "play_71"
+      ],
+      [
+        "Kampl",
+        "play_73"
+      ],
+      [
+        "Heimliches Geld, heimliche Liebe",
+        "play_74"
+      ],
+      [
+        "Theaterg\u2019schichten durch Liebe, Intrige, Geld und Dummheit",
+        "play_75"
+      ],
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.32618",
+      "lat": "44.79935"
+    },
+    "name": "Parma  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3171457/"
+    ],
+    "internal_id": "nestroy_place_id__114",
+    "mentions": [
+      [
+        "Der Feenball oder Tischler, Schneider und Schlosser",
+        "play_17"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "116.39723",
+      "lat": "39.90750"
+    },
+    "name": "Peking ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/1816670/"
+    ],
+    "internal_id": "nestroy_place_id__115",
+    "mentions": [
+      [
+        "Das Quodlibet verschiedener Jahrhunderte",
+        "play_48"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "30.31413",
+      "lat": "59.93863"
+    },
+    "name": "Petersburg  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/498817/"
+    ],
+    "internal_id": "nestroy_place_id__116",
+    "mentions": [
+      [
+        "Weder Lorbeerbaum noch Bettelstab",
+        "play_27"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-75.16362",
+      "lat": "39.95238"
+    },
+    "name": "Philadelphia ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/4560349/"
+    ],
+    "internal_id": "nestroy_place_id__117",
+    "mentions": [
+      [
+        "Der Treulose oder Saat und Ernte",
+        "play_30"
+      ],
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.69342",
+      "lat": "45.05242"
+    },
+    "name": "Piacenza  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3171058/"
+    ],
+    "internal_id": "nestroy_place_id__118",
+    "mentions": [
+      [
+        "Verwickelte Geschichte!",
+        "play_70"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.48333",
+      "lat": "40.75000"
+    },
+    "name": "Pompeji  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3170336/"
+    ],
+    "internal_id": "nestroy_place_id__119",
+    "mentions": [
+      [
+        "Der Feenball oder Tischler, Schneider und Schlosser",
+        "play_17"
+      ],
+      [
+        "Nur Ruhe!",
+        "play_49"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.27947",
+      "lat": "41.59101"
+    },
+    "name": "Porto Vecchio ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2985947/"
+    ],
+    "internal_id": "nestroy_place_id__120",
+    "mentions": [
+      [
+        "Das Verlobungsfest im Feenreiche oder Die Gleichheit der Jahre",
+        "play_23"
+      ],
+      [
+        "Zwey ewige Juden und Keiner",
+        "play_57"
+      ],
+      [
+        "Mein Freund",
+        "play_71"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.42076",
+      "lat": "50.08804"
+    },
+    "name": "Praha",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3067696/"
+    ],
+    "internal_id": "nestroy_place_id__122",
+    "mentions": [
+      [
+        "Der b\u00f6se Geist Lumpacivagabundus oder Das liederliche Kleeblatt",
+        "play_18"
+      ],
+      [
+        "Das Haus der Temperamente",
+        "play_35"
+      ]
+    ],
+    "alt_names": [
+      "Prag"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.17539",
+      "lat": "48.20769"
+    },
+    "name": "Purkersdorf  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2768232/"
+    ],
+    "internal_id": "nestroy_place_id__123",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.60388",
+      "lat": "49.09021"
+    },
+    "name": "Raigern ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3067078/"
+    ],
+    "internal_id": "nestroy_place_id__124",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "12.10161",
+      "lat": "49.01513"
+    },
+    "name": "Regensburg ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2849483/"
+    ],
+    "internal_id": "nestroy_place_id__125",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "12.51133",
+      "lat": "41.89193"
+    },
+    "name": "Rom",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3169070/"
+    ],
+    "internal_id": "nestroy_place_id__126",
+    "mentions": [
+      [
+        "H\u00f6llenangst",
+        "play_66"
+      ],
+      [
+        "Verwickelte Geschichte!",
+        "play_70"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "1.09932",
+      "lat": "49.44313"
+    },
+    "name": "Rouen ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2982652/"
+    ],
+    "internal_id": "nestroy_place_id__127",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "13.04399",
+      "lat": "47.79941"
+    },
+    "name": "Salzburg",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2766824/"
+    ],
+    "internal_id": "nestroy_place_id__128",
+    "mentions": [
+      [
+        "Der Feenball oder Tischler, Schneider und Schlosser",
+        "play_17"
+      ],
+      [
+        "Die schlimmen Buben in der Schule",
+        "play_59"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.66753",
+      "lat": "45.83443"
+    },
+    "name": "San Pellegrino ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3167875/"
+    ],
+    "internal_id": "nestroy_place_id__129",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "-0.87734",
+      "lat": "41.65606"
+    },
+    "name": "Saragossa",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3104324/"
+    ],
+    "internal_id": "nestroy_place_id__130",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.98333",
+      "lat": "41.61667"
+    },
+    "name": "Sartena ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2975931/"
+    ],
+    "internal_id": "nestroy_place_id__131",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.46667",
+      "lat": "48.13333"
+    },
+    "name": "Schwechat",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2765388/"
+    ],
+    "internal_id": "nestroy_place_id__133",
+    "mentions": [
+      [
+        "Weder Lorbeerbaum noch Bettelstab",
+        "play_27"
+      ]
+    ],
+    "alt_names": [
+      "Schw\u00f6chat"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.43111",
+      "lat": "49.32083"
+    },
+    "name": "Speyer",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2830582/"
+    ],
+    "internal_id": "nestroy_place_id__135",
+    "mentions": [
+      [
+        "Die Zauberreise in die Ritterzeit oder Die \u00dcberm\u00fcthigen",
+        "play_15"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.78333",
+      "lat": "47.21667"
+    },
+    "name": "Spielberg",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2764812/"
+    ],
+    "internal_id": "nestroy_place_id__136",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ],
+      [
+        "H\u00f6llenangst",
+        "play_66"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.41667",
+      "lat": "47.83333"
+    },
+    "name": "Steinbrunn",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2764296/"
+    ],
+    "internal_id": "nestroy_place_id__137",
+    "mentions": [
+      [
+        "Nur keck!",
+        "play_76"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.42127",
+      "lat": "48.04274"
+    },
+    "name": "Steyr",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2764359/"
+    ],
+    "internal_id": "nestroy_place_id__138",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.67581",
+      "lat": "48.04509"
+    },
+    "name": "Stixneusiedl  ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2764288/"
+    ],
+    "internal_id": "nestroy_place_id__139",
+    "mentions": [
+      [
+        "\u201eSie sollen ihn nicht haben!\u201c oder Der holl\u00e4ndische Bauer",
+        "play_67"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.21667",
+      "lat": "48.38333"
+    },
+    "name": "Stockerau ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2764279/"
+    ],
+    "internal_id": "nestroy_place_id__140",
+    "mentions": [
+      [
+        "Eulenspiegel oder Schabernack \u00fcber Schabernack",
+        "play_28"
+      ],
+      [
+        "Der alte Mann mit der jungen Frau",
+        "play_65"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.17702",
+      "lat": "48.78232"
+    },
+    "name": "Stuttgart",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2825297/"
+    ],
+    "internal_id": "nestroy_place_id__142",
+    "mentions": [
+      [
+        "Der Treulose oder Saat und Ernte",
+        "play_30"
+      ]
+    ],
+    "alt_names": [
+      "Stuttgard"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.30118",
+      "lat": "48.00964"
+    },
+    "name": "Traiskirchen",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/7871715/"
+    ],
+    "internal_id": "nestroy_place_id__144",
+    "mentions": [
+      [
+        "Moppels Abentheuer im Viertel unter Wiener Wald, in Neu-Seeland und Marokko",
+        "play_34"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "13.77678",
+      "lat": "45.64953"
+    },
+    "name": "Trieste",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3165185/"
+    ],
+    "internal_id": "nestroy_place_id__145",
+    "mentions": [
+      [
+        "Der b\u00f6se Geist Lumpacivagabundus oder Das liederliche Kleeblatt",
+        "play_18"
+      ],
+      [
+        "Der Erbschleicher",
+        "play_41"
+      ],
+      [
+        "Liebesgeschichten und Heurathssachen",
+        "play_47"
+      ]
+    ],
+    "alt_names": [
+      "Triest"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "10.16579",
+      "lat": "36.81897"
+    },
+    "name": "Tunis ",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2464470/"
+    ],
+    "internal_id": "nestroy_place_id__147",
+    "mentions": [
+      [
+        "Prinz Friedrich",
+        "play_8"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.99155",
+      "lat": "48.39841"
+    },
+    "name": "Ulm",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2820256/"
+    ],
+    "internal_id": "nestroy_place_id__148",
+    "mentions": [
+      [
+        "Der b\u00f6se Geist Lumpacivagabundus oder Das liederliche Kleeblatt",
+        "play_18"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "12.33265",
+      "lat": "45.43713"
+    },
+    "name": "Venezia",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/3164603/"
+    ],
+    "internal_id": "nestroy_place_id__149",
+    "mentions": [
+      [
+        "Moppels Abentheuer im Viertel unter Wiener Wald, in Neu-Seeland und Marokko",
+        "play_34"
+      ],
+      [
+        "Liebesgeschichten und Heurathssachen",
+        "play_47"
+      ],
+      [
+        "Theaterg\u2019schichten durch Liebe, Intrige, Geld und Dummheit",
+        "play_75"
+      ]
+    ],
+    "alt_names": [
+      "Venedig"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "14.77361",
+      "lat": "47.96004"
+    },
+    "name": "Waidhofen/Ybbs",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2762077/"
+    ],
+    "internal_id": "nestroy_place_id__150",
+    "mentions": [
+      [
+        "Dreyssig Jahre aus dem Leben eines Lumpen / Die Verbannung aus dem Zauberreiche",
+        "play_3"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "11.32903",
+      "lat": "50.98030"
+    },
+    "name": "Weimar",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2812482/"
+    ],
+    "internal_id": "nestroy_place_id__152",
+    "mentions": [
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "9.28762",
+      "lat": "49.15127"
+    },
+    "name": "Weinsberg",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2812158/"
+    ],
+    "internal_id": "nestroy_place_id__153",
+    "mentions": [
+      [
+        "Der Zetteltr\u00e4ger Papp",
+        "play_1"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.37208",
+      "lat": "48.20849"
+    },
+    "name": "Wien",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2761369/"
+    ],
+    "internal_id": "nestroy_place_id__155",
+    "mentions": [
+      [
+        "Der b\u00f6se Geist Lumpacivagabundus oder Das liederliche Kleeblatt",
+        "play_18"
+      ],
+      [
+        "Der Zauberer Sulphurelectrimagnetikophosphoratus und die Fee Walpurgiblocksbergiseptemtrionalis oder Die Abenteuer in der Sclaverey oder Asiatische Strafe f\u00fcr europ\u00e4ische Vergehen oder Des ungeratenen Herrn Sohnes Leben, Taten und Meinungen, wie auch dessen Bestrafung in der Sklaverei und was sich all dort Ferneres mit ihm begab",
+        "play_19"
+      ],
+      [
+        "Robert der Teuxel",
+        "play_20"
+      ],
+      [
+        "Der Tritschtratsch",
+        "play_21"
+      ],
+      [
+        "Die Familien Zwirn, Knieriem und Leim oder Der Welt-Untergangs-Tag",
+        "play_26"
+      ],
+      [
+        "Weder Lorbeerbaum noch Bettelstab",
+        "play_27"
+      ],
+      [
+        "Eine Wohnung ist zu vermieten in der Stadt, Eine Wohnung ist zu verlassen in der Vorstadt, Eine Wohnung mit Garten ist zu haben in Hietzing",
+        "play_33"
+      ],
+      [
+        "Moppels Abentheuer im Viertel unter Wiener Wald, in Neu-Seeland und Marokko",
+        "play_34"
+      ],
+      [
+        "Die verh\u00e4ngnisvolle Faschingsnacht",
+        "play_39"
+      ],
+      [
+        "Liebesgeschichten und Heurathssachen",
+        "play_47"
+      ],
+      [
+        "Das Quodlibet verschiedener Jahrhunderte",
+        "play_48"
+      ],
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ],
+      [
+        "Die beiden Herrn S\u00f6hne",
+        "play_53"
+      ],
+      [
+        "Der Sch\u00fctzling",
+        "play_58"
+      ],
+      [
+        "Die schlimmen Buben in der Schule",
+        "play_59"
+      ],
+      [
+        "Freiheit in Kr\u00e4hwinkel",
+        "play_62"
+      ],
+      [
+        "Lady und Schneider",
+        "play_63"
+      ],
+      [
+        "Judith und Holofernes",
+        "play_64"
+      ],
+      [
+        "\u201eSie sollen ihn nicht haben!\u201c oder Der holl\u00e4ndische Bauer",
+        "play_67"
+      ],
+      [
+        "Alles will den Prophet\u2019n seh\u2019n",
+        "play_69"
+      ],
+      [
+        "Umsonst",
+        "play_77"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "16.23196",
+      "lat": "47.80485"
+    },
+    "name": "Wiener Neustadt",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2761353/"
+    ],
+    "internal_id": "nestroy_place_id__156",
+    "mentions": [
+      [
+        "Eisenbahnheiraten oder Wien, Neustadt, Br\u00fcnn",
+        "play_50"
+      ]
+    ],
+    "alt_names": [
+      "Neustadt"
+    ],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "8.35916",
+      "lat": "49.63278"
+    },
+    "name": "Worms",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2806142/"
+    ],
+    "internal_id": "nestroy_place_id__159",
+    "mentions": [
+      [
+        "Die Zauberreise in die Ritterzeit oder Die \u00dcberm\u00fcthigen",
+        "play_15"
+      ]
+    ],
+    "alt_names": [],
+    "total_occurences": "0"
+  },
+  {
+    "coordinates": {
+      "lng": "15.08333",
+      "lat": "48.16667"
+    },
+    "name": "Ybbs",
+    "geonames": [
+      "geonames",
+      "https://sws.geonames.org/2760772/"
+    ],
+    "internal_id": "nestroy_place_id__160",
+    "mentions": [
+      [
+        "Zampa der Tagdieb oder die Braut von Gips",
+        "play_13"
+      ]
+    ],
+    "alt_names": [
+      "Yps"
+    ],
+    "total_occurences": "0"
+  }
+]
