@@ -3,7 +3,8 @@ import { TabulatorFull as Tabulator } from "tabulator-tables";
 
 function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer) {
 	console.log("loading table");
-	fetch(map_cfg.json_url)
+	if (map_cfg.json_url.length !== 0) {
+		fetch(map_cfg.json_url)
 		.then(function (response) {
 			// json string
 			return response.json();
@@ -17,6 +18,10 @@ function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_lay
 		.catch(function (err) {
 			console.log(err);
 		});
+	} else {
+		let table = build_map_table(table_cfg);
+		populateMapFromTable(table, map, map_cfg.on_row_click_zoom, marker_layer);
+	}
 }
 
 function get_html_link(name, url) {
