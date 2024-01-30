@@ -52,7 +52,8 @@ import PageLayout from "@/layouts/page-layout.astro";
 				on_row_click_zoom: "16",
 				div_id: "vienna_map",
 			};
-			let table_cfg = {
+
+			let tabulator_cfg = {
 				headerFilterLiveFilterDelay: 600,
 				maxHeight: "50vh",
 				layout: "fitColumns",
@@ -72,6 +73,11 @@ import PageLayout from "@/layouts/page-layout.astro";
 						},
 					},
 				},
+			};
+
+			let table_cfg = {
+				tabulator_cfg: tabulator_cfg,
+				table_div_html_id: "#places_table",
 			};
 
 			let wms_cfg = {

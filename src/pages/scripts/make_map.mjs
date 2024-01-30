@@ -10,7 +10,7 @@ function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_lay
 		})
 		.then(function (tabulator_data) {
 			// the table will draw all markers on to the empty map
-			table_cfg.data = tabulator_data;
+			table_cfg.tabulator_cfg.data = tabulator_data;
 			let table = build_map_table(table_cfg);
 			populateMapFromTable(table, map, map_cfg.on_row_click_zoom, marker_layer);
 		})
@@ -192,7 +192,7 @@ function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
 
 function build_map_table(table_cfg) {
 	if (!("columns" in table_cfg)) {
-		table_cfg.columns = [
+		table_cfg.tabulator_cfg.columns = [
 			{
 				headerFilter: "input",
 				title: "name",
@@ -238,7 +238,7 @@ function build_map_table(table_cfg) {
 			},
 		];
 	}
-	let table = new Tabulator("#places_table", table_cfg);
+	let table = new Tabulator(table_cfg.table_div_html_id, table_cfg.tabulator_cfg);
 	console.log("made table");
 	return table;
 }
@@ -275,7 +275,7 @@ export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer);
 }
 
-export function build_table(table_id, table_cfg, json_url) {
+export function build_table(table_cfg, json_url) {
 	console.log("loading table");
 	fetch(json_url)
 		.then(function (response) {
@@ -284,8 +284,8 @@ export function build_table(table_id, table_cfg, json_url) {
 		})
 		.then(function (tabulator_data) {
 			// the table will draw all markers on to the empty map
-			table_cfg.data = tabulator_data;
-			let table = new Tabulator(table_id, table_cfg);
+			table_cfg.tabulator_cfg.data = tabulator_data;
+			let table = new Tabulator(table_cfg.table_div_html_id, table_cfg.tabulator_cfg);
 			console.log("made table");
 		})
 		.catch(function (err) {
