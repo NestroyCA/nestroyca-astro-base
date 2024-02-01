@@ -37,17 +37,13 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<script>
 			import { build_map_and_table } from "./scripts/make_map.mjs";
 			let map_cfg = {
-				//base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 				base_map_url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
 				attribution:
 					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 				subdomains: "abcd",
 				initial_zoom: "15",
 				initial_coordinates: [48.209, 16.37],
-				//base_map_url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-				json_url:
-					//"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json",
-					"/jsons/nestroyvienna.json",
+				json_url: "/jsons/nestroyvienna.json",
 				max_zoom: "19",
 				on_row_click_zoom: "16",
 				div_id: "vienna_map",

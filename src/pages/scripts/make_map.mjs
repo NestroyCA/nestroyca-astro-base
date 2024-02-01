@@ -5,19 +5,19 @@ function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_lay
 	console.log("loading table");
 	if (map_cfg.json_url.length !== 0) {
 		fetch(map_cfg.json_url)
-		.then(function (response) {
-			// json string
-			return response.json();
-		})
-		.then(function (tabulator_data) {
-			// the table will draw all markers on to the empty map
-			table_cfg.tabulator_cfg.data = tabulator_data;
-			let table = build_map_table(table_cfg);
-			populateMapFromTable(table, map, map_cfg.on_row_click_zoom, marker_layer);
-		})
-		.catch(function (err) {
-			console.log(err);
-		});
+			.then(function (response) {
+				// json string
+				return response.json();
+			})
+			.then(function (tabulator_data) {
+				// the table will draw all markers on to the empty map
+				table_cfg.tabulator_cfg.data = tabulator_data;
+				let table = build_map_table(table_cfg);
+				populateMapFromTable(table, map, map_cfg.on_row_click_zoom, marker_layer);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
 	} else {
 		let table = build_map_table(table_cfg);
 		populateMapFromTable(table, map, map_cfg.on_row_click_zoom, marker_layer);
