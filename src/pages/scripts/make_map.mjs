@@ -1,6 +1,22 @@
 import L from "leaflet";
 import { TabulatorFull as Tabulator } from "tabulator-tables";
 
+function resizeIconsOnZoom(map, existing_markers_by_coordinates) {
+	let previousZoom;
+	map.on("zoomstart", function () {
+		previousZoom = map.getZoom();
+	});
+	map.on("zoomend", function () {
+		let zoomRatio = map.getZoom() / previousZoom;
+		Object.entries(existing_markers_by_coordinates).forEach(([coordinate_key, marker]) => {
+			// Adjust the circle radius based on the zoom ratio
+			let currentSize = marker.getRadius();
+			let newSize = currentSize * zoomRatio;
+			marker.setRadius(newSize);
+		});
+	});
+}
+
 function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_layer) {
 	console.log("loading table");
 	if (map_cfg.json_url.length !== 0) {
@@ -46,25 +62,6 @@ function get_label_string_html(row, frequency) {
 	return label_string + plays_list_start + plays_list_end;
 }
 
-function draw_cirlce_from_rowdata(latLng, frequency) {
-	let radius = frequency;
-	let html_dot = "";
-	let border_width = 4;
-	let border_color = "red";
-	let size = radius * 10;
-	let circle_style = `style="width: ${size}px; height: ${size}px; border-radius: 50%; display: table-cell; border: ${border_width}px solid ${border_color};  background: rgba(255, 0, 0, .5); overflow: hidden; position: absolute"`;
-	let iconSize = size;
-	let icon = L.divIcon({
-		html: `<span ${circle_style}>${html_dot}</span>`,
-		className: "",
-		iconSize: [iconSize, iconSize],
-	});
-	let marker = L.marker(latLng, {
-		icon: icon,
-	});
-	return marker;
-}
-
 function zoom_to_point_from_row_data(row_data, map, zoom, existing_markers_by_coordinates) {
 	let coordinate_key = get_coordinate_key_from_row_data(row_data);
 	let marker = existing_markers_by_coordinates[coordinate_key];
@@ -101,6 +98,24 @@ function get_coordinate_key_from_row_data(row_data) {
 	return row_data.coordinates.lat + row_data.coordinates.lng;
 }
 
+function draw_cirlce_from_rowdata(latLng, row) {
+	/*provides a circular icon to be drawn on the map, radius is dermined by the amount
+	  of child elements in the related_objects column first ul child*/
+	let radius_factor = row.getCell("mentions").getElement().children[0].childElementCount;
+	let radius = radius_factor * 3;
+	let border_width = 4;
+	let options = {
+		radius: radius,
+		weight: border_width,
+		fillOpacity: "0.4",
+		color: "#702963",
+		fillColor: "#702963",
+	};
+	let marker = L.circleMarker(latLng, options);
+	console.log(marker);
+	return marker;
+}
+
 function init_map_from_rows(rows, marker_layer) {
 	console.log("populating map with icons");
 	let existing_circles_by_coordinates = {};
@@ -110,7 +125,7 @@ function init_map_from_rows(rows, marker_layer) {
 		let frequency = row_data.mentions.length;
 		let new_circle = draw_cirlce_from_rowdata(
 			[row_data.coordinates.lat, row_data.coordinates.lng],
-			frequency,
+			row,
 		);
 		existing_circles_by_coordinates[coordinate_key] = new_circle;
 		new_circle.bindPopup(get_label_string_html(row_data, frequency));
@@ -192,6 +207,7 @@ function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
 				existing_markers_by_coordinates,
 			);
 		});
+		resizeIconsOnZoom(map, existing_markers_by_coordinates);
 	});
 }
 
@@ -253,9 +269,12 @@ function build_map_table(table_cfg) {
 /////////////////////
 export function build_map_and_table(map_cfg, table_cfg, wms_cfg = null) {
 	console.log("loading map");
-	let map = L.map(map_cfg.div_id).setView(map_cfg.initial_coordinates, map_cfg.initial_zoom);
-	let tile_layer = L.tileLayer(map_cfg.base_map_url, {
+	var map = L.map(map_cfg.div_id, {
+		minZoom: map_cfg.min_zoom,
 		maxZoom: map_cfg.max_zoom,
+	});
+	map.setView(map_cfg.initial_coordinates, map_cfg.initial_zoom);
+	let tile_layer = L.tileLayer(map_cfg.base_map_url, {
 		attribution: map_cfg.attribution,
 	});
 	let marker_layer = L.layerGroup();

@@ -20,8 +20,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 			let map_cfg = {
 				div_id: "vienna_map",
 				json_url: "/jsons/places.json",
-				initial_zoom: "5",
-				max_zoom: "19",
+				initial_zoom: 5,
+				max_zoom: 19,
+				min_zoom: 2,
 				/* zomm level for a place on the map focused by clicking the corresponding row */
 				on_row_click_zoom: "11",
 				initial_coordinates: [48.210033, 16.363449],
