@@ -9,68 +9,66 @@ import PageLayout from "@/layouts/page-layout.astro";
 		<div id="intro">
 			<p>Under Construction!</p>
 		</div>
-		<div id="persons_table" class=""></div>
+		<div id="persons_table" class="h-screen"></div>
 		<script>
-			import { build_table, build_linklist_cell } from "./scripts/make_map.mjs";
-			let table_cfg = {
+			import { build_table } from "./scripts/make_map.mjs";
+			let langs = {
+				default: {
+					pagination: {
+						counter: {
+							showing: "",
+							of: "of",
+							rows: "",
+						},
+					},
+				},
+			};
+
+			/* this cfg describes some of the features of
+			the tabulator table and it't functions */
+
+			let columns = [
+				{
+					headerFilter: "input",
+					title: "name",
+					field: "name",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "nestroy_person_id",
+					field: "nestroy_person_id",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "occurences",
+					field: "occurences",
+					formatter: "plaintext",
+					resizable: false,
+				},
+			];
+			let tabulator_cfg = {
+				maxHeight: "70vh",
 				layout: "fitColumns",
 				width: "100%",
 				headerFilterLiveFilterDelay: 600,
 				responsiveLayout: "collapse",
 				paginationCounter: "rows",
 				pagination: "local",
-				paginationSize: 10,
-				langs: {
-					default: {
-						pagination: {
-							counter: {
-								showing: "",
-								of: "of",
-								rows: "",
-							},
-						},
-					},
-				},
+				langs: langs,
+				columns: columns,
 			};
-			table_cfg.columns = [
-				{
-					headerFilter: "input",
-					title: "name",
-					field: "name",
-					resizable: false,
-				},
-				{
-					headerFilter: "input",
-					title: "comment",
-					field: "comment",
-					resizable: false,
-				},
-				{
-					headerFilter: "input",
-					title: "mentioned in",
-					field: "occurences",
-					resizable: false,
-					formatter: function (cell) {
-						return build_linklist_cell(this, cell);
-					},
-				},
-				{
-					headerFilter: "input",
-					title: "birth",
-					field: "birth_not_before",
-					resizable: false,
-				},
-				{
-					headerFilter: "input",
-					title: "death",
-					field: "death_not_after",
-					resizable: false,
-				},
-			];
-			let table_id = "#persons_table";
+
+			let table_cfg = {
+				tabulator_cfg: tabulator_cfg,
+				table_div_html_id: "#persons_table",
+			};
 			let json_url =
 				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/persons.json";
-			build_table(table_id, table_cfg, json_url);
+			build_table(table_cfg, json_url);
 		</script>
 	</ContentPage>
 </PageLayout>
