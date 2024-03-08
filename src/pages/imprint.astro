@@ -6,18 +6,17 @@ import { metadata } from "@/config/metadata.config";
 import PageLayout from "@/layouts/page-layout.astro";
 import { env } from "@/lib/env";
 
-const baseUrl = "https://shared.acdh.oeaw.ac.at";
-const pathname = "/acdh-common-assets/api/imprint.php";
-const redmineId = env.PUBLIC_REDMINE_ID;
-
+const baseUrl = "https://imprint.acdh.oeaw.ac.at";
+const pathname = `/${env.PUBLIC_REDMINE_ID}`;
 const url = createUrl({
 	baseUrl,
 	pathname,
 	searchParams: createUrlSearchParams({
 		outputLang: metadata.locale,
-		serviceID: redmineId,
 	}),
 });
+
+//const html = await request(url, { responseType: "text" });
 const html = await request(url, { responseType: "text" });
 ---
 
