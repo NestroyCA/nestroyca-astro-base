@@ -40,7 +40,7 @@ function fetch_tabulatordata_and_build_table(map_cfg, map, table_cfg, marker_lay
 	}
 }
 
-function get_html_link(name, url) {
+export function get_html_link(name, url) {
 	return `<a href='${url}'>${name}</a>`;
 }
 
@@ -90,7 +90,9 @@ export function build_linklist_cell(table, cell) {
 		let links = [];
 		while (i < values.length) {
 			let pair = values[i];
-			links.push(get_html_link(pair[0], pair[1]));
+			links.push(
+				get_html_link(pair[0], pair[1])
+			);
 			i++;
 		}
 		let basic_html = get_html_list(links);

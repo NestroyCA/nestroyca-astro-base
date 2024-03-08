@@ -1,0 +1,100 @@
+---
+import ContentPage from "@/components/content-page.astro";
+import { links } from "@/config/navigation.config";
+import PageLayout from "@/layouts/page-layout.astro";
+---
+
+<PageLayout title={links.entities_terms.label}>
+	<ContentPage title={links.entities_terms.title} layout="full-width">
+		<div id="terms_table" class="h-[66vh]"></div>
+		<script>
+			import { build_table, build_linklist_cell } from "./scripts/make_map.mjs";
+			let langs = {
+				default: {
+					pagination: {
+						counter: {
+							showing: "",
+							of: "of",
+							rows: "",
+						},
+					},
+				},
+			};
+
+			/* this cfg describes some of the features of
+			the tabulator table and it't functions */
+
+			let columns = [
+				{
+					headerFilter: "input",
+					title: "Lemma",
+					field: "lemma",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					headerFilter: "input",
+					title: "Sublemmata",
+					field: "sublemmata_separated_by_newline",
+					formatter: "textarea",
+					resizable: false,
+				},
+				{
+					title: "Variants",
+					field: "variants_seperated_by_newlines",
+					formatter: "textarea",
+					resizable: false,
+				},
+				{
+					title: "Introduced in German",
+					field: "not_before_date_german",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "Introduced Globally",
+					field: "not_before_date_global",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "Absloute Frequency",
+					field: "total_frequency",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "Authority Data",
+					field: "authority_data",
+					formatter: function (cell) {
+						return build_linklist_cell(this, cell);
+					},
+				},
+				{
+					headerFilter: "input",
+					title: "Domain",
+					field: "domains",
+					formatter: "textarea",
+				},
+			];
+			let tabulator_cfg = {
+				resizableColumnFit: true,
+				layout: "fitDataFill",
+				headerFilterLiveFilterDelay: 600,
+				responsiveLayout: "collapse",
+				paginationCounter: "rows",
+				pagination: "local",
+				langs: langs,
+				columns: columns,
+			};
+
+			let table_cfg = {
+				tabulator_cfg: tabulator_cfg,
+				table_div_html_id: "#terms_table",
+			};
+			let json_url =
+				"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/terminology.json";
+			build_table(table_cfg, json_url);
+		</script>
+	</ContentPage>
+</PageLayout>

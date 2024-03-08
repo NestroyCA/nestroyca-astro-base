@@ -59,6 +59,11 @@ export const links = {
 		label: "Persons",
 		title: "Persons",
 	},
+	entities_terms: {
+		href: "/terms",
+		label: "Terms",
+		title: "Terms",
+	},
 	team: {
 		//		href: base.concat("/team"),
 		href: "/team",
