@@ -4,11 +4,8 @@ import { links } from "@/config/navigation.config";
 import PageLayout from "@/layouts/page-layout.astro";
 ---
 
-<PageLayout title={links.entities_places.label}>
-	<ContentPage title={links.entities_places.title} layout="full-width">
-		<div id="intro">
-			<p>Under Construction!</p>
-		</div>
+<PageLayout title={links.entities_persons.label}>
+	<ContentPage title={links.entities_persons.title} layout="full-width">
 		<div id="persons_table" class="h-screen"></div>
 		<script>
 			import { build_table, build_linklist_cell } from "./scripts/make_map.mjs";
@@ -30,24 +27,67 @@ import PageLayout from "@/layouts/page-layout.astro";
 			let columns = [
 				{
 					headerFilter: "input",
-					title: "name",
+					title: "Name",
 					field: "name",
 					formatter: "plaintext",
 					resizable: false,
 				},
 				{
+					title: "Descritption",
+					field: "comment",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "Alternative Names",
+					field: "alt_name",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "PMB",
+					field: "pmb_url",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "Wiki Data",
+					field: "wiki_data_url",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "Wien Geschichte Wiki",
+					field: "wien_geschichtewiki",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
 					headerFilter: "input",
-					title: "occurences",
+					title: "Appears in",
 					field: "occurences",
 					formatter: function (cell) {
 						return build_linklist_cell(this, cell);
 					},
 					resizable: false,
 				},
+				{
+					title: "Birth",
+					field: "birth_not_before",
+					formatter: "plaintext",
+					resizable: false,
+				},
+				{
+					title: "Death",
+					field: "birth_not_after",
+					formatter: "plaintext",
+					resizable: false,
+				},
 			];
 			let tabulator_cfg = {
 				maxHeight: "70vh",
-				layout: "fitColumns",
+				resizableColumnFit: true,
+				layout: "fitData",
 				width: "100%",
 				headerFilterLiveFilterDelay: 600,
 				responsiveLayout: "collapse",
