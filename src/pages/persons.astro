@@ -11,7 +11,7 @@ import PageLayout from "@/layouts/page-layout.astro";
 		</div>
 		<div id="persons_table" class="h-screen"></div>
 		<script>
-			import { build_table } from "./scripts/make_map.mjs";
+			import { build_table, build_linklist_cell } from "./scripts/make_map.mjs";
 			let langs = {
 				default: {
 					pagination: {
@@ -37,16 +37,11 @@ import PageLayout from "@/layouts/page-layout.astro";
 				},
 				{
 					headerFilter: "input",
-					title: "nestroy_person_id",
-					field: "nestroy_person_id",
-					formatter: "plaintext",
-					resizable: false,
-				},
-				{
-					headerFilter: "input",
 					title: "occurences",
 					field: "occurences",
-					formatter: "plaintext",
+					formatter: function (cell) {
+						return build_linklist_cell(this, cell);
+					},
 					resizable: false,
 				},
 			];

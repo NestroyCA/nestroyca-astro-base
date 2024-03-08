@@ -83,15 +83,19 @@ function make_cell_scrollable(table, cell, cell_html_string_in) {
 
 export function build_linklist_cell(table, cell) {
 	let values = cell.getValue();
-	let i = 0;
-	let links = [];
-	while (i < values.length) {
-		let pair = values[i];
-		links.push(get_html_link(pair[0], pair[1]));
-		i++;
+	if (values.length == 0) {
+		return "";
+	} else {
+		let i = 0;
+		let links = [];
+		while (i < values.length) {
+			let pair = values[i];
+			links.push(get_html_link(pair[0], pair[1]));
+			i++;
+		}
+		let basic_html = get_html_list(links);
+		return make_cell_scrollable(table, cell, basic_html);
 	}
-	let basic_html = get_html_list(links);
-	return make_cell_scrollable(table, cell, basic_html);
 }
 
 function get_coordinate_key_from_row_data(row_data) {
