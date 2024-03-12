@@ -90,9 +90,7 @@ export function build_linklist_cell(table, cell) {
 		let links = [];
 		while (i < values.length) {
 			let pair = values[i];
-			links.push(
-				get_html_link(pair[0], pair[1])
-			);
+			links.push(get_html_link(pair[0], pair[1]));
 			i++;
 		}
 		let basic_html = get_html_list(links);
