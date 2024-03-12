@@ -1,0 +1,45 @@
+---
+import { type GetStaticPaths } from "astro";
+
+import ContentPage from "@/components/content-page.astro";
+import PageLayout from "@/layouts/page-layout.astro";
+
+import lemmas from "../../../public/jsons/lemma_context.json";
+
+type Lemma = {
+	entity_id: string;
+	play_id: string;
+	lemma: string;
+	text_snipped: string;
+	play_title: string;
+	value;
+	play_subtitle: string;
+	act: Array<string>;
+	scene: Array<string>;
+	bibl: string;
+};
+
+export const getStaticPaths = (() => {
+	const ids = Object.keys(lemmas);
+
+	return ids.map((id) => {
+		return {
+			params: { id },
+			props: { lemma_objs: lemmas[id] as Array<Lemma> },
+		};
+	});
+}) satisfies GetStaticPaths;
+
+const { id } = Astro.params;
+const { lemma_objs } = Astro.props;
+---
+
+<PageLayout title={id}>
+	<ContentPage title={lemma_objs[0].lemma}>
+		<div class="grid gap-8 md:grid-cols-[1fr_320px]">
+			<!-- <LeadP>
+				1steinternat
+			</LeadP> -->
+		</div>
+	</ContentPage>
+</PageLayout>
