@@ -2,6 +2,7 @@
 import { type GetStaticPaths } from "astro";
 
 import ContentPage from "@/components/content-page.astro";
+import SubP from "@/components/sub-p.astro";
 import PageLayout from "@/layouts/page-layout.astro";
 
 import lemmas from "../../../public/jsons/lemma_context.json";
@@ -36,10 +37,14 @@ const { lemma_objs } = Astro.props;
 
 <PageLayout title={id}>
 	<ContentPage title={lemma_objs[0].lemma}>
-		<div class="grid gap-8 md:grid-cols-[1fr_320px]">
-			<!-- <LeadP>
-				1steinternat
-			</LeadP> -->
-		</div>
+		{
+			lemma_objs.map((lemmaObj) => (
+				<div key={lemmaObj.entity_id}>
+					<h2 class="border-b pb-2 text-xl font-medium">{lemmaObj.play_title}</h2>
+					<SubP>„{lemmaObj.text_snipped}“</SubP>
+					<p class="min-w-60 w-2/4 pl-2">{lemmaObj.bibl}</p>
+				</div>
+			))
+		}
 	</ContentPage>
 </PageLayout>
