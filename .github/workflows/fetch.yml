@@ -18,15 +18,13 @@ jobs:
         # I just fetch the data for building the tables/maps here an commit to repo, just in case
         - name: fetch jsons from entity repo
           run: |
+            if [ ! -d ./src/jsons ]
+            then
+              mkdir ./src/jsons
+            fi
             curl -o ./public/jsons/nestroyvienna.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json
             curl -o ./public/jsons/places.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json
-        - name: fetch jsons from working data repo
-          run: |
-            curl --request GET \
-            --url 'https://raw.githubusercontent.com/NestroyCA/working-data/main/json/cleaned_lemma_context.json' \
-            --header "authorization: token $GITHUB_USER_TOKEN" \
-            -H 'Accept: application/vnd.github.v3.raw' \
-            -o ./public/jsons/lemma_context.json
+            curl https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/lemma_context.json -o ./src/jsons/lemma_context.json
         - name: commit changes
           uses: stefanzweifel/git-auto-commit-action@v4
           with:

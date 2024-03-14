@@ -5,7 +5,7 @@ import ContentPage from "@/components/content-page.astro";
 import SubP from "@/components/sub-p.astro";
 import PageLayout from "@/layouts/page-layout.astro";
 
-import lemmas from "../../../public/jsons/lemma_context.json";
+import lemmalists from "../../jsons/lemma_context.json";
 
 type Lemma = {
 	entity_id: string;
@@ -13,32 +13,36 @@ type Lemma = {
 	lemma: string;
 	text_snipped: string;
 	play_title: string;
-	value;
 	play_subtitle: string;
 	act: Array<string>;
 	scene: Array<string>;
 	bibl: string;
 };
 
+type LemmaList = {
+	index_name: string;
+	matches: Array<Lemma>;
+};
+
 export const getStaticPaths = (() => {
-	const ids = Object.keys(lemmas);
+	const ids = Object.keys(lemmalists);
 
 	return ids.map((id) => {
 		return {
 			params: { id },
-			props: { lemma_objs: lemmas[id] as Array<Lemma> },
+			props: { lemmalist: lemmalists[id] as LemmaList },
 		};
 	});
 }) satisfies GetStaticPaths;
 
 const { id } = Astro.params;
-const { lemma_objs } = Astro.props;
+const { lemmalist } = Astro.props;
 ---
 
 <PageLayout title={id}>
-	<ContentPage title={lemma_objs[0].lemma}>
+	<ContentPage title={lemmalist.index_name}>
 		{
-			lemma_objs.map((lemmaObj) => (
+			lemmalist.matches.map((lemmaObj) => (
 				<div key={lemmaObj.entity_id}>
 					<h2 class="border-b pb-2 text-xl font-medium">{lemmaObj.play_title}</h2>
 					<SubP>„{lemmaObj.text_snipped}“</SubP>
