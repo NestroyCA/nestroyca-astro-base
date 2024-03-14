@@ -1,6 +1,13 @@
 name: Deploy to GitHub Pages
 
-on: [workflow_dispatch, push]
+#on: [workflow_dispatch, push]
+on:
+  workflow_run:
+    workflows: ["Fetch lemma data from entities repo"]
+    branches: [main]
+    types: 
+      - completed
+
 
 # Allow this job to clone the repo and create a page deployment
 permissions:

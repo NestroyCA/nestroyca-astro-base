@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Fetch lemma data from entities repo
 
 on: [workflow_dispatch, push]
 
