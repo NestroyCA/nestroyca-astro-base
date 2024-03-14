@@ -22,8 +22,6 @@ jobs:
             then
               mkdir ./src/jsons
             fi
-            curl -o ./public/jsons/nestroyvienna.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/vienna_places_tabulator.json
-            curl -o ./public/jsons/places.json https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json
             curl https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/lemma_context.json -o ./src/jsons/lemma_context.json
         - name: commit changes
           uses: stefanzweifel/git-auto-commit-action@v4

@@ -19,7 +19,8 @@ import PageLayout from "@/layouts/page-layout.astro";
 			/*this cfg describes some of the features of the leaflet map and it't functions*/
 			let map_cfg = {
 				div_id: "vienna_map",
-				json_url: "/jsons/places.json",
+				json_url:
+					"https://raw.githubusercontent.com/NestroyCA/baserow-entities/main/json_dumps/places_tabulator.json",
 				initial_zoom: 5,
 				max_zoom: 19,
 				min_zoom: 2,
