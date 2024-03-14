@@ -34,6 +34,7 @@ dist/
 
 # fetched jsons
 public/
+src/jsons/lemma_context.json
 
 # git
 .github/
