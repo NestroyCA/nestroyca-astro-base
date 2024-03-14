@@ -216,7 +216,7 @@ function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
 }
 
 function build_map_table(table_cfg) {
-	if (!("columns" in table_cfg)) {
+	if (!("columns" in table_cfg)) {                                                                                                                                                                                                                                           
 		table_cfg.tabulator_cfg.columns = [
 			{
 				headerFilter: "input",
@@ -224,6 +224,11 @@ function build_map_table(table_cfg) {
 				field: "name",
 				formatter: "html",
 				resizable: false,
+			},
+			{
+				title: "Occurences",
+				field: "occurences_link",
+				formatter: "html",
 			},
 			{
 				title: "links",
