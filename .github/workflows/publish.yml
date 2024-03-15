@@ -1,7 +1,6 @@
 name: Deploy to GitHub Pages
-
-#on: [workflow_dispatch, push]
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["Fetch lemma data from entities repo"]
     branches: [main]

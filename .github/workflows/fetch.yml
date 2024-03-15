@@ -1,6 +1,12 @@
 name: Fetch lemma data from entities repo
 
-on: [workflow_dispatch, push]
+on: 
+  workflow_dispatch:
+  push:
+  schedule:
+    # run this after geneating the lemmas!
+    - cron:  '0 1 * * 0'
+    
 
 permissions:
   contents: write
