@@ -8,6 +8,7 @@ const config: Config = {
 		"./src/content/**/*.@(md|mdx)",
 		"./src/layouts/**/*.@(astro|css|ts|tsx)",
 		"./src/pages/**/*.@(astro|css|ts|tsx)",
+		"./src/jsons/*.json",
 	],
 	darkMode: ["class", '[data-color-scheme="dark"]'],
 	plugins: [animatePlugin, typographyPlugin],

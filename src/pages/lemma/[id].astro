@@ -45,7 +45,7 @@ const { lemmalist } = Astro.props;
 			lemmalist.matches.map((lemmaObj) => (
 				<div key={lemmaObj.entity_id}>
 					<h2 class="border-b pb-2 text-xl font-medium">{lemmaObj.play_title}</h2>
-					<SubP>„{lemmaObj.text_snipped}“</SubP>
+					<SubP set:html={lemmaObj.text_snipped} />
 					<p class="min-w-60 w-2/4 pl-2">{lemmaObj.bibl}</p>
 				</div>
 			))
