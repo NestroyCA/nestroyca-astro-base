@@ -12,7 +12,7 @@ on:
     branches:
       - main
 env:
-  PUBLIC_APP_BASE_URL: https://NestroyCA.github.io
+  PUBLIC_APP_BASE_URL: https://nestroyca.acdh-dev.oeaw.ac.at
   PUBLIC_REDMINE_ID: 21437
 
 jobs:
