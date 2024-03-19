@@ -49,14 +49,14 @@ runs:
         fi
     - name: Setup PNPM
       if: ${{ env.PACKAGE_MANAGER == 'pnpm' }}
-      uses: pnpm/action-setup@v2.2.4
+      uses: pnpm/action-setup@v3
       with:
         version: 8.x.x
     - name: check version
       shell: bash
       run: pnpm -v && pnpm i -g pnpm
     - name: Setup Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       if: inputs.resolve-dep-from-path == true
       with:
         node-version: ${{ inputs.node-version }}
@@ -64,7 +64,7 @@ runs:
         cache-dependency-path: "${{ inputs.path }}/${{ env.LOCKFILE }}"
 
     - name: Setup Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       if: inputs.resolve-dep-from-path == false
       with:
         node-version: ${{ inputs.node-version }}
@@ -83,6 +83,6 @@ runs:
         $PACKAGE_MANAGER run build
 
     - name: Upload Pages Artifact
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@v3
       with:
         path: "${{ inputs.path }}/dist/"
