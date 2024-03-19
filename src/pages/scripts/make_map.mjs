@@ -114,9 +114,9 @@ function draw_cirlce_from_rowdata(latLng, row) {
 		fillOpacity: "0.4",
 		color: "#702963",
 		fillColor: "#702963",
+		display: "table-cell",
 	};
 	let marker = L.circleMarker(latLng, options);
-	console.log(marker);
 	return marker;
 }
 
@@ -138,16 +138,8 @@ function init_map_from_rows(rows, marker_layer) {
 	return existing_circles_by_coordinates;
 }
 
-function toggle_marker_visibility(marker) {
-	if (marker._icon.style.display === "table-cell") {
-		marker._icon.style.display = "none";
-	} else if (marker._icon.style.display === "none") {
-		marker._icon.style.display = "table-cell";
-	} else {
-		// after pageload there is no value direct value there
-		// its still table-cell cause css
-		marker._icon.style.display = "none";
-	}
+function toggle_circleMarker_visibility(circleMarker) {
+	circleMarker.options.display = circleMarker.options.display === 'table-cell' ? 'none' : 'table-cell';
 }
 
 function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
@@ -183,9 +175,8 @@ function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
 						// it is not beeing displayed
 						// display it
 						// marker_layer.addLayer(marker);
-						toggle_marker_visibility(marker);
+						toggle_circleMarker_visibility(marker);
 						keys_of_displayed_markers.push(coordinate_key);
-						console.log(marker);
 					}
 				} else {
 					// this marker should be hidden
@@ -196,7 +187,7 @@ function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
 						//console.log(marker);
 						let index_of_key = keys_of_displayed_markers.indexOf(coordinate_key);
 						keys_of_displayed_markers.splice(index_of_key, 1);
-						toggle_marker_visibility(marker);
+						toggle_circleMarker_visibility(marker);
 					}
 				}
 			});
