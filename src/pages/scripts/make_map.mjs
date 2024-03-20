@@ -139,7 +139,8 @@ function init_map_from_rows(rows, marker_layer) {
 }
 
 function toggle_circleMarker_visibility(circleMarker) {
-	circleMarker.options.display = circleMarker.options.display === 'table-cell' ? 'none' : 'table-cell';
+	circleMarker.options.display =
+		circleMarker.options.display === "table-cell" ? "none" : "table-cell";
 }
 
 function populateMapFromTable(table, map, on_row_click_zoom, marker_layer) {
