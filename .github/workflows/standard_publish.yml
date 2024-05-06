@@ -13,6 +13,10 @@ permissions:
   pages: write
   id-token: write
 
+
+env:
+  PUBLIC_APP_BASE_URL: https://nestroyca.acdh-dev.oeaw.ac.at
+  PUBLIC_REDMINE_ID: 21437
 jobs:
   build:
     runs-on: ubuntu-latest
